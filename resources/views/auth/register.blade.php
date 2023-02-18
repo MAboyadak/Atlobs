@@ -1,6 +1,11 @@
 @extends('auth.components.register_layout')
 
 @section('content')
+    @if ($errors->has())
+        @foreach ($errors->all() as $error)
+            <div>{{ $error }}</div>
+        @endforeach
+    @endif
     <div class="container d-none d-lg-block ">
         <img src="images/teamwork-bro.png" width="600px" height="600px" class="team-work">
     </div>
@@ -15,13 +20,19 @@
                         @csrf
                         <h5 class="text-center w-100 fw-bold mb-4">إنشاء حساب جديد</h5>
                         <div class="d-flex justify-content-start align-items-center  mb-2">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle"
-                                style="width: 150px;" alt="Avatar" />
+                            <div class="position-relative img-container">
+                                <img id="avatar" src="images/user.png" class="avatar-circlye fill "
+                                    style="width: 150px; hight:150px;" alt="Avatar" />
+                                <div class="img-picker">
+                                    <input class="form-control " type="file" style="display:none" id="formFile">
+                                    <i class="fa-solid fa-camera"></i>
+                                </div>
+                            </div>
                             <div class="d-flex flex-column w-100 me-3">
                                 <div class=" mb-3  ">
                                     <label class="mb-3 fw-bold"> الاسم الأول</label>
                                     <input type="text" name="firstName"
-                                        class="form-control @error('name') is-invalid @enderror" required>
+                                        class="form-control @error('firstName') is-invalid @enderror" required>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -31,7 +42,7 @@
                                 <div class=" mb-3 ">
                                     <label class="mb-3 fw-bold"> الاسم الأخير</label>
                                     <input type="text" name="lastName"
-                                        class="form-control  @error('name') is-invalid @enderror" required>
+                                        class="form-control  @error('lastName') is-invalid @enderror" required>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -61,12 +72,7 @@
                                 <div class="col-12 col-md-12 col-lg-5 mb-3">
                                     <label class="mb-3 fw-bold"> تاريخ الميلاد</label>
                                     <div class="input-group date" id="datepicker">
-                                        <input type="text" class="form-control" name="date" id="date" required />
-                                        <span class="input-group-append date-span-parent">
-                                            <span class="input-group-text  d-block">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                        </span>
+                                        <input type="date" class="form-control" name="date" id="date" required />
                                     </div>
                                 </div>
                             </div>
@@ -143,19 +149,16 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Register') }}</div>
-
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <div class="row mb-3">
                                 <label for="name"
                                     class="col-md-4 col-form-label text-md-end">{{ __('الاسم الأول') }}</label>
-
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
                                         value="{{ old('name') }}" required autocomplete="name" autofocus>
-
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -163,16 +166,13 @@
                                     @enderror
                                 </div>
                             </div>
-
                             <div class="row mb-3">
                                 <label for="email"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email">
-
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -180,16 +180,13 @@
                                     @enderror
                                 </div>
                             </div>
-
                             <div class="row mb-3">
                                 <label for="password"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
                                 <div class="col-md-6">
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="new-password">
-
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -197,17 +194,14 @@
                                     @enderror
                                 </div>
                             </div>
-
                             <div class="row mb-3">
                                 <label for="password-confirm"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
-
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
