@@ -17,11 +17,26 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        // $table->string('first_name');
+        //     $table->string('last_name');
+        //     $table->string('email')->unique();
+        //     $table->timestamp('email_verified_at')->nullable();
+        //     $table->date('date_of_birth')->nullable();
+        //     $table->string('password');
+        //     $table->string('phone')->nullable();
+        //     $table->text('brief')->nullable();
+        //     $table->boolean('type')->nullable();
+        //     $table->string('image')->nullable();
+        //     $table->string('contact_method')->default('phone');
         return [
-            'name' => fake()->name(),
+            'first_name' => fake()->name(),
+            'last_name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
+            'date_of_birth' => fake()->dateTimeBetween('-40 years','-20 years'),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'phone' => fake()->phoneNumber(),
+            'brief' => fake()->text(80),
             'remember_token' => Str::random(10),
         ];
     }
