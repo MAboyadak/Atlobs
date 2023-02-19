@@ -26,17 +26,20 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!-- Style-->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
     <!-- JQuery -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
-    <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
-<body>
+<body class="body-forms">
     @include('partials.nav')
-    <main class="py-4">
-        @yield('content')
-    </main>
+    <div id="app">
+        <main>
+            @yield('content')
+        </main>
+    </div>
 </body>
 
 </html>
