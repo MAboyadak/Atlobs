@@ -16,11 +16,6 @@
     background-color: transparent;
 }
 
-* {
-    box-sizing: border-box;
-    font-family: 'Cairo', sans-serif;
-    transition: all var(--main-duration);
-}
 
 
 body {
@@ -148,4 +143,87 @@ img.team-work {
 .img-picker:hover {
     background-color: #170d6070;
     cursor: pointer;
+}
+
+.sidenav-divider{
+    border-bottom: 1px solid #659694;
+    margin-bottom: 0px !important;
+}
+
+.row{
+    margin-left:0!important;
+    margin-right:0!important;
+    }
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #333;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #0d6efd;
+}
+
+.nav-toggler > i{
+    background-color: #160D60;
+    color:white;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+#main-nav {
+    transition: margin-left .5s;
+    padding: 16px;
+    box-shadow: 2px 2px 2px #dddcdc
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+}
+
+#logout,.login-button{
+    outline: none;
+    border: none;
+    padding:5px;
+    width:100%;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    background-color: #160D60;
+    color:white;
+    border-radius: 10px;
+}
+.login-button{
+    text-align: center;
+    width: 120px;
+    padding: 7px;
+}
+
+.brand-logo{
+    float:right
+}
+
+.myicon > i{
+    /* background-color: #160D60; */
+    color:#160D60
 }

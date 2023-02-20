@@ -1,53 +1,83 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-    <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+<!-- Sidenav -->
+<div id="mySidebar" class="sidebar">
+    <a href="#">Profile</a>
+    <a href="#">Settings</a>
+    <a href="#">Messages</a>
+    <hr class="sidenav-divider">
+    <form action="{{route('logout')}}" method="post">
+        @csrf
+        <button type="submit" id="logout" href="#" class="btn-link">Log out</button>
+    </form>
+</div>
+
+<!-- Sidenav -->
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-nav">
+    
+    <div class="container-fluid">
+      
+        {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
+        </button> --}}
+        <button class="nav-toggler btn mx-3" onclick="toggleNav()">
+            <i class="fas fa-bars"></i>
         </button>
+        
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav me-auto">
+            
+            @auth
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-            </ul>
-
-            <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ms-auto">
-                <!-- Authentication Links -->
-                @guest
-                    @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                    @endif
-
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-                @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                    <li class="nav-item dropdown mx-1">
+                        
+                        <a class="nav-link dropdown-toggle myicon" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-bell"></i>
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
                     </li>
-                @endguest
-            </ul>
+
+                </ul>
+            @endauth
+            @guest
+                <a class="login-button" href="{{route('login')}}">تسجيل الدخول</a>
+            @endguest
+            
+
         </div>
+        <div class="brand-logo">
+            <a class="navbar-brand " href="#"><img style="height:70px" src="{{asset('images/logo_.png')}}" alt=""></a>
+         </div>
+
     </div>
+
 </nav>
+
+<script>
+    function toggleNav() {
+        let sideBar = document.getElementById("mySidebar");
+        console.log(sideBar);
+        if(sideBar.style.width == '250px')
+        {
+            sideBar.style.width = "0";
+            document.getElementById("main-nav").style.marginLeft = "0";
+        }else{
+            sideBar.style.width = "250px";
+            document.getElementById("main-nav").style.marginLeft = "250px";
+        }
+    }
+
+    // function closeNav() {
+    //     document.getElementById("mySidebar").style.width = "0";
+    //     document.getElementById("main").style.marginLeft= "0";
+    // }
+</script>
