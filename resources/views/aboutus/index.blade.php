@@ -21,8 +21,8 @@
                 </p>
                 <h2 class="text-center call  my-2"> تواصل معنا</h2>
                 <div class="row text-center my-3">
-                    <div class="col-6"> نسخ <i class="fa-solid fa-copy  mx-4"></i></div>
-                    <div class="col-6"> 050322221199221  <i class="fa-solid fa-phone mx-5"></i></div>
+                    <div class="col-12 col-md-6"> نسخ <i class="fa-solid fa-copy  mx-3"></i></div>
+                    <div class="col-12 col-md-6"> 050322221199221  <i class="fa-solid fa-phone mx-2"></i></div>
                 </div>
                 <div class="text-center my-3" >
                     <img src="images/snap.png"  width="40px" height="40px">
