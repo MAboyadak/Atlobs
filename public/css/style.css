@@ -261,4 +261,33 @@ img.team-work {
     color: #1D264A;
 }
 
+.img-dash {
+    width: 100%;
+    padding: 10px;
+    /* dashed border */
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='20' ry='20' stroke='%2380808080' stroke-width='2' stroke-dasharray='18' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
+    border-radius: 20px;
+}
+
+.img-dash:hover {
+    cursor: pointer;
+    background-color: #8080803d;
+    background-image: none
+}
+
+input,
+textarea {
+    direction: rtl !important;
+}
+
+.edit-profile-btn {
+    max-width: 420px;
+    background-image: var(--bg-image-gradient);
+    padding: 8px;
+}
+
+#editProfile label {
+    font-weight: bold;
+}
+
 /*end of profile page pages*/

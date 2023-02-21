@@ -18,4 +18,5 @@ Route::resource('categories', CategoryController::class);
 
 Route::get('services', [ServicesController::class, 'index'])->name('services.index');
 Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
+Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 // Route::get('{cat}/services',[ServicesController::class,'categoryServices'])->name('category.services');
