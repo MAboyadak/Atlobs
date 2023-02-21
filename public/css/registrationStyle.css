@@ -84,8 +84,16 @@ body {
     
 }
 
+.forms .form-body a.forget-password {
+    border-bottom: 1px solid #160d60;
+}
+
 
 img.team-work {
     position: absolute;
     top: 150px;
 }
+
+
+
+
