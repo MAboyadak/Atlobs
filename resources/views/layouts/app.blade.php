@@ -34,7 +34,7 @@
 
 <body>
     @include('partials.nav')
-    <main class="py-4">
+    <main class="py-4 ">
         @yield('content')
     </main>
 </body>
