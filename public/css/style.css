@@ -19,8 +19,9 @@
 
 
 body {
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Cairo', sans-serif !important;
     margin: 0;
+    padding: 0;
 }
 
 input::-webkit-outer-spin-button,
@@ -32,7 +33,9 @@ input::-webkit-inner-spin-button {
 
 
 a {
-    text-decoration: none;
+
+    text-decoration: none !important;
+    color: white !important;
 }
 
 /* start register page */
@@ -119,8 +122,8 @@ img.team-work {
 }
 
 .img-container {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
 
 .avatar-circlye {
@@ -152,15 +155,15 @@ img.team-work {
     cursor: pointer;
 }
 
-.sidenav-divider{
+.sidenav-divider {
     border-bottom: 1px solid #659694;
     margin-bottom: 0px !important;
 }
 
-.row{
-    margin-left:0!important;
-    margin-right:0!important;
-    }
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
 
 .sidebar {
     height: 100%;
@@ -188,9 +191,9 @@ img.team-work {
     color: #0d6efd;
 }
 
-.nav-toggler > i{
+.nav-toggler>i {
     background-color: #160D60;
-    color:white;
+    color: white;
     font-weight: bold;
     padding: 12px;
     border-radius: 10px;
@@ -204,33 +207,131 @@ img.team-work {
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-    .sidebar {padding-top: 15px;}
-    .sidebar a {font-size: 18px;}
+    .sidebar {
+        padding-top: 15px;
+    }
+
+    .sidebar a {
+        font-size: 18px;
+    }
 }
 
-#logout,.login-button{
+#logout,
+.login-button {
     outline: none;
     border: none;
-    padding:5px;
-    width:100%;
+    padding: 5px;
+    width: 100%;
     text-decoration: none;
     font-weight: bold;
     font-size: 1.2em;
     background-color: #160D60;
-    color:white;
+    color: white;
     border-radius: 10px;
 }
-.login-button{
+
+.login-button {
     text-align: center;
     width: 120px;
     padding: 7px;
 }
 
-.brand-logo{
-    float:right
+.brand-logo {
+    float: right
 }
 
-.myicon > i{
+.myicon>i {
     /* background-color: #160D60; */
+<<<<<<< HEAD
     color:#160D60
+=======
+    color: #160D60
+}
+
+/*end of auth pages*/
+/*start of profile page pages*/
+.contact-txt-color-1 {
+    color: #1D264A;
+}
+
+.contact-txt-color-2 {
+    color: #3A4C94;
+}
+
+.edit-btn {
+    background-image: var(--bg-image-gradient);
+    color: white !important;
+    font-weight: 500 !important;
+    position: absolute;
+    top: 29.5px;
+    left: 0;
+}
+
+.icon-24 {
+    font-size: 24px !important;
+    color: #1D264A;
+}
+
+.img-dash {
+    width: 100%;
+    padding: 10px;
+    /* dashed border */
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='20' ry='20' stroke='%2380808080' stroke-width='2' stroke-dasharray='18' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
+    border-radius: 20px;
+}
+
+.img-dash:hover {
+    cursor: pointer;
+    background-color: #8080803d;
+    background-image: none
+}
+
+input,
+textarea {
+    direction: rtl !important;
+}
+
+.edit-profile-btn {
+    max-width: 420px;
+    background-image: var(--bg-image-gradient);
+    padding: 8px;
+}
+
+#editProfile label {
+    font-weight: bold;
+}
+
+/*end of profile page pages*/
+/*end of profile page pages*/
+
+
+/* start of about us page */
+.containerdiv {
+    width: 100%;
+    height: 90vh;
+    background-image: url(../images/background.png);
+    /* background-image: url('/public/images/background.png'); */
+}
+
+.about {
+    text-align: right;
+    width: 50%;
+    border-radius: 30px;
+    background-color: #ECECEC;
+    margin-top: 0% !important;
+    margin-bottom: 0 !important;
+    padding: 10px !important;
+}
+
+.about h1 {
+    color: #160D60;
+    font-weight: bold;
+}
+.about div img {
+    border-radius: 50%;
+}
+
+.call {
+    color: #160D60;
+>>>>>>> 4790e566fbd81b5a4c75a22c58fc0ff8083df5b9
 }
