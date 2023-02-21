@@ -25,16 +25,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!-- Style-->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- JQuery -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
     <!-- Scripts -->
+    <script src="{{ asset('js/main.js') }}"></script>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
 <body>
     @include('partials.nav')
-    <main class="py-4">
+    <main class="">
         @yield('content')
     </main>
 </body>
