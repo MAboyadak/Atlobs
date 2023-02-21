@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container card p-3 ps-4">
+    <div class="container card p-3 ps-4 mt-4">
         <div class="position-relative d-flex flex-row-reverse flex-wrap justify-content-between align-items-center">
-            <div class="py-2 btn edit-btn"><a href="" class="col">تعديل
+            <div class="py-2 btn edit-btn"><a href="{{ route('profile.edit') }}" class="col">تعديل
                     البيانات</a></div>
             <div class="col-12 col-md-6   img-container d-flex align-items-center justify-content-end">
                 <h6 class="me-3 contact-txt-color-1 fw-bold m-0">محمد عبدالعظيم</h6>
@@ -14,7 +14,7 @@
                 class=" d-flex flex-row-reverse col-12 col-md-6  mt-md-3 align-items-center justify-content-center justify-content-md-between ">
                 <div class=" d-flex flex-row-reverse align-items-center  justify-content-center ">
                     <i class="fa-solid fa-location-dot icon-24"></i>
-                    <h6 class="fw-bold me-3 m-0 ">مكة المكرمة، حي شرق</h6>
+                    <h6 class="fw-bold me-3 m-0 ">مكة المكرمة ، حي شرق</h6>
                 </div>
             </div>
         </div>
