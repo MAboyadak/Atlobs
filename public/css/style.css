@@ -317,16 +317,7 @@ textarea {
     color: #160D60;
     font-weight: bold;
 }
-
-<<<<<<< HEAD
-.about div img{
-=======
-.about p {
-    color: #160D60;
-}
-
 .about div img {
->>>>>>> 5d03426b3cba0135424f652ee8d58a6e8b70fd8c
     border-radius: 50%;
 }
 
