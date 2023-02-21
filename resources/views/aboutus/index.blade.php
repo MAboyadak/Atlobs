@@ -3,9 +3,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="containerdiv ">
-        <div >
-            <div class="row mx-auto about ">
+    <div class="containerdiv">
+        <div class="container text-end p-4">
+            <div class="d-flex flex-column mx-auto about ">
                 <h1 class="col-12 my-3" >من نحن </h1>
                 <p class="col-12"> هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا
                      النص من مولد النص العربى، حيث يمكنك 
