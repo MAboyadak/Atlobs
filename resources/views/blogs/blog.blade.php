@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid mt-5">
 <div class="card mx-5" >
     <img class="rounded" style="width:100%;height:400px;object-fit:cover; " src="{{asset('images/p2.jpg')}}" alt="Responsive image">
     <div class="card-body">
