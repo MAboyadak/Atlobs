@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\AboutUs;
 use App\Http\Controllers\TermsAndConditions;
 use App\Http\Controllers\BankAccount;
@@ -22,6 +23,7 @@ Route::resource('categories', CategoryController::class);
 
 Route::get('blogs', [BlogController::class, 'index'])->name('blogs.index');
 Route::get('blog', [BlogController::class, 'blog'])->name('blogs.blog');
+Route::get('change', [PasswordController::class, 'index'])->name('paswords.index');
 Route::get('services', [ServicesController::class, 'index'])->name('services.index');
 Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
 // About Us

@@ -8,6 +8,6 @@ class PasswordController extends Controller
 {
     //
     public function index(){
-        return view('passwords.index');
+        return view('paswords.change');
     }
 }
