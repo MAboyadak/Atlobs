@@ -242,9 +242,6 @@ img.team-work {
 
 .myicon>i {
     /* background-color: #160D60; */
-<<<<<<< HEAD
-    color:#160D60
-=======
     color: #160D60
 }
 
@@ -333,5 +330,16 @@ textarea {
 
 .call {
     color: #160D60;
->>>>>>> 4790e566fbd81b5a4c75a22c58fc0ff8083df5b9
+}
+.change{
+    background-image: url(../images/background.png);
+}
+#new-password,#password-confirmation{
+    width:88%;
+    background:rgb(237, 232, 232);
+    border: none;
+}
+#my-button{
+    width: 88%;
+    background-image: var(--bg-image-gradient);
 }
