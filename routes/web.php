@@ -8,7 +8,6 @@ use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\AboutUs;
 use App\Http\Controllers\TermsAndConditions;
 use App\Http\Controllers\BankAccount;
-use App\Http\Controllers\BankAccount;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -37,6 +36,5 @@ Route::get('aboutus', [AboutUs::class, 'index'])->name('aboutus.index');
 Route::get('termsandconditions', [TermsAndConditions::class, 'index'])->name('terms.index');
 //Bank Account
 
-Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
 Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
 // Route::get('{cat}/services',[ServicesController::class,'categoryServices'])->name('category.services');
