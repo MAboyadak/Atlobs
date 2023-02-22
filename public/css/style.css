@@ -299,7 +299,46 @@ textarea {
 }
 
 /*end of profile page pages*/
-/*end of profile page pages*/
+/*start of myorder page pages*/
+.myorder-body-color {
+    background-color: white;
+    height: 100vh;
+}
+
+.myorder-bg-color {
+    background-color: #F9F9F9 !important;
+}
+
+.myorder-header {
+    background-image: var(--bg-image-gradient);
+    border-radius: 10px 10px 0 0;
+    height: 80px;
+    color: white;
+}
+
+.myorder-active {
+    border-radius: 0 10px 0 0;
+    background-color: #939AB5;
+    color: #3A4C94;
+}
+
+.myorder-header .myorder-header-txt {
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myorder-header .myorder-header-txt:hover {
+    cursor: pointer;
+}
+
+.myorder-card {
+    max-width: 1200px;
+}
+
+/*end of myorder page pages*/
 
 
 /* start of about us page */
@@ -324,6 +363,7 @@ textarea {
     color: #160D60;
     font-weight: bold;
 }
+
 .about div img {
     border-radius: 50%;
 }
@@ -331,24 +371,34 @@ textarea {
 .call {
     color: #160D60;
 }
-.change{
+
+
+.change {
     padding: 0;
     margin: 0;
     font-size: 14px;
+
+    background-color: #ececec;
     background-image: url(../images/background.png);
-
 }
 
-#new-password,#password-confirmation{
-    width:88%;
+
+
+#new-password,
+#password-confirmation {
+    width: 88%;
+    background: rgb(237, 232, 232);
+    border: none;
 }
-#my-button{
+
+#my-button {
     width: 88%;
     background-image: var(--bg-image-gradient);
 }
 
 
-#theform{
+
+#theform {
     width: 80% !important;
     margin: auto !important;
 

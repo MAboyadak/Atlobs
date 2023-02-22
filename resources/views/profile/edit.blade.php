@@ -49,7 +49,7 @@
                 <div class="d-flex align-items-center justify-content-end">
                     <div class="col-md-6">
                         <a href="{{ route('profile.change_password') }}">
-                            <h6 class="me-3 contact-txt-color-1 fw-bold m-0">تغير كلمة المرور</h6>
+                            <h6 class="me-3 contact-txt-color-1 fw-bold m-0">تغيير كلمة المرور</h6>
                         </a>
                     </div>
                     <div class="col-md-6">
@@ -63,4 +63,24 @@
                 </div>
         </form>
     </div>
+@endsection
+@section('script')
+    <script>
+        addEventListener("load", function() {
+            // start of profile page image picker
+            let imgSelector = document.querySelector(".img-dash");
+            let imgInputFile = document.querySelector("#formFile");
+            let avatar = document.querySelector(".img-profile");
+            imgSelector.addEventListener("click", function() {
+                imgInputFile.click();
+            });
+            document
+                .querySelector('input[type="file"]')
+                .addEventListener("change", function() {
+                    if (this.files && this.files[0]) {
+                        avatar.src = URL.createObjectURL(this.files[0]); // set src to file url
+                    }
+                }); // end of profile page image picker
+        }); //load
+    </script>
 @endsection

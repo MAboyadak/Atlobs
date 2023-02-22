@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryOrderController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MyOrdersController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\AboutUs;
@@ -32,6 +33,9 @@ Route::get('services', [ServicesController::class, 'index'])->name('services.ind
 Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::get('profile/password/change', [ProfileController::class, 'changePassword'])->name('profile.change_password');
+//myorders
+Route::get('myorders', [MyOrdersController::class, 'index'])->name('myorders.index');
+
 // About Us
 Route::get('aboutus', [AboutUs::class, 'index'])->name('aboutus.index');
 // termsandconditions
