@@ -26,6 +26,7 @@ Route::resource('categories', CategoryController::class);
 Route::get('blogs', [BlogController::class, 'index'])->name('blogs.index');
 Route::get('blog', [BlogController::class, 'blog'])->name('blogs.blog');
 Route::get('change', [PasswordController::class, 'index'])->name('paswords.index');
+Route::get('categoryorder', [CategoryOrderController::class, 'index'])->name('categories.index');
 Route::get('services', [ServicesController::class, 'index'])->name('services.index');
 // Profile
 Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');

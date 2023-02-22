@@ -332,7 +332,17 @@ textarea {
     color: #160D60;
 }
 .change{
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+   
+    background-color: #ececec;
+}
+.myform{
     background-image: url(../images/background.png);
+    background-size: 100% 100%;
+   height: 500px;
+
 }
 #new-password,#password-confirmation{
     width:88%;
@@ -342,4 +352,11 @@ textarea {
 #my-button{
     width: 88%;
     background-image: var(--bg-image-gradient);
+}
+
+
+#theform{
+    width: 80% !important;
+    margin: auto !important;
+
 }
