@@ -14,4 +14,8 @@ class ProfileController extends Controller
     {
         return view('profile.edit');
     }
+    public function changePassword()
+    {
+        return view('profile.change_password');
+    }
 }

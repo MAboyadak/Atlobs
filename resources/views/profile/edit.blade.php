@@ -11,14 +11,14 @@
                     style="width: 80px; height: 80px; object-fit:cover " alt="Avatar" />
             </div>
 
-            <div class="mt-4 row g-3">
-                <div class="col-md-6">
-                    <label for="lname" class="form-label">إسم المستخدم الثاني</label>
-                    <input type="text" class="form-control bg-white shadow-none" id="lname">
-                </div>
+            <div class="mt-4 row flex-row-reverse g-3">
                 <div class="col-md-6">
                     <label for="fname" class="form-label">اسم المستخدم الأول</label>
                     <input type="text" class="form-control bg-white shadow-none" id="fname">
+                </div>
+                <div class="col-md-6">
+                    <label for="lname" class="form-label">اسم المستخدم الثاني</label>
+                    <input type="text" class="form-control bg-white shadow-none" id="lname">
                 </div>
                 <div class="col-12">
                     <label for="email" class="form-label">البريد الالكتروني</label>
@@ -48,7 +48,7 @@
                 <label for="password" class="form-label mb-0">كلمة المرور</label>
                 <div class="d-flex align-items-center justify-content-end">
                     <div class="col-md-6">
-                        <a href="">
+                        <a href="{{ route('profile.change_password') }}">
                             <h6 class="me-3 contact-txt-color-1 fw-bold m-0">تغير كلمة المرور</h6>
                         </a>
                     </div>
