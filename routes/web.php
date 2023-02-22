@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CategoryOrderController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BlogController;
