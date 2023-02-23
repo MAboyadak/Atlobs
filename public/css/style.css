@@ -343,3 +343,28 @@ textarea {
     width: 88%;
     background-image: var(--bg-image-gradient);
 }
+
+/* Chat css محدش يلعب فيه  */
+.mychat-text{
+    background-color: #160D60;
+
+}
+.otherchat-text{
+    background-color: rgb(218, 217, 217);
+}
+.mychat-text,.otherchat-text{
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+
+}
+.card li{
+    list-style: none;
+}
+.input-group-text,#chatInput{
+    background-color: rgb(218, 217, 217) !important;
+    border: none !important;
+}
+.fa-microphone,.fa-camera{
+    color: #160D60;
+}

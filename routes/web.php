@@ -8,7 +8,7 @@ use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\AboutUs;
 use App\Http\Controllers\TermsAndConditions;
 use App\Http\Controllers\BankAccount;
-use App\Http\Controllers\BankAccount;
+use App\Http\Controllers\chatcontroller;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,11 +32,12 @@ Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.ed
 Route::get('profile/password/change', [ProfileController::class, 'changePassword'])->name('profile.change_password');
 // About Us
 Route::get('aboutus', [AboutUs::class, 'index'])->name('aboutus.index');
-Route::get('aboutus', [AboutUs::class, 'index'])->name('aboutus.index');
 // termsandconditions
 Route::get('termsandconditions', [TermsAndConditions::class, 'index'])->name('terms.index');
 //Bank Account
 
 Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
-Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
 // Route::get('{cat}/services',[ServicesController::class,'categoryServices'])->name('category.services');
+
+// chat
+Route::get('chat', [ChatController::class, 'index'])->name('chat.index');

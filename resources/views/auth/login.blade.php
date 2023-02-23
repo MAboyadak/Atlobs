@@ -24,7 +24,7 @@
                 <div class="col-lg-7 col-md-4 empty"></div>
                 <div class="col-lg-5 col-md-8 form-cont ">
                     <form method="POST" action="{{ route('login') }}" class="bg-white p-5 login-form form-body">
-                        @csrf                        
+                        @csrf
                         <h3 class="modal-title w-100 fw-bold mb-4">تسجيل الدخول</h3>
                         <div class="modal-body ">
                             <div class="mb-3">
@@ -71,9 +71,9 @@
                         <p class="text-center text-secondary"> ليس لديك حساب؟
                             <a href="register" class="fw-bold">انشاء حساب</a>
                         </p>
-                        
 
-                        
+
+
 
 
                     </form>
@@ -85,12 +85,12 @@
 
     </section>
     <div class="container">
-        <img src="{{asset ('images/teamwork-bro.png')}}" width="600px" height="600px" class="team-work">
+        <img src="{{asset ('images/teamwork-bro.png')}}" width="600px" height="600px" class="team-work d-sm-none d-lg-block">
     </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    
+
 
 
 </body>
