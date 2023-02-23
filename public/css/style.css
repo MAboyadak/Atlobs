@@ -465,7 +465,6 @@ textarea {
     background-image: var(--bg-image-gradient);
 }
 
-<<<<<<< HEAD
 /* Chat css محدش يلعب فيه  */
 .mychat-text{
     background-color: #160D60;
@@ -490,7 +489,9 @@ textarea {
 .fa-microphone,.fa-camera{
     color: #160D60;
 }
-=======
+#myulForChat{
+    padding: 0 !important;
+}
 
 
 #theform {
@@ -498,4 +499,3 @@ textarea {
     margin: auto !important;
 
 }
->>>>>>> 5a49f9cb108e8fdb8bb12c547ca388202c7d4b0d

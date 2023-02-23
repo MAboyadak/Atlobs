@@ -9,11 +9,11 @@ use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\AboutUs;
 use App\Http\Controllers\TermsAndConditions;
 use App\Http\Controllers\BankAccount;
-<<<<<<< HEAD
+
 use App\Http\Controllers\chatcontroller;
-=======
+
 use App\Http\Controllers\OrderDetail;
->>>>>>> 5a49f9cb108e8fdb8bb12c547ca388202c7d4b0d
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -45,14 +45,14 @@ Route::get('aboutus', [AboutUs::class, 'index'])->name('aboutus.index');
 // termsandconditions
 Route::get('termsandconditions', [TermsAndConditions::class, 'index'])->name('terms.index');
 //Bank Account
-<<<<<<< HEAD
+
 
 Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
-=======
+
 Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
 // Order Ditails
 Route::get('orderditails',[OrderDetail::class ,'index'])->name('orderDitails.index');
->>>>>>> 5a49f9cb108e8fdb8bb12c547ca388202c7d4b0d
+
 // Route::get('{cat}/services',[ServicesController::class,'categoryServices'])->name('category.services');
 
 // chat
