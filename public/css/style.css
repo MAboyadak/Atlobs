@@ -247,6 +247,26 @@ img.team-work {
 
 /*end of auth pages*/
 /*start of profile page pages*/
+.orderBg1 {
+    background-image: url("../images/orderBackground.png");
+    background-color: #ECECEC;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: calc(100vh - 100px);
+}
+
+.orderBg2 {
+    background-image: url("../images/orderBackground.png");
+    background-color: #ECECEC;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+}
+
 .contact-txt-color-1 {
     color: #1D264A;
 }
@@ -288,6 +308,13 @@ textarea {
     direction: rtl !important;
 }
 
+#editProfile .form-control:active,
+#editProfile .form-control:focus,
+#editProfile .form-control:focus:active {
+    background-color: white;
+    color: white;
+}
+
 .edit-profile-btn {
     max-width: 420px;
     background-image: var(--bg-image-gradient);
@@ -299,7 +326,88 @@ textarea {
 }
 
 /*end of profile page pages*/
-/*end of profile page pages*/
+/*start of myorder page pages*/
+.myorder-bg-color {
+    background-color: #F9F9F9 !important;
+}
+
+.myorder-header {
+    background-image: var(--bg-image-gradient);
+    border-radius: 10px 10px 0 0;
+    height: 80px;
+    color: white;
+}
+
+.header-active {
+    background-color: #939AB5;
+    border-radius: 10px 10px 0 0 !important;
+    color: #3A4C94;
+}
+
+.myorder-header .myorder-header-txt {
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myorder-header .myorder-header-txt:hover {
+    cursor: pointer;
+}
+
+.myorder-card {
+    max-width: 80% !important;
+}
+
+@media (max-width: 767.98px) {
+    .myorder-card {
+        max-width: 100% !important;
+    }
+}
+
+.short-desc {
+    line-height: 1.5em;
+    height: 1.5em;
+    /* height is 2x line-height, so two lines will display */
+    overflow: hidden;
+    /* prevents extra lines from being visible */
+}
+
+#active-orders .card:hover,
+#finished-orders .card:hover {
+    cursor: pointer;
+}
+
+#active-orders {
+    animation: right .25s;
+}
+
+#finished-orders {
+    animation: left .25s;
+}
+
+@keyframes right {
+    0% {
+        transform: translateX(100%) scaleX(0);
+    }
+
+    100% {
+        transform: translateX(0%) scaleX(1);
+    }
+}
+
+@keyframes left {
+    0% {
+        transform: translateX(-100%) scaleX(0);
+    }
+
+    100% {
+        transform: translateX(0%) scaleX(1);
+    }
+}
+
+/*end of myorder page pages*/
 
 
 /* start of about us page */
@@ -324,6 +432,7 @@ textarea {
     color: #160D60;
     font-weight: bold;
 }
+
 .about div img {
     border-radius: 50%;
 }
@@ -331,19 +440,32 @@ textarea {
 .call {
     color: #160D60;
 }
-.change{
+
+
+.change {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+
+    background-color: #ececec;
     background-image: url(../images/background.png);
 }
-#new-password,#password-confirmation{
-    width:88%;
-    background:rgb(237, 232, 232);
+
+
+
+#new-password,
+#password-confirmation {
+    width: 88%;
+    background: rgb(237, 232, 232);
     border: none;
 }
-#my-button{
+
+#my-button {
     width: 88%;
     background-image: var(--bg-image-gradient);
 }
 
+<<<<<<< HEAD
 /* Chat css محدش يلعب فيه  */
 .mychat-text{
     background-color: #160D60;
@@ -368,3 +490,12 @@ textarea {
 .fa-microphone,.fa-camera{
     color: #160D60;
 }
+=======
+
+
+#theform {
+    width: 80% !important;
+    margin: auto !important;
+
+}
+>>>>>>> 5a49f9cb108e8fdb8bb12c547ca388202c7d4b0d
