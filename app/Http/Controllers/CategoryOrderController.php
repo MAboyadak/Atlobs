@@ -8,6 +8,6 @@ class CategoryOrderController extends Controller
 {
     //
     public function index(){
-        return view('');
+        return view('categoryorders.index');
     }
 }

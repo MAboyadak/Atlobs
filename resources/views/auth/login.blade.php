@@ -43,7 +43,7 @@
 
                             <div class="mb-3 input-box">
                                 <label class="mb-3 fw-bold" for="password">{{ __('كلمة المرور ') }}</label>
-                                <input type="password" id="password" name="password" class="form-control password id_password @error('password') is-invalid @enderror" name="password"
+                                <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror" name="password"
                                 required autocomplete="current-password">
                             @error('password')
                                 <span class="invalid-feedback" role="alert">

@@ -4,6 +4,18 @@
     border: 0;
 }
 
+@media (max-width:992px) {
+    .team-work{
+      display: none;
+    }
+    .empty{
+      display: none;
+    }
+    .form-cont{
+      margin: auto;
+    }
+  }
+
 body {
     direction: rtl;
     font-size: 14px;
@@ -17,6 +29,10 @@ body {
     background-size: 100% 100%;
     height: 500px;
 }
+
+.forms .row{
+    overflow: hidden;
+  }
 
 .forms .form-body {
     border-radius: 16px;
@@ -53,6 +69,10 @@ body {
     background-color: #ececec;
     border: 0;
 }
+
+.forms .form-body input:focus {
+    box-shadow:none ;
+  }
 
 .forms .form-body label {
     color: #160d60;
@@ -93,7 +113,3 @@ img.team-work {
     position: absolute;
     top: 150px;
 }
-
-
-
-
