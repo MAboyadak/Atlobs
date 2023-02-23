@@ -27,6 +27,7 @@
     <!-- Style-->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href=" {{ asset('css/orderDitails.css') }}">
+    @yield('css')
     <!-- JQuery -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
     <!-- Scripts -->
