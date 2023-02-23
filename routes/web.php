@@ -9,7 +9,11 @@ use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\AboutUs;
 use App\Http\Controllers\TermsAndConditions;
 use App\Http\Controllers\BankAccount;
+
+use App\Http\Controllers\chatcontroller;
+
 use App\Http\Controllers\OrderDetail;
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,7 +45,15 @@ Route::get('aboutus', [AboutUs::class, 'index'])->name('aboutus.index');
 // termsandconditions
 Route::get('termsandconditions', [TermsAndConditions::class, 'index'])->name('terms.index');
 //Bank Account
+
+
+Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
+
 Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
 // Order Ditails
 Route::get('orderditails',[OrderDetail::class ,'index'])->name('orderDitails.index');
+
 // Route::get('{cat}/services',[ServicesController::class,'categoryServices'])->name('category.services');
+
+// chat
+Route::get('chat', [ChatController::class, 'index'])->name('chat.index');

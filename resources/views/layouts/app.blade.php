@@ -27,7 +27,11 @@
     <!-- Style-->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href=" {{ asset('css/orderDitails.css') }}">
+<<<<<<< HEAD
     @yield('css')
+=======
+    <link rel="stylesheet" href=" {{ asset('css/categoryOrder.css') }}">
+>>>>>>> 1bfde7aa87276b0a013270a3754548606b435acb
     <!-- JQuery -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
     <!-- Scripts -->
