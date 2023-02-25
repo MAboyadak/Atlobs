@@ -3,17 +3,14 @@
 use App\Http\Controllers\CategoryOrderController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\MyOrdersController;
+use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\AboutUs;
 use App\Http\Controllers\TermsAndConditions;
 use App\Http\Controllers\BankAccount;
-
 use App\Http\Controllers\chatcontroller;
-
 use App\Http\Controllers\OrderDetail;
-
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,8 +34,10 @@ Route::get('services', [ServicesController::class, 'index'])->name('services.ind
 Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::get('profile/password/change', [ProfileController::class, 'changePassword'])->name('profile.change_password');
-//myorders
-Route::get('myorders', [MyOrdersController::class, 'index'])->name('myorders.index');
+
+//Orders
+Route::get('myorders', [OrdersController::class, 'myOrders'])->name('myorders.index');
+Route::get('orders/create', [OrdersController::class, 'create'])->name('orders.create');
 
 // About Us
 Route::get('aboutus', [AboutUs::class, 'index'])->name('aboutus.index');
@@ -46,12 +45,17 @@ Route::get('aboutus', [AboutUs::class, 'index'])->name('aboutus.index');
 Route::get('termsandconditions', [TermsAndConditions::class, 'index'])->name('terms.index');
 //Bank Account
 
+// Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
+Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
+// Order Ditails
+Route::get('orderditails', [OrderDetail::class, 'index'])->name('orderDitails.index');
+
 
 Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
 
 Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
 // Order Ditails
-Route::get('orderditails',[OrderDetail::class ,'index'])->name('orderDitails.index');
+Route::get('orderditails', [OrderDetail::class, 'index'])->name('orderDitails.index');
 
 // Route::get('{cat}/services',[ServicesController::class,'categoryServices'])->name('category.services');
 

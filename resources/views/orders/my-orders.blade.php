@@ -5,7 +5,7 @@
             <h4 class="m-3 contact-txt-color-1 fw-bold m-0 text-end">طلباتي</h4>
             <div class="row card rounded-3 myorder-bg-color border-0 ">
                 <div class="rounded-3 p-0">
-                    <div class="d-flex flex-row-reverse myorder-header">
+                    <div class="d-flex  myorder-header">
                         <h2 class="col myorder-header-txt header-active">طلبات نشطة</h2>
                         <h2 class="col myorder-header-txt">طلبات منتهية</h2>
                     </div>
@@ -15,15 +15,14 @@
                     <div id="active-orders" class="d-block">
                         @foreach (range(4, 1) as $count)
                             <div class="card border-0 p-3 w-100 m-0 mb-3">
-                                <div class="d-flex flex-row-reverse align-items-center ">
+                                <div class="d-flex  align-items-center ">
                                     <div class="d-none d-sm-block ms-4">
                                         <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/05{{ $count }}.webp"
                                             class="rounded-pill" style="width: 80px; height: 80px; object-fit:cover "
                                             alt="Avatar" />
                                     </div>
                                     <div class="w-100">
-                                        <div
-                                            class="d-flex flex-row-reverse align-items-start justify-content-between w-100">
+                                        <div class="d-flex  align-items-start justify-content-between w-100">
                                             <h6 class="contact-txt-color-2 fw-bold">سيارة ديجيتال</h6>
                                             <div>
                                                 <a href="">
@@ -40,8 +39,7 @@
                                             الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق. إذا كنت تحتاج إلى عدد
                                             أكبر من
                                             الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو</h6>
-                                        <div
-                                            class=" d-flex flex-row-reverse align-items-center justify-content-between w-100">
+                                        <div class=" d-flex  align-items-center justify-content-between w-100">
                                             <h6 class="contact-txt-color-2 fw-bold text-end">السعر المتوقع: <span
                                                     class="d-block d-sm-inline m-0">الف 100 - الف
                                                     120</span>
@@ -60,15 +58,14 @@
                     <div id="finished-orders" class="d-none">
                         @foreach (range(4, 1) as $count)
                             <div class="card border-0 p-3 w-100 m-0 mb-3">
-                                <div class="d-flex flex-row-reverse align-items-center ">
+                                <div class="d-flex  align-items-center ">
                                     <div class="d-none d-sm-block ms-4">
                                         <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/04{{ $count }}.webp"
                                             class="rounded-pill" style="width: 80px; height: 80px; object-fit:cover "
                                             alt="Avatar" />
                                     </div>
                                     <div class="w-100">
-                                        <div
-                                            class="d-flex flex-row-reverse align-items-start justify-content-between w-100">
+                                        <div class="d-flex  align-items-start justify-content-between w-100">
                                             <h6 class="contact-txt-color-2 fw-bold">سيارة ديجيتال</h6>
                                             <div>
                                                 <a href="">
@@ -85,8 +82,7 @@
                                             الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق. إذا كنت تحتاج إلى عدد
                                             أكبر من
                                             الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو</h6>
-                                        <div
-                                            class="d-flex flex-row-reverse align-items-center justify-content-between w-100 flex-wrap ">
+                                        <div class="d-flex  align-items-center justify-content-between w-100 flex-wrap ">
                                             <div class="col-6 col-md-4 ">
                                                 <h6 class="col contact-txt-color-2 fw-bold text-end p-0">السعر المتوقع:
                                                     <span class="d-block d-sm-inline m-0">الف 100 - الف
