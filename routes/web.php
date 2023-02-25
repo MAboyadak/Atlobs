@@ -11,8 +11,6 @@ use App\Http\Controllers\TermsAndConditions;
 use App\Http\Controllers\BankAccount;
 use App\Http\Controllers\chatcontroller;
 use App\Http\Controllers\OrderDetail;
-
-
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
