@@ -101,7 +101,7 @@ body {
 .forms .form-body a {
     color: #160d60;
     text-decoration: none;
-    
+
 }
 
 .forms .form-body a.forget-password {
@@ -112,4 +112,45 @@ body {
 img.team-work {
     position: absolute;
     top: 150px;
+}
+input:invalid+span::after {
+    content: "✖";
+    padding-left: 5px;
+}
+
+input:valid+span::after {
+    content: "✓";
+    padding-left: 5px;
+}
+.img-container{
+    width: 150px;
+    height: 150px;
+    /* margin-bottom: 20px; */
+}
+.avatar-circlye {
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+}
+.img-picker {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.img-picker i {
+    position: absolute;
+    font-size: 25px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #170d60b9;
+}
+
+.img-picker:hover {
+    background-color: #170d6070;
+    cursor: pointer;
 }

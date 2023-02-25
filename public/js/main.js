@@ -1,5 +1,6 @@
 addEventListener("load", function () {
     // start of register page show password
+
     $(".togglePassword").click(function (e) {
         // toggle the type attribute
         let inputPassword = $(e.target)
