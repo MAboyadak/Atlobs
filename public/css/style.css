@@ -32,7 +32,7 @@ input::-webkit-inner-spin-button {
 
 
 
-a {
+ a {
 
     text-decoration: none !important;
     color: white !important;
@@ -182,13 +182,14 @@ img.team-work {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #333;
+    color: #333 !important;
     display: block;
     transition: 0.3s;
 }
 
+
 .sidebar a:hover {
-    color: #0d6efd;
+    color: #0d6efd !important;
 }
 
 .nav-toggler>i {
@@ -239,6 +240,8 @@ img.team-work {
 .brand-logo {
     float: right
 }
+
+
 
 .myicon>i {
     /* background-color: #160D60; */
@@ -465,7 +468,6 @@ textarea {
     background-image: var(--bg-image-gradient);
 }
 
-<<<<<<< HEAD
 /* Chat css محدش يلعب فيه  */
 .mychat-text{
     background-color: #160D60;
@@ -490,7 +492,6 @@ textarea {
 .fa-microphone,.fa-camera{
     color: #160D60;
 }
-=======
 
 
 #theform {
@@ -498,4 +499,20 @@ textarea {
     margin: auto !important;
 
 }
->>>>>>> 5a49f9cb108e8fdb8bb12c547ca388202c7d4b0d
+
+
+/* Create Order Multi-step */
+
+div[data-step]{
+    display:none;
+    transition: opacity 2s ease-in-out;
+    opacity: 0;
+    height: 0;
+    margin-bottom: 1em;
+}
+
+div[data-step].active{
+    display:flex;
+    opacity: 1;
+    height: auto;
+}
