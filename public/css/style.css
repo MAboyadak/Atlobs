@@ -469,17 +469,23 @@ textarea {
 }
 
 /* Chat css محدش يلعب فيه  */
+.myChatCard{
+    padding: 0 !important;
+}
 .mychat-text{
-    background-color: #160D60;
+    background-color: #3A4C94;
 
 }
 .otherchat-text{
     background-color: rgb(218, 217, 217);
+
 }
 .mychat-text,.otherchat-text{
     border-radius: 20px;
     padding: 10px;
     margin: 10px;
+    max-width: 400px;
+
 
 }
 .card li{
@@ -490,7 +496,7 @@ textarea {
     border: none !important;
 }
 .fa-microphone,.fa-camera{
-    color: #160D60;
+    color: #3A4C94;
 }
 #myulForChat{
     padding: 0 !important;
