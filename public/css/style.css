@@ -492,6 +492,9 @@ textarea {
 .fa-microphone,.fa-camera{
     color: #160D60;
 }
+#myulForChat{
+    padding: 0 !important;
+}
 
 
 #theform {
