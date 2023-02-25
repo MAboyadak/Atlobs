@@ -12,9 +12,6 @@ use App\Http\Controllers\BankAccount;
 use App\Http\Controllers\chatcontroller;
 use App\Http\Controllers\OrderDetail;
 
-use App\Http\Controllers\chatcontroller;
-
-use App\Http\Controllers\OrderDetail;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -53,14 +50,14 @@ Route::get('termsandconditions', [TermsAndConditions::class, 'index'])->name('te
 // Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
 Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
 // Order Ditails
-Route::get('orderditails',[OrderDetail::class ,'index'])->name('orderDitails.index');
+Route::get('orderditails', [OrderDetail::class, 'index'])->name('orderDitails.index');
 
 
 Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
 
 Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
 // Order Ditails
-Route::get('orderditails',[OrderDetail::class ,'index'])->name('orderDitails.index');
+Route::get('orderditails', [OrderDetail::class, 'index'])->name('orderDitails.index');
 
 // Route::get('{cat}/services',[ServicesController::class,'categoryServices'])->name('category.services');
 
