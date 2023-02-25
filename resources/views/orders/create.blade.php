@@ -21,12 +21,14 @@
                     
                         <div class="row" data-step>
 
-                            <div class="col-12 d-flex mb-3 p-3" style="border: 2px dashed #c6c6c6">
-                                <div class="cam d-flex align-items-center justify-content-center ">
-                                    {{-- <label><i class="fa-solid fa-camera fa-xl" style="font-size:32px"></i></label> --}}
-                                    <input type="file" class="me-2" name="photo" id="image">
-                                </div>
+                            <div class="img-dash mb-4">
+                                <input class="form-control " type="file" style="display:none" id="formFile">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-4 img-profile"
+                                    style="width: 80px; height: 80px; object-fit:cover " alt="Avatar" />
+                                <span class="fw-bold me-5">اضافة صورة</span>
+
                             </div>
+                            
 
                             <div class="col-12 mb-3 ">
                                 <label class="mb-3 fw-bold">اسم الطلب</label>
@@ -187,4 +189,24 @@
         }
         
     </script>
+
+    <script>
+        addEventListener("load", function() {
+            // start of profile page image picker
+            let imgSelector = document.querySelector(".img-dash");
+            let imgInputFile = document.querySelector("#formFile");
+            let avatar = document.querySelector(".img-profile");
+            imgSelector.addEventListener("click", function() {
+                imgInputFile.click();
+            });
+            document
+                .querySelector('input[type="file"]')
+                .addEventListener("change", function() {
+                    if (this.files && this.files[0]) {
+                        avatar.src = URL.createObjectURL(this.files[0]); // set src to file url
+                    }
+                }); // end of profile page image picker
+        }); //load
+    </script>
+
 @endsection

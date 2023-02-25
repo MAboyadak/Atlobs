@@ -57,7 +57,7 @@
             </div>
 
             <button class="nav-toggler btn mx-3" onclick="toggleNav()">
-                <i class="fas fa-bars"></i>
+                <i class="fas fa-bars" id="toggler-icon"></i>
             </button>
         </div>
 
@@ -67,15 +67,23 @@
 
 <script>
     function toggleNav() {
+        
         let sideBar = document.getElementById("mySidebar");
-        console.log(sideBar);
+        let togglerIcon = document.querySelector('#toggler-icon');
+
         if(sideBar.style.width == '250px')
         {
-            sideBar.style.width = "0";
-            document.getElementById("main-nav").style.marginLeft = "0";
+            togglerIcon.classList.remove('fa-close')
+            togglerIcon.classList.add('fa-bars')
+            sideBar.style.width = 0;
+            sideBar.style.padding = 0;
+            document.getElementById("main-nav").style.marginLeft = 0;
         }else{
+            togglerIcon.classList.remove('fa-bars')
+            togglerIcon.classList.add('fa-close')
             sideBar.style.width = "250px";
-            document.getElementById("main-nav").style.marginLeft = "250px";
+            sideBar.style.padding = "30px";
+            document.getElementById("main-nav").style.marginLeft = "310px";
         }
     }
 
