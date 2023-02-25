@@ -5,7 +5,7 @@
     <div class="text-center">
         <h1 class="heading1 fw-bold mt-5">الفئات المتاحة</h1>
      </div>
-<div class="container col-12 col-md-6 col-lg-3 my-5 text-center">
+<div class="container col-12 col-md-6 col-lg-3 my-3 text-center">
     <div class="category py-5 mx-3">
     <a class="navbar-brand" href="">
         <div class="icon m-auto mb-3">
@@ -15,7 +15,7 @@
     </a>
     </div>
 </div>
-<div class="container col-12 col-md-6 col-lg-3 my-5 text-center">
+<div class="container col-12 col-md-6 col-lg-3 my-3 text-center">
     <div class="category py-5 mx-3">
     <a class="navbar-brand" href="">
         <div class="icon m-auto mb-3">
@@ -25,7 +25,7 @@
     </a>
     </div>
 </div>
-<div class="container col-12 col-md-6 col-lg-3 my-5 text-center">
+<div class="container col-12 col-md-6 col-lg-3 my-3 text-center">
     <div class="category py-5 mx-3">
     <a class="navbar-brand" href="">
         <div class="icon m-auto mb-3">
@@ -35,7 +35,7 @@
     </a>
     </div>
 </div>
-<div class="container col-12 col-md-6 col-lg-3 my-5 text-center">
+<div class="container col-12 col-md-6 col-lg-3 my-3 text-center">
     <div class="category py-5 mx-3">
     <a class="navbar-brand" href="">
         <div class="icon m-auto mb-3">
@@ -46,7 +46,7 @@
     </a>
     </div>
 </div>
-<div class="container col-12 col-md-6 col-lg-3 my-5 text-center">
+<div class="container col-12 col-md-6 col-lg-3 my-3 text-center">
     <div class="category py-5 mx-3">
     <a class="navbar-brand" href="">
         <div class="icon m-auto mb-3">
@@ -57,7 +57,7 @@
     </a>
     </div>
 </div>
-<div class="container col-12 col-md-6 col-lg-3 my-5 text-center">
+<div class="container col-12 col-md-6 col-lg-3 my-3 text-center">
     <div class="category py-5 mx-3">
     <a class="navbar-brand" href="">
         <div class="icon m-auto mb-3">
@@ -68,7 +68,7 @@
     </a>
     </div>
 </div>
-<div class="container col-12 col-md-6 col-lg-3 my-5 text-center">
+<div class="container col-12 col-md-6 col-lg-3 my-3 text-center">
     <div class="category py-5 mx-3">
     <a class="navbar-brand" href="">
         <div class="icon m-auto mb-3">
@@ -78,7 +78,7 @@
     </a>
     </div>
 </div>
-<div class="container col-12 col-md-6 col-lg-3 my-5 text-center">
+<div class="container col-12 col-md-6 col-lg-3 my-3 text-center">
     <div class="category py-5 mx-3">
     <a class="navbar-brand" href="">
         <div class="icon m-auto mb-3">
@@ -88,7 +88,7 @@
     </a>
     </div>
 </div>
-<div class="container col-12 col-md-6 col-lg-3 my-5 text-center">
+<div class="container col-12 col-md-6 col-lg-3 my-3 text-center">
     <div class="category py-5 mx-3">
     <a class="navbar-brand" href="">
         <div class="icon m-auto mb-3">
@@ -98,7 +98,7 @@
     </a>
     </div>
 </div>
-<div class="container col-12 col-md-6 col-lg-3 my-5 text-center">
+<div class="container col-12 col-md-6 col-lg-3 my-3 text-center">
     <div class="category py-5 mx-3">
     <a class="navbar-brand" href="">
         <div class="icon m-auto mb-3">
@@ -108,7 +108,7 @@
     </a>
     </div>
 </div>
-<div class="container col-12 col-md-6 col-lg-3 my-5 text-center">
+<div class="container col-12 col-md-6 col-lg-3 my-3 text-center">
     <div class="category py-5 mx-3">
     <a class="navbar-brand" href="">
         <div class="icon m-auto mb-3">
@@ -118,7 +118,7 @@
     </a>
     </div>
 </div>
-<div class="container col-12 col-md-6 col-lg-3 my-5 text-center">
+<div class="container col-12 col-md-6 col-lg-3 my-3 text-center">
     <div class="category py-5 mx-3">
     <a class="navbar-brand" href="">
         <div class="icon m-auto mb-3">

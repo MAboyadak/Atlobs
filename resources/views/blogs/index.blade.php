@@ -2,11 +2,11 @@
 @section('content')
 <div class="container">
 <div class="row">
-    <div class="text-right mt-5">
+    <div class="my-2 mx-3">
        <h1 class="fw-bold">المدونه</h1>
     </div>
-<div class="col-12 col-md-6 col-lg-4 my-5">
-    <div class="card mx-3" style="border-radius:15px;border:none">
+<div class="col-12 col-md-6 col-lg-4">
+    <div class="card mx-3 mb-5" style="border-radius:15px;border:none">
     <a class="navbar-brand" href="{{route("blogs.blog")}}"><img class="rounded-top-4" style="width:100%" src="{{asset('images/p2.jpg')}}" alt="">
         <div class="card-body">
     <p class="text-dark" style="direction:ltr;">3:14  فى <span>10/7/2022</span></p>
@@ -19,9 +19,9 @@
     </a>
     </div>
 </div>
-<div class=" col-12 col-md-6 col-lg-4 my-5 " >
+<div class=" col-12 col-md-6 col-lg-4 " >
 
-    <div class="card mx-3" style="border-radius:15px;border:none">
+    <div class="card mx-3 mb-5" style="border-radius:15px;border:none">
         <a class="navbar-brand" href="#"><img class="rounded-top-4" style="width:100%" src="{{asset('images/p3.jpg')}}" alt="">
             <div class="card-body">
         <p class="text-dark" style="direction:ltr;">3:14 فى <span>10/7/2022</span></p>
@@ -32,8 +32,8 @@
         </a>
         </div>
 </div>
-<div class=" col-12 col-md-6 col-lg-4 my-5">
-    <div class="card mx-3" style="border-radius:15px;border:none">
+<div class=" col-12 col-md-6 col-lg-4 ">
+    <div class="card mx-3 mb-5" style="border-radius:15px;border:none">
         <a class="navbar-brand" href="#"><img class="rounded-top-4" style="width:100%" src="{{asset('images/p4.jpg')}}" alt="">
             <div class="card-body">
         <p class="text-dark" style="direction:ltr;">3:14 فى <span>10/7/2022</span></p>
@@ -44,8 +44,8 @@
         </a>
         </div>
 </div>
-<div class=" col-12 col-md-6 col-lg-4 my-5 ">
-    <div class="card mx-3" style="border-radius:15px;border:none">
+<div class=" col-12 col-md-6 col-lg-4 ">
+    <div class="card mx-3 mb-5" style="border-radius:15px;border:none">
         <a class="navbar-brand" href="#"><img class="rounded-top-4" style="width:100%" src="{{asset('images/p2.jpg')}}" alt="">
             <div class="card-body">
         <p class="text-dark" style="direction:ltr;">3:14 فى <span>10/7/2022</span></p>
@@ -56,8 +56,8 @@
         </a>
         </div>
 </div>
-<div class="col-12 col-md-6 col-lg-4 my-5 ">
-    <div class="card mx-3" style="border-radius:15px;border:none">
+<div class="col-12 col-md-6 col-lg-4  ">
+    <div class="card mx-3 mb-5" style="border-radius:15px;border:none">
         <a class="navbar-brand" href="#"><img class="rounded-top-4" style="width:100%" src="{{asset('images/p3.jpg')}}" alt="">
             <div class="card-body">
         <p class="text-dark" style="direction:ltr;">3:14 فى <span>10/7/2022</span></p>
@@ -68,8 +68,8 @@
         </a>
         </div>
 </div>
-<div class="col-12 col-md-6 col-lg-4 my-5 ">
-    <div class="card mx-3" style="border-radius:15px;border:none">
+<div class="col-12 col-md-6 col-lg-4 ">
+    <div class="card mx-3 mb-5" style="border-radius:15px;border:none">
         <a class="navbar-brand" href="#"><img class="rounded-top-4" style="width:100%" src="{{asset('images/p4.jpg')}}" alt="">
             <div class="card-body">
         <p class="text-dark" style="direction:ltr;">3:14 فى <span>10/7/2022</span></p>
