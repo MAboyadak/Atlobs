@@ -32,7 +32,7 @@ input::-webkit-inner-spin-button {
 
 
 
- a {
+a {
 
     text-decoration: none !important;
     color: white !important;
@@ -287,6 +287,23 @@ img.team-work {
     left: 0;
 }
 
+@media (max-width: 768px) {
+
+    .edit-btn {
+        border-radius: 50%;
+        background-image: var(--bg-image-gradient);
+        color: white !important;
+        font-weight: 500 !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.mn-12 {
+    margin: -12%;
+}
+
 .icon-24 {
     font-size: 24px !important;
     color: #1D264A;
@@ -469,30 +486,39 @@ textarea {
 }
 
 /* Chat css محدش يلعب فيه  */
-.mychat-text{
+.mychat-text {
     background-color: #160D60;
 
 }
-.otherchat-text{
+
+.otherchat-text {
     background-color: rgb(218, 217, 217);
 }
-.mychat-text,.otherchat-text{
+
+.mychat-text,
+.otherchat-text {
     border-radius: 20px;
     padding: 10px;
     margin: 10px;
 
 }
-.card li{
+
+.card li {
     list-style: none;
 }
-.input-group-text,#chatInput{
+
+.input-group-text,
+#chatInput {
     background-color: rgb(218, 217, 217) !important;
     border: none !important;
 }
-.fa-microphone,.fa-camera{
+
+.fa-microphone,
+.fa-camera {
     color: #160D60;
 }
-#myulForChat{
+
+#myulForChat {
     padding: 0 !important;
 }
 
@@ -506,16 +532,16 @@ textarea {
 
 /* Create Order Multi-step */
 
-div[data-step]{
-    display:none;
+div[data-step] {
+    display: none;
     transition: opacity 2s ease-in-out;
     opacity: 0;
     height: 0;
     margin-bottom: 1em;
 }
 
-div[data-step].active{
-    display:flex;
+div[data-step].active {
+    display: flex;
     opacity: 1;
     height: auto;
 }

@@ -134,12 +134,6 @@
                 doneOrders.classList.add('d-block');
                 doneOrders.classList.remove('d-none');
             });
-            // let orderStauts = document.querySelectorAll(".myorder-header-txt");
-            // orderStauts.forEach(function(element) {
-            //     element.addEventListener("click", () => {
-            //         element.classList.toggle("myorder-active");
-            //     });
-            // });
         });
     </script>
 @endsection
