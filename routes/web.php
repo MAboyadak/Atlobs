@@ -57,3 +57,10 @@ Route::get('orderditails',[OrderDetail::class ,'index'])->name('orderDitails.ind
 
 // chat
 Route::get('chat', [ChatController::class, 'index'])->name('chat.index');
+
+//verify coode for password
+
+Route::get('/verify', function () {
+    return view('paswords.verifyPassword');
+    
+});
