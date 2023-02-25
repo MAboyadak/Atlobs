@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<div class="container-fluid mt-5">
-<div class="card mx-5" >
-    <img class="rounded" style="width:100%;height:400px;object-fit:cover; " src="{{asset('images/p2.jpg')}}" alt="Responsive image">
+<div class="container mt-5">
+<div class="card" style="border-radius:20px;border:none" >
+    <img class="rounded-top-4" style="width:100%;height:400px;object-fit:cover; " src="{{asset('images/p2.jpg')}}" alt="Responsive image">
     <div class="card-body">
         <p class="text-dark">3:14  فى <span>10/7/2022</span></p>
         <p style="direction: rtl; color:blue;" class="fw-bold">عنوان المقاله</p>
@@ -10,7 +10,7 @@
               هذا النص هو مثال لنص يمكن يستبدل فى نفس النص,لقد تم توليد هذا
               النص من مولدالنص النص هو مثال لنص يمكن يستبدل فى نفس النص,لقد تم توليد هذا
                النص من مولدالنص النص هو مثال لنص يمكن يستبدل فى نفس النص,لقد تم توليد هذا
-               النص من مولدالنص النص هو مثال لنص يمكن يستبدل فى نفس النص,لقد تم توليد هذا
+               النص من مولدالنص النص هو مثال لنص يمكن يستبدل فى نفس النص,لقد  تم توليد هذا
                 النص من مولدالنص النص هو مثال لنص يمكن يستبدل فى نفس النص,لقد تم توليد هذا
               النص من مولدالنص النص هو مثال لنص يمكن يستبدل فى نفس النص,لقد تم توليد هذا
                النص من مولدالنص النص هو مثال لنص يمكن يستبدل فى نفس النص,لقد تم توليد هذا
