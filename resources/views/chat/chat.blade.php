@@ -7,7 +7,7 @@
             <div class="card col-8 myChatCard">
                 <div class="card-header">
                     <div class="float-end">
-                        <span>حمودي </span>
+                        <span>حمودي نجيب</span>
                         <img src="/images/naguib_dog.jpg" style="max-height: 100px; border-radius: 50%">
                     </div>
                 </div>
@@ -19,25 +19,25 @@
                                 خسهعبيسى سيعباب
                                 سينعب بشسشسيسبيس
                             </span>
-                            <img src="/images/naguib_dog.jpg" style="max-height: 80px; border-radius: 50%">
+                            <img src="/images/naguib_dog.jpg" style="max-height: 60px; border-radius: 50%">
 
                         </li>
                         <li class="d-flex justify-content-start">
 
-                            <img src="/images/naguib_dog.jpg" style="max-height: 80px; border-radius: 50%">
-                            <span class="otherchat-text text-wrap ">حمودي بسلسهليستخبايسخبياسخ يىبيسى خس  يشسيسش سشيش يثضصب مخن صىمقص لصعخى صمفعخهعبيسى سيعباب
+                            <img src="/images/naguib_dog.jpg" style="max-height: 60px; border-radius: 50%">
+                            <span class="otherchat-text text-wrap text-end ">حمودي بسلسهليستخبايسخبياسخ يىبيسى خس  يشسيسش سشيش يثضصب مخن صىمقص لصعخى صمفعخهعبيسى سيعباب
                                 سينعبيسبيس
                             </span>
                         </li>
                         <li class="d-flex justify-content-end">
-                            <span class="mychat-text text-light text-wrap">حمودي بسلسهليستخبايسخبياسخ يىبيس لقصلق ثصلتع لاصخعصثقل لاعخثعللار 7 رصغبقصقل ى خسهعبيسى سيعباب
+                            <span class="mychat-text text-light text-wrap text-end">حمودي بسلسهليستخبايسخبياسخ يىبيس لقصلق ثصلتع لاصخعصثقل لاعخثعللار 7 رصغبقصقل ى خسهعبيسى سيعباب
                                 سينعبيسبيس
                             </span>
-                            <img src="/images/naguib_dog.jpg" style="max-height: 80px; border-radius: 50%">
+                            <img src="/images/naguib_dog.jpg" style="max-height: 60px; border-radius: 50%">
                         </li>
                         <li class="d-flex justify-content-start">
-                            <img src="/images/naguib_dog.jpg" style="max-height: 80px; border-radius: 50%">
-                            <span class="otherchat-text text-wrap ">حمودي بسلسهليستخبايسخبياسخ يىبي صثتمل هعص لصلاالصثعه اصثق لعهصغرص بغ7لص بصث سى خسهعبيسى سيعباب
+                            <img src="/images/naguib_dog.jpg" style="max-height: 60px; border-radius: 50%">
+                            <span class="otherchat-text text-wrap  text-end ">حمودي بسلسهليستخبايسخبياسخ يىبي صثتمل هعص لصلاالصثعه اصثق لعهصغرص بغ7لص بصث سى خسهعبيسى سيعباب
                                 سينعبيسبيس
                             </span>
                         </li>
@@ -59,7 +59,7 @@
                     <div class="float-end my-3">
                         <span>حمودي </span>
                         <i style="color: green" class="fa-solid fa-circle"></i>
-                        <img src="/images/naguib_dog.jpg" style="max-height: 50px; border-radius: 50%">
+                        <img src="/images/naguib_dog.jpg" style="max-height: 60px; border-radius: 50%">
                     </div>
                     <div class="input-group">
                         <span class="input-group-text"> <i class="fa-solid fa-search"></i>
@@ -82,7 +82,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="float-end m-3    ">
-                                    <img src="/images/naguib_dog.jpg "style="max-height: 70px;border-radius: 50%;">
+                                    <img src="/images/naguib_dog.jpg "style="max-height: 80px;border-radius: 50%;">
                                 </div>
                             </div>
                         </div>
@@ -104,7 +104,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="float-end m-3    ">
-                                    <img src="/images/naguib_dog.jpg "style="max-height: 70px;border-radius: 50%">
+                                    <img src="/images/naguib_dog.jpg "style="max-height: 80px;border-radius: 50%">
                                 </div>
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="float-end m-3    ">
-                                    <img src="/images/naguib_dog.jpg "style="max-height: 70px;border-radius: 50%">
+                                    <img src="/images/naguib_dog.jpg "style="max-height: 80px;border-radius: 50%">
                                 </div>
                             </div>
                         </div>
@@ -148,7 +148,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="float-end m-3    ">
-                                    <img src="/images/naguib_dog.jpg "style="max-height: 70px;border-radius: 50%">
+                                    <img src="/images/naguib_dog.jpg "style="max-height: 80px;border-radius: 50%">
                                 </div>
                             </div>
                         </div>
