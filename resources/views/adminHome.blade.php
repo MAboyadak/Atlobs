@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    You are User !
+                    You are Admin !
                 </div>
             </div>
         </div>
