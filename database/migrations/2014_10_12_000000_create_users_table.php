@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone')->nullable();
             $table->text('brief')->nullable();
-            $table->boolean('type')->nullable();
+            $table->boolean('type')->default(0);
             $table->string('image')->nullable();
             $table->string('contact_method')->default('phone');
             $table->rememberToken();

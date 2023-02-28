@@ -69,3 +69,11 @@ Route::get('/verify', function () {
 });
 
 Route::view('admin', 'admin.dashboard');
+
+
+//admain route 
+
+Route::middleware(['auth', 'user-access:super-admin'])->group(function () {
+  
+    Route::get('/super-admin/dashboard', [HomeController::class, 'superAdminDashboard'])->name('super.admin.dashboard');
+});
