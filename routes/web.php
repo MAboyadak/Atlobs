@@ -66,5 +66,6 @@ Route::get('chat', [ChatController::class, 'index'])->name('chat.index');
 
 Route::get('/verify', function () {
     return view('paswords.verifyPassword');
-    
 });
+
+Route::view('admin', 'admin.dashboard');

@@ -398,27 +398,16 @@ textarea {
     cursor: pointer;
 }
 
-#active-orders {
+#active-orders,
+#finished-orders {
     animation: right .25s;
 }
 
-#finished-orders {
-    animation: left .25s;
-}
+
 
 @keyframes right {
     0% {
         transform: translateX(100%) scaleX(0);
-    }
-
-    100% {
-        transform: translateX(0%) scaleX(1);
-    }
-}
-
-@keyframes left {
-    0% {
-        transform: translateX(-100%) scaleX(0);
     }
 
     100% {
