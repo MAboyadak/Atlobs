@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryOrderController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OrdersController;
@@ -11,8 +12,10 @@ use App\Http\Controllers\TermsAndConditions;
 use App\Http\Controllers\BankAccount;
 use App\Http\Controllers\chatcontroller;
 use App\Http\Controllers\OrderDetail;
+use App\Http\Controllers\Admin\SliderController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -69,3 +72,13 @@ Route::get('/verify', function () {
 });
 
 Route::view('admin', 'admin.dashboard');
+
+
+//admain route
+
+Route::middleware(['auth', 'user-access:super-admin'])->group(function () {
+
+    Route::get('/super-admin/dashboard', [HomeController::class, 'superAdminDashboard'])->name('super.admin.dashboard');
+});
+
+Route::resource('admin/slider',SliderController::class);

@@ -69,6 +69,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{Route('slider.index')}}" class="nav-link">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+
+                            <span class="menu-title">Home Slider</span>
+
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
