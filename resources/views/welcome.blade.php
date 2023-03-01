@@ -1,43 +1,42 @@
 @extends('layouts.app')
 @section('css')
-<link rel="stylesheet" href="{{asset('css/homeStyle.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/homeStyle.css') }}">
 @endsection
 @section('content')
-<div class="body">
-    <!-- start slider -->
-    <div id="carouselExampleIndicators" class="carousel slide home-slider" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
+    <div class="container py-0">
+        <!-- start slider -->
+        <div id="carouselExampleIndicators" class="carousel slide home-slider" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner rounded-4">
+                <div class="carousel-item active">
+                    <img src="{{ asset('images/slider.png') }}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('images/slider.png') }}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('images/slider.png') }}" class="d-block w-100" alt="...">
+                </div>
+            </div>
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{{asset('images/slider.png')}}" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="{{asset('images/slider.png')}}" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="{{asset('images/slider.png')}}" class="d-block w-100" alt="...">
-            </div>
-        </div>
-    </div>
-    <!-- end slider -->
-    <!-- start categories -->
-    <section class="categories -5">
-        <div class="container">
+        <!-- end slider -->
+        <!-- start categories -->
+        <section class="categories -5 ">
             <div class="row">
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3 p-0 pe-1">
                     <div class="bg-white p-5 text-center people-category ">
                         <h3 class="mb-4">الأفراد</h3>
                         <a href="#" class="">
                             <div class="card text-center px-3 category-offer w-75 m-auto">
-                                <img src="{{asset('images/order.png')}}" width="100" height="100" class=" m-auto mt-3"
-                                    alt="...">
+                                <img src="{{ asset('images/order.png') }}" width="100" height="100"
+                                    class=" m-auto mt-3" alt="...">
                                 <div class="card-body">
                                     <h4 class="card-text fw-bold">اطلب طلبك</h4>
                                 </div>
@@ -45,7 +44,7 @@
                         </a>
                         <a href="#" class="">
                             <div class="card text-center px-3 category-offer mt-4 w-75 m-auto">
-                                <img src="{{asset('images/gift.png')}}" width="100" height="100" class=" m-auto mt-3"
+                                <img src="{{ asset('images/gift.png') }}" width="100" height="100" class=" m-auto mt-3"
                                     alt="...">
                                 <div class="card-body">
                                     <h4 class="card-text fw-bold"> عرض الطلبات</h4>
@@ -54,13 +53,13 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3 ps-1">
                     <div class="p-5 text-center company-category ">
                         <h3 class="mb-4">الشركات والمؤسسات</h3>
                         <a href="#" class="">
                             <div class="card text-center px-3 category-offer w-75 m-auto">
-                                <img src="{{asset('images/order.png')}}" width="100" height="100" class=" m-auto mt-3"
-                                    alt="...">
+                                <img src="{{ asset('images/order.png') }}" width="100" height="100"
+                                    class=" m-auto mt-3" alt="...">
                                 <div class="card-body">
                                     <h4 class="card-text fw-bold">اطلب طلبك</h4>
                                 </div>
@@ -68,7 +67,7 @@
                         </a>
                         <a href="#" class="">
                             <div class="card text-center px-3 category-offer mt-4 w-75 m-auto">
-                                <img src="{{asset('images/gift.png')}}" width="100" height="100" class=" m-auto mt-3"
+                                <img src="{{ asset('images/gift.png') }}" width="100" height="100" class=" m-auto mt-3"
                                     alt="...">
                                 <div class="card-body">
                                     <h4 class="card-text fw-bold"> عرض الطلبات</h4>
@@ -78,44 +77,14 @@
                     </div>
                 </div>
             </div>
-        </div>
 
 
-    </section>
-    <!-- end categories -->
+        </section>
+        <!-- end categories -->
 
-    <nav>
-        <div class="container">
-            <div class="position-fixed text-uppercase  pt-2 start-0 text-center bottom-0 w-100" role=navigation>
-                <div class="container">
-                    <div class=" p-3 shadow-lg  bottom-navbar">
-                        <div class="d-flex align-items-center justify-content-around">
-                            <div class="navLink navLinkActive"><a href="#">
-                                    <div class="mb-2"><i class="fa-solid fa-house-chimney-window fa-xl"></i></div>
-                                    <div class=navLabel>الرئيسية</div>
-                                </a></div>
-                            <div class=navLink><a href="#">
-                                    <div class="mb-2"><i class="fa-solid fa-cart-shopping fa-xl"></i></div>
-                                    <div class=navLabel>طلباتي</div>
-                                </a></div>
 
-                            <div class=navLink><a href="#">
-                                    <div class="mb-2"><i class="fa-regular fa-message fa-xl"></i></div>
-                                    <div class=navLabel>رسائلي</div>
-                                </a></div>
-                            <div class=navLink><a href="#">
-                                    <img src="images/user.png" width="40px" height="40">
-                                    <div class=navLabel>حسابي</div>
-                                </a></div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-</div>
-    @endsection
+    </div>
+@endsection
 
 {{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
