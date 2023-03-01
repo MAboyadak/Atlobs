@@ -1,12 +1,11 @@
 @extends('layouts.app')
-
 @section('content')
-    <div class="orderBg1 p-4">
-        <div class="container card p-4">
+    <div class=" p-4 ">
+        <div class="container card p-4 col-12 col-md-8 col-lg-6 ">
             <div class="position-relative d-flex flex-wrap justify-content-between align-items-center">
                 <div class="py-2 btn edit-btn"><a href="{{ route('profile.edit') }}" class="">
-                        <span class="d-none d-md-block">تعديل البيانات</span>
-                        <i class="fa-solid fa-user-pen d-block d-md-none"></i>
+                        <span class="d-none d-md-block text-light">تعديل البيانات</span>
+                        <i class="fa-solid fa-user-pen d-block d-md-none text-light"></i>
                     </a></div>
                 <div class="col-12 col-md-6 img-container d-flex align-items-center justify-content-start">
                     <img id="avatar" src="images/user.png" class="avatar-circlye fill " style="width: 100px; hight:100px;"
@@ -44,7 +43,8 @@
             </div>
             <div class="d-flex flex-wrap align-items-center justify-content-start mt-4">
                 <h6 class="my-2  fw-bold m-0">نبذة عن المستخدم</h6>
-                <p class="text-end lh-lg">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد
+                <p class="text-end lh-lg">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد
+                    هذا النص من مولد
                     النص
                     العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
                     التطبيق.
@@ -61,4 +61,9 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        document.querySelector('body').classList.add('orderBg1');
+    </script>
 @endsection
