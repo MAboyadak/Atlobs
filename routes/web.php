@@ -73,7 +73,7 @@ Route::view('admin', 'admin.dashboard');
 
 //admain route 
 
-Route::middleware(['auth', 'user-access:super-admin'])->group(function () {
+Route::middleware(['auth', 'user-access:admin'])->group(function () {
   
-    Route::get('/super-admin/dashboard', [HomeController::class, 'superAdminDashboard'])->name('super.admin.dashboard');
+    Route::get('/admin/home', [HomeController::class, 'AdminHome'])->name('admin.home');
 });
