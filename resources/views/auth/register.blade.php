@@ -36,7 +36,7 @@
                         <div class="d-flex justify-content-center align-items-center con-image mb-2">
                             <div class="position-relative img-container ">
                                 <img id="avatar" src="images/user.png" class="avatar-circlye fill "
-                                    style="width: 150px; hight:150px;" alt="Avatar" />
+                                    style="width: 100px; hight:100px;" alt="Avatar" />
                                 <div class="img-picker">
                                     <input class="form-control " type="file" style="display:none" id="formFile">
                                     <i class="fa-solid fa-camera"></i>

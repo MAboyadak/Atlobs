@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
-
+Route::view('register/verify', 'auth.register_verify');
 
 Route::resource('categories', CategoryController::class);
 
@@ -86,7 +86,6 @@ Route::middleware(['auth', 'user-access:super-admin'])->group(function () {
     Route::get('/super-admin/dashboard', [HomeController::class, 'superAdminDashboard'])->name('super.admin.dashboard');
 });
 
-Route::resource('admin/slider',SliderController::class);
+Route::resource('admin/slider', SliderController::class);
 
-Route::resource('admin/additionalService',AdditionalServicesController::class);
-
+Route::resource('admin/additionalService', AdditionalServicesController::class);
