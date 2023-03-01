@@ -38,8 +38,10 @@
 
 <body>
     @include('partials.nav')
-    <main class="">
+
+    <main class="avoid-nav-bottom">
         @yield('content')
+        @include('partials.bottom_nav')
     </main>
     @yield('script')
 </body>

@@ -116,7 +116,7 @@
                         </div>
 
 
-                        <div class="text-center log   mt-4">
+                        <div class="text-center log my-4">
                             <button type="submit" class="btn py-2 text-light"> إنشاء حساب </button>
                         </div>
                         <p class="text-center"> هل لديك حساب؟
@@ -138,17 +138,17 @@
         let imgIcon = document.querySelector(".img-picker");
         let imgInputFile = document.querySelector("#formFile");
         let avatar = document.querySelector("#avatar");
-                  // start of register page image picker
-                  imgIcon.addEventListener("click", function() {
-                imgInputFile.click();
-            });
-            document
-                .querySelector('input[type="file"]')
-                .addEventListener("change", function() {
-                    if (this.files && this.files[0]) {
-                        avatar.src = URL.createObjectURL(this.files[0]); // set src to file url
-                    }
-                }); // end of register page image picker
+        // start of register page image picker
+        imgIcon.addEventListener("click", function() {
+            imgInputFile.click();
+        });
+        document
+            .querySelector('input[type="file"]')
+            .addEventListener("change", function() {
+                if (this.files && this.files[0]) {
+                    avatar.src = URL.createObjectURL(this.files[0]); // set src to file url
+                }
+            }); // end of register page image picker
         $(document).ready(function(e) {
 
             $('#image').change(function() {
