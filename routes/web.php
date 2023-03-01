@@ -82,3 +82,4 @@ Route::middleware(['auth', 'user-access:super-admin'])->group(function () {
 });
 
 Route::resource('admin/slider',SliderController::class);
+
