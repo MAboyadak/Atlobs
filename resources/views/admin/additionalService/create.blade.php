@@ -14,22 +14,22 @@
             @endif
             <div class="card">
                 <div class="card-header">
-                    <h3 class="d-inline">Add Slider</h3>
-                    <a href="{{route('slider.index')}}" class="btn btn-danger btn-sm text-white float-right">
+                    <h3 class="d-inline">Add Service</h3>
+                    <a href="{{route('additionalService.index')}}" class="btn btn-danger btn-sm text-white float-right">
                         Back
                     </a>
                 </div>
                 <div class="card-body">
-                 <form action="{{Route('slider.store')}}" method="POST" enctype="multipart/form-data">
+                 <form action="{{Route('additionalService.store')}}" method="POST">
                     @csrf
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Image</label>
-                        <input type="file" name="image" class="form-control" id="exampleInputPassword1">
+                        <label for="exampleInputPassword1" class="form-label">Sevice Name</label>
+                        <input type="text" name="name" class="form-control" id="exampleInputPassword1">
                     </div>
-                    @if($errors->has('image'))
+                    @if($errors->has('name'))
                     <div class="alert alert-danger">
                      <ul>
-                      <li>{{$errors->first('image')}}</li>
+                      <li>{{$errors->first('name')}}</li>
                      </ul>
                     </div>
                     @endif

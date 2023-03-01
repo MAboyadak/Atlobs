@@ -13,6 +13,7 @@ use App\Http\Controllers\BankAccount;
 use App\Http\Controllers\chatcontroller;
 use App\Http\Controllers\OrderDetail;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\AdditionalServicesController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -77,7 +78,7 @@ Route::view('admin', 'admin.dashboard');
 //admain route
 
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
-  
+
     Route::get('/admin/home', [HomeController::class, 'AdminHome'])->name('admin.home');
 });
 Route::middleware(['auth', 'user-access:super-admin'])->group(function () {
@@ -86,4 +87,6 @@ Route::middleware(['auth', 'user-access:super-admin'])->group(function () {
 });
 
 Route::resource('admin/slider',SliderController::class);
+
+Route::resource('admin/additionalService',AdditionalServicesController::class);
 

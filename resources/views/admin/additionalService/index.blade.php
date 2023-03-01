@@ -14,9 +14,9 @@
             @endif
             <div class="card">
                 <div class="card-header">
-                    <h3 class="d-inline">Slider List</h3>
-                    <a href="{{Route('slider.create')}}" class="btn btn-primary btn-sm text-white float-right">
-                        Add Slider
+                    <h3 class="d-inline">Additional Services List</h3>
+                    <a href="{{Route('additionalService.create')}}" class="btn btn-primary btn-sm text-white float-right">
+                        Add Service
                     </a>
                 </div>
                 <div class="card-body">
@@ -24,31 +24,29 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Image</th>
+                                <th>Service Name</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
-                          @foreach($sliders as $slider)
-                          <tr>
-                            <td>{{$slider->id}}</td>
-                            <td><img src="{{asset("$slider->image")}}" alt="slider"
-                                 style="width:70px; height:70px;border-radius: 50% 50%;"></td>
+                         @foreach($additional_services as $additional_service)
+                         <tr>
+                            <td>{{$additional_service->id}}</td>
+                            <td>{{$additional_service->name}}</td>
                             <td>
-                                <a href="{{Route('slider.edit',$slider->id)}}" class="btn btn-warning">Edit</a>
-
+                                <a href="{{Route('additionalService.edit',$additional_service->id)}}" class="btn btn-warning">Edit</a>
                             </td>
                             <td>
-                                <form action="{{route('slider.destroy',$slider->id)}}" method="post">
+                                <form action="{{route('additionalService.destroy',$additional_service->id)}}" method="post">
                                     @csrf
                                     @method('delete')
                                  <input type="submit" value="Delete" class="btn btn-danger"
-                                 onclick="return confirm('Are you sure you want to delete this slider')">
+                                 onclick="return confirm('Are you sure you want to delete this service')">
                                 </form>
                             </td>
-                          </tr>
-                          @endforeach
+                         </tr>
+                         @endforeach
                         </tbody>
                     </table>
                 </div>

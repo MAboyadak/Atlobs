@@ -77,6 +77,14 @@
 
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{Route('additionalService.index')}}" class="nav-link">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+
+                            <span class="menu-title">Additional Services</span>
+
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
