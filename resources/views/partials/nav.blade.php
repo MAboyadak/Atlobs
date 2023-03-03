@@ -76,10 +76,14 @@
                                          class="fa-solid fa-users ms-2 fa-xl"></i>من نحن
                                  </a></div>
                              @auth
-                                 <div class="my-4"><a href="{{ route('register') }}" class="custom-link">
-                                         <i class="fa-solid fa-arrow-right-from-bracket ms-2 fa-xl"></i>
-                                         تسجيل الخروج</a></div>
-                             </div>
+                                <div class="my-4">
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="custom-link" style="border:none;">
+                                            <i class="fa-solid fa-arrow-right-from-bracket ms-2 fa-xl"></i>
+                                            تسجيل الخروج</button></div>
+                                    </form>
+                                </div>
                          @endauth
                          @guest
                              <div class="my-4"><a href="{{ route('login') }}" class="custom-link">
