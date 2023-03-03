@@ -15,10 +15,12 @@ use App\Http\Controllers\OrderDetail;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\AdditionalServicesController;
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\CitiesController;
+use App\Http\Controllers\Admin\CountriesController;
+use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,7 +45,7 @@ Route::get('profile/password/change', [ProfileController::class, 'changePassword
 
 //Orders
 Route::get('myorders', [OrdersController::class, 'myOrders'])->name('myorders.index');
-Route::get('orders/create', [OrdersController::class, 'create'])->name('orders.create');
+// Route::get('orders/create', [OrdersController::class, 'create'])->name('orders.create');
 
 // About Us
 Route::get('aboutus', [AboutUs::class, 'index'])->name('aboutus.index');
@@ -56,10 +58,6 @@ Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index
 // Order Ditails
 Route::get('orderditails', [OrderDetail::class, 'index'])->name('orderDitails.index');
 
-
-Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
-
-Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
 // Order Ditails
 Route::get('orderditails', [OrderDetail::class, 'index'])->name('orderDitails.index');
 
@@ -88,4 +86,14 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('admin/slider', SliderController::class);
 
     Route::resource('admin/additionalService', AdditionalServicesController::class);
+
+    Route::resource('cities', CitiesController::class);
+    Route::resource('countries', CountriesController::class);
+
+
 });
+
+
+// routes for cites and countries DropDown in orders/create
+Route::get('orders/create', [DropdownController::class, 'index']);
+Route::post('api/fetch-cities', [DropdownController::class, 'fetchCity']);
