@@ -14,6 +14,7 @@ use App\Http\Controllers\chatcontroller;
 use App\Http\Controllers\OrderDetail;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\AdditionalServicesController;
+use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -73,20 +74,18 @@ Route::get('/verify', function () {
     return view('paswords.verifyPassword');
 });
 
-Route::view('admin', 'admin.dashboard');
 
 
-//admain route
 
-Route::middleware(['auth', 'user-access:admin'])->group(function () {
+Route::get('admin/login', [AdminAuthController::class, 'login'])->name('dashboard.login');
+Route::post('admin/login', [AdminAuthController::class, 'adminLogin'])->name('post.login');
+Route::get('admin/logout', [AdminAuthController::class, 'signOut'])->name('dashboard.logout');
 
-    Route::get('/admin/home', [HomeController::class, 'AdminHome'])->name('admin.home');
+
+Route::middleware('auth:admin')->group(function () {
+    Route::view('admin', 'admin.dashboard')->name('dashboard.home');
+
+    Route::resource('admin/slider', SliderController::class);
+
+    Route::resource('admin/additionalService', AdditionalServicesController::class);
 });
-Route::middleware(['auth', 'user-access:super-admin'])->group(function () {
-
-    Route::get('/super-admin/dashboard', [HomeController::class, 'superAdminDashboard'])->name('super.admin.dashboard');
-});
-
-Route::resource('admin/slider', SliderController::class);
-
-Route::resource('admin/additionalService', AdditionalServicesController::class);
