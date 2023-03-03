@@ -15,6 +15,7 @@ use App\Http\Controllers\OrderDetail;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\AdditionalServicesController;
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\FavouriteController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -67,6 +68,8 @@ Route::get('orderditails', [OrderDetail::class, 'index'])->name('orderDitails.in
 
 // chat
 Route::get('chat', [ChatController::class, 'index'])->name('chat.index');
+//favourite
+Route::get('favourite', [FavouriteController::class, 'index'])->name('favourite.index');
 
 //verify coode for password
 

@@ -687,3 +687,8 @@ div[data-step].active {
     opacity: 1;
     height: auto;
 }
+
+.favourite-added {
+    font-size: 30px;
+    color: #1D264A;
+}
