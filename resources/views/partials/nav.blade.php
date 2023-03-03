@@ -3,7 +3,7 @@
      <div class="d-flex justify-content-between p-3 align-items-center container ">
          <div>
              <a href="">
-                 <img src="images/logo.png" alt="Company Logo" height="48" width="100px">
+                 <img src="{{ asset('images/logo.png') }}" alt="Company Logo" height="48" width="100px">
              </a>
          </div>
          <div>

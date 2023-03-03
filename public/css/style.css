@@ -283,6 +283,21 @@ img.team-work {
     height: 100px;
 }
 
+.img-container30 {
+    width: 30px;
+    height: 30px;
+}
+
+.img-container50 {
+    width: 50px;
+    height: 50px;
+}
+
+.img-container75 {
+    width: 75px;
+    height: 75px;
+}
+
 .avatar-circlye {
     border-radius: 50%;
     height: 100%;
@@ -428,6 +443,12 @@ img.team-work {
     position: absolute;
     top: 29.5px;
     left: 0;
+}
+
+.edit-btn-1 {
+    background-image: var(--bg-image-gradient);
+    color: white !important;
+    font-weight: 500 !important;
 }
 
 @media (max-width: 768px) {
@@ -691,4 +712,43 @@ div[data-step].active {
 .favourite-added {
     font-size: 30px;
     color: #1D264A;
+}
+
+.expected-price {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #939AB5;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 0 10px 0 0;
+
+}
+
+.comment-input {
+    color: #3A4C94;
+    background-color: #ECECEC;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.comment-input+i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.comment-input+i:hover {
+    cursor: pointer;
+    color: #3A4C94;
+
+}
+
+.comment-input:focus,
+.comment-input:active {
+    border: none;
+    outline: none;
+
 }

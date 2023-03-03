@@ -10,7 +10,10 @@ class OrdersController extends Controller
     {
         return view('orders.my-orders');
     }
-
+    public function order_details()
+    {
+        return view('orders.order_details');
+    }
     public function create()
     {
         return view('orders.create');

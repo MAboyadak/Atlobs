@@ -45,6 +45,7 @@ Route::get('profile/password/change', [ProfileController::class, 'changePassword
 //Orders
 Route::get('myorders', [OrdersController::class, 'myOrders'])->name('myorders.index');
 Route::get('orders/create', [OrdersController::class, 'create'])->name('orders.create');
+Route::get('orders/order/details', [OrdersController::class, 'order_details'])->name('myorders.details');
 
 // About Us
 Route::get('aboutus', [AboutUs::class, 'index'])->name('aboutus.index');
@@ -54,9 +55,6 @@ Route::get('termsandconditions', [TermsAndConditions::class, 'index'])->name('te
 
 // Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
 Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
-// Order Ditails
-Route::get('orderditails', [OrderDetail::class, 'index'])->name('orderDitails.index');
-
 
 Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
 
