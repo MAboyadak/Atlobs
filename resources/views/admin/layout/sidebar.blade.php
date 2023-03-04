@@ -14,7 +14,7 @@
                 <img src="{{ asset('images/person.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ auth()->guard('admin')->user()->name }}</a>
+                {{-- <a href="#" class="d-block">{{ auth()->guard('admin')->user()->name }}</a> --}}
             </div>
         </div>
 
@@ -81,6 +81,22 @@
                         <i class="mdi mdi-view-carousel menu-icon"></i>
 
                         <span class="menu-title">Additional Services</span>
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ Route('cities.index')}}" class="nav-link">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+
+                        <span class="menu-title">cities</span>
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ Route('countries.index')}}" class="nav-link">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+
+                        <span class="menu-title">countries</span>
 
                     </a>
                 </li>

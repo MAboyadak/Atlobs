@@ -38,7 +38,7 @@
                                 <img id="avatar" src="images/user.png" class="avatar-circlye fill "
                                     style="width: 100px; hight:100px;" alt="Avatar" />
                                 <div class="img-picker">
-                                    <input class="form-control " type="file" style="display:none" id="formFile">
+                                    <input class="form-control" name="image" type="file" style="display:none" id="formFile">
                                     <i class="fa-solid fa-camera"></i>
                                 </div>
                             </div>
@@ -48,9 +48,9 @@
                         <div class="row">
                             <div class="col-lg-6 mb-3 ">
                                 <label class="mb-3 fw-bold"> الاسم الأول</label>
-                                <input type="text" name="firstName"
-                                    class="form-control @error('firstName') is-invalid @enderror" required>
-                                @error('name')
+                                <input type="text" name="first_name"
+                                    class="form-control @error('first_name') is-invalid @enderror" required>
+                                @error('first_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -60,9 +60,9 @@
 
                             <div class="col-lg-6 mb-3 ">
                                 <label class="mb-3 fw-bold"> الاسم الأخير</label>
-                                <input type="text" name="lastName"
-                                    class="form-control  @error('lastName') is-invalid @enderror" required>
-                                @error('name')
+                                <input type="text" name="last_name"
+                                    class="form-control  @error('last_name') is-invalid @enderror" required>
+                                @error('last_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -87,7 +87,7 @@
                                 <label class="mb-3 fw-bold">كلمة المرور </label>
                                 <input type="password" name="password" id="password"
                                     class="form-control password id_password @error('password') is-invalid @enderror"
-                                    required autocomplete="new-password">
+                                    required autocomplete="password">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -99,7 +99,7 @@
                             <div class="col-md-12 mb-3 input-box">
                                 <label class="mb-3 fw-bold">تأكيد كلمة المرور </label>
                                 <input type="password" id="password-confirm" class="form-control password id_password"
-                                    name="password_confirmation" required autocomplete="new-password">
+                                    name="password_confirmation" required autocomplete="password_confirmation">
                             </div>
 
                             <label class="mb-3 fw-bold"> نوع المستخدم</label>
@@ -161,8 +161,6 @@
                 reader.readAsDataURL(this.files[0]);
 
             });
-
-
         });
     </script>
 </body>
