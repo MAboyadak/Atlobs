@@ -81,6 +81,14 @@ Route::get('admin/login', [AdminAuthController::class, 'login'])->name('dashboar
 Route::post('admin/login', [AdminAuthController::class, 'adminLogin'])->name('post.login');
 Route::get('admin/logout', [AdminAuthController::class, 'signOut'])->name('dashboard.logout');
 
+// Forget Password
+Route::get('/forget-password', [AdminAuthController::class, 'getEmail'])->name('get.forget');
+Route::post('/forget-password', [AdminAuthController::class, 'postEmail'])->name('post.forget');
+
+// Reset Password
+Route::get('/reset-password/{token}', [AdminAuthController::class, 'getPassword'])->name('get.reset');
+Route::post('/reset-password', [AdminAuthController::class, 'updatePassword'])->name('post.reset');
+
 
 Route::middleware('auth:admin')->group(function () {
     Route::view('admin', 'admin.dashboard')->name('dashboard.home');

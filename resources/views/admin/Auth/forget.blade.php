@@ -31,50 +31,45 @@
                         <div class="alert alert-warning alert-danger fade show" role="alert">{{ $error }}
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
-                            </button></div>
+                            </button>
+                        </div>
                     @endforeach
                 </div>
             @endif
 
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in</p>
-                <form action="{{ route('post.login') }}" method="post">
+                <p class="login-box-msg">Forget Password</p>
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>{!! $message !!}</strong>
+                    </div>
+                @endif
+
+                <form method="POST" class="kt-form validate-form" action="{{ route('post.forget') }}">
                     @csrf
-                    <div class="input-group mb-3">
-                        <input type="email" class="form-control" name="email" placeholder="Email">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <input id="email" type="email" class="reset-style form-control" name="email"
+                                placeholder="{{ __('Email Address') }}" value="{{ old('email') }}" autocomplete="email"
+                                autofocus>
                         </div>
                     </div>
-                    <div class="input-group mb-3">
-                        <input type="password" name="password" class="form-control" placeholder="Password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" name="remember" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
 
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                    <div class="form-group row mb-0">
+                        <div class="col-8 offset-3">
+                            <button type="submit" class="btn btn-primary btn-block">
+                                {{ __('Send Password Reset Link') }}
+                            </button>
+                            <a class="d-block text-white" style="margin: 5px 0px 0px 70px"
+                                href="{{ route('dashboard.login') }}">
+                                {{ __('Back to login') }}
+                            </a>
                         </div>
-
                     </div>
                 </form>
-                <p class="mb-1">
-                    <a href="{{ route('get.forget') }}">I forgot my password</a>
-                </p>
             </div>
 
         </div>
