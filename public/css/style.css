@@ -451,6 +451,12 @@ img.team-work {
     font-weight: 500 !important;
 }
 
+.edit-btn-2 {
+    background-color: #ECECEC !important;
+    color: #3A4C94 !important;
+    font-weight: bold !important;
+}
+
 @media (max-width: 768px) {
 
     .edit-btn {
@@ -752,3 +758,77 @@ div[data-step].active {
     outline: none;
 
 }
+
+/* create order page  */
+.add-btn-imgorder {
+    display: inline-block;
+    background-color: #ECECEC;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+    margin: 0 15px;
+}
+
+.add-btn-imgorder i {
+    position: absolute;
+    left: 52.5%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #3A4C94;
+    font-size: 20px;
+}
+
+.input-style-1 {
+    background-color: white !important;
+    box-shadow: none !important;
+    color: #4D4A4A !important;
+}
+
+.custom-select {
+    background-position: left 15px center !important;
+    padding-right: 15px !important;
+}
+
+.bs-searchbox .form-control {
+    border: 0;
+    border-bottom: 1px solid #BEBEBE !important;
+    border-radius: 0;
+    padding-top: 0;
+    box-shadow: none !important;
+    color: #4D4A4A !important;
+    background-color: white !important;
+}
+
+.search_select_box button {
+    background-color: white !important;
+    box-shadow: none !important;
+    color: #4D4A4A !important;
+    border: 1px solid #ced4da !important;
+}
+
+.filter-option-inner-inner {
+    text-align: right;
+}
+
+.bs-searchbox {
+    position: relative;
+}
+
+.head .bs-searchbox::before {
+    font-family: var(--fa-style-family-classic);
+    content: "\f002";
+    font-weight: 900;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #585858;
+}
+
+.dropdown-menu {
+    padding: 0 !important;
+}
+
+/* end of create order page  */

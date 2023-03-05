@@ -101,7 +101,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <h6 class="text-end m-0 my-2 text-black-50">تم النشر بتوقيت <span
                                         class="d-block d-sm-inline">10 مارس
                                         2022</span></h6>
@@ -123,6 +122,5 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection
