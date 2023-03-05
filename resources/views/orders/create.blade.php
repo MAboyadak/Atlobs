@@ -117,8 +117,9 @@
 
                             <div class="row" data-step>
                                 <div class="form-group  col-12 col-lg-6 mb-3">
-                                    <label class="mb-3 fw-bold">المدينة</label>
+                                    <label class="mb-3 fw-bold">الدولة</label>
                                     <select id="country-dd" class="form-control">
+                                        <option value="" disabled selected>اختر الدولة</option>
                                         @foreach ($countries as $country)
                                             <option value="{{ $country->id }}">
                                                 {{ $country->name }}
@@ -128,7 +129,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-12 col-lg-6 mb-3">
-                                    <label class="mb-3 fw-bold">الدولة</label>
+                                    <label class="mb-3 fw-bold">المدينة</label>
                                     <select id="city-dd" class="form-control">
                                     </select>
                                 </div>

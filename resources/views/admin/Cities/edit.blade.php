@@ -14,18 +14,18 @@
             @endif
             <div class="card">
                 <div class="card-header">
-                    <h3 class="d-inline">Edit country</h3>
-                    <a href="{{route('countries.cities.index',['country' => 1])}}" class="btn btn-danger btn-sm text-white float-right">
+                    <h3 class="d-inline">Edit city</h3>
+                    <a href="{{route('cities.index')}}" class="btn btn-danger btn-sm text-white float-right">
                         Back
                     </a>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route("countries.update", [$country->id]) }}" method="POST">
+                    <form action="{{ route("cities.update", [$city->id]) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">country Name</label>
-                        <input type="text" name="name" value="{{$country->name}}" class="form-control py-1" id="exampleInputPassword1">
+                        <label for="exampleInputPassword1" class="form-label">city Name</label>
+                        <input type="text" name="name" value="{{$city->name}}" class="form-control py-1" id="exampleInputPassword1">
                     </div>
                     @if($errors->has('name'))
                     <div class="alert alert-danger">
