@@ -15,7 +15,7 @@ use App\Http\Controllers\OrderDetail;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\AdditionalServicesController;
 use App\Http\Controllers\Admin\AdminAuthController;
-
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\CitiesController;
 use App\Http\Controllers\Admin\CountriesController;
 use App\Http\Controllers\DropdownController;
@@ -49,21 +49,17 @@ Route::get('profile/password/change', [ProfileController::class, 'changePassword
 
 //Orders
 Route::get('myorders', [OrdersController::class, 'myOrders'])->name('myorders.index');
-// Route::get('orders/create', [OrdersController::class, 'create'])->name('orders.create');
+Route::get('orders/create', [OrdersController::class, 'create'])->name('orders.create');
+Route::get('orders/order/details', [OrdersController::class, 'order_details'])->name('myorders.details');
 
 // About Us
-Route::get('aboutus', [AboutUs::class, 'index'])->name('aboutus.index');
+Route::get('aboutus', [AboutController::class, 'index'])->name('aboutus.index');
 // termsandconditions
 Route::get('termsandconditions', [TermsAndConditions::class, 'index'])->name('terms.index');
 //Bank Account
 
 // Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
 Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
-// Order Ditails
-Route::get('orderditails', [OrderDetail::class, 'index'])->name('orderDitails.index');
-
-// Order Ditails
-Route::get('orderditails', [OrderDetail::class, 'index'])->name('orderDitails.index');
 
 // Route::get('{cat}/services',[ServicesController::class,'categoryServices'])->name('category.services');
 
@@ -85,6 +81,14 @@ Route::get('admin/login', [AdminAuthController::class, 'login'])->name('dashboar
 Route::post('admin/login', [AdminAuthController::class, 'adminLogin'])->name('post.login');
 Route::get('admin/logout', [AdminAuthController::class, 'signOut'])->name('dashboard.logout');
 
+// Forget Password
+Route::get('/forget-password', [AdminAuthController::class, 'getEmail'])->name('get.forget');
+Route::post('/forget-password', [AdminAuthController::class, 'postEmail'])->name('post.forget');
+
+// Reset Password
+Route::get('/reset-password/{token}', [AdminAuthController::class, 'getPassword'])->name('get.reset');
+Route::post('/reset-password', [AdminAuthController::class, 'updatePassword'])->name('post.reset');
+
 
 Route::middleware('auth:admin')->group(function () {
     Route::view('admin', 'admin.dashboard')->name('dashboard.home');
@@ -95,8 +99,9 @@ Route::middleware('auth:admin')->group(function () {
 
     Route::resource('cities', CitiesController::class);
     Route::resource('countries', CountriesController::class);
-
-
+    //static Pages //
+    Route::get('admin/about', [AboutController::class,'create'])->name('about.create');
+    Route::post('admin/store', [AboutController::class,'store'])->name('about.store');
 });
 
 

@@ -100,6 +100,30 @@
 
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ Route('about.create')}}" class="nav-link">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+
+                        <span class="menu-title">about</span>
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ Route('bankAcount.index')}}" class="nav-link">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+
+                        <span class="menu-title">Bank Account</span>
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ Route('terms.index')}}" class="nav-link">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+
+                        <span class="menu-title">Terms And Conditions</span>
+
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
