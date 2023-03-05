@@ -15,7 +15,7 @@ use App\Http\Controllers\OrderDetail;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\AdditionalServicesController;
 use App\Http\Controllers\Admin\AdminAuthController;
-
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\CitiesController;
 use App\Http\Controllers\Admin\CountriesController;
 use App\Http\Controllers\DropdownController;
@@ -53,16 +53,12 @@ Route::get('orders/create', [OrdersController::class, 'create'])->name('orders.c
 Route::get('orders/order/details', [OrdersController::class, 'order_details'])->name('myorders.details');
 
 // About Us
-Route::get('aboutus', [AboutUs::class, 'index'])->name('aboutus.index');
+Route::get('aboutus', [AboutController::class, 'index'])->name('aboutus.index');
 // termsandconditions
 Route::get('termsandconditions', [TermsAndConditions::class, 'index'])->name('terms.index');
 //Bank Account
 
 // Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
-Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
-
-Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
-
 Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
 
 // Route::get('{cat}/services',[ServicesController::class,'categoryServices'])->name('category.services');
@@ -103,6 +99,9 @@ Route::middleware('auth:admin')->group(function () {
 
     Route::resource('cities', CitiesController::class);
     Route::resource('countries', CountriesController::class);
+    //static Pages //
+    Route::get('admin/about', [AboutController::class,'create'])->name('about.create');
+    Route::post('admin/store', [AboutController::class,'store'])->name('about.store');
 });
 
 
