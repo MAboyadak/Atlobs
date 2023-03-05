@@ -31,15 +31,23 @@ class CitiesController extends Controller
         return redirect()->route('cities.index')->with('message','City Added successfuly');
     }
 
-    public function edit($country_id, City $city)
+    public function edit($id)
     {
-        return view('admin.cities.edit', compact('country_id', 'city'));
+        $city = City::find($id);
+
+        return view('admin.cities.edit', ['city' => $city]);
     }
 
-    public function update($country_id, Request $request, City $city)
+    public function update(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+
+        ]);
+        $city = city::find($id);
+        $city->name = $validatedData['name'];
         $city->update($request->all());
-        return redirect()->route('admin.cities.index', $country_id)->with('message','City updated Successfuly');
+        return redirect()->route('cities.index')->with('message','City updated Successfuly');
     }
 
     public function show($country_id, City $city)
