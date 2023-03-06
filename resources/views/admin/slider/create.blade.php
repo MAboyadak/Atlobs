@@ -24,7 +24,7 @@
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Image</label>
-                        <input type="file" name="image" class="form-control py-1" id="exampleInputPassword1">
+                        <input type="file" name="image" class="form-control" id="exampleInputPassword1">
                     </div>
                     @if($errors->has('image'))
                     <div class="alert alert-danger">

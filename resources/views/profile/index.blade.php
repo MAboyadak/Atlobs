@@ -13,7 +13,7 @@
                     <h6 class="me-3 contact-txt-color-1 fw-bold m-0">محمد عبدالعظيم</h6>
                 </div>
                 <div
-                    class="d-flex col-12 col-md-6 mt-md-3 align-items-center justify-content-center justify-content-md-between mt-4">
+                    class="d-flex col-12 col-md-6  align-items-center justify-content-center justify-content-md-between mt-4 mt-md-0">
                     <div class=" d-flex align-items-center justify-content-center mn-12">
                         <i class="fa-solid fa-location-dot icon-24"></i>
                         <h6 class="fw-bold me-3 m-0 ">مكة المكرمة ، حي شرق</h6>

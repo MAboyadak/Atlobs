@@ -14,12 +14,12 @@
                 <img src="{{ asset('images/person.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">User Name</a>
+                {{-- <a href="#" class="d-block">{{ auth()->guard('admin')->user()->name }}</a> --}}
             </div>
         </div>
 
         <!-- SidebarSearch Form -->
-        <div class="form-inline">
+        {{-- <div class="form-inline">
             <div class="input-group" data-widget="sidebar-search">
                 <input class="form-control form-control-sidebar" type="search" placeholder="Search"
                     aria-label="Search">
@@ -29,15 +29,14 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-       with font-awesome or any other icon font library -->
-                <li class="nav-item menu-open">
+                <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+                {{-- <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -68,12 +67,60 @@
                             <span class="right badge badge-danger">New</span>
                         </p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
-                    <a href="{{Route('slider.index')}}" class="nav-link">
+                    <a href="{{ Route('slider.index') }}" class="nav-link">
                         <i class="mdi mdi-view-carousel menu-icon"></i>
 
-                            <span class="menu-title">Home Slider</span>
+                        <span class="menu-title">Home Slider</span>
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ Route('additionalService.index') }}" class="nav-link">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+
+                        <span class="menu-title">Additional Services</span>
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ Route('cities.index')}}" class="nav-link">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+
+                        <span class="menu-title">cities</span>
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ Route('countries.index')}}" class="nav-link">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+
+                        <span class="menu-title">countries</span>
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ Route('about.create')}}" class="nav-link">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+
+                        <span class="menu-title">about</span>
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ Route('bankAcount.index')}}" class="nav-link">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+
+                        <span class="menu-title">Bank Account</span>
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ Route('terms.index')}}" class="nav-link">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+
+                        <span class="menu-title">Terms And Conditions</span>
 
                     </a>
                 </li>

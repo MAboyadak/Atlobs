@@ -28,7 +28,7 @@ class SliderController extends Controller
      $filename = time().'.'.$ext;
      $file->move('uploads/slider/',$filename);
      $validatedData['image']="uploads/slider/$filename";
-     Slider::create(['image' => $validatedData['image']]);
+    Slider::create(['image' => $validatedData['image']]);
     //  return "added";
     return redirect('admin/slider')->with('message','Slider added Successfuly');
     }
