@@ -21,7 +21,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Country_ID</th>
+                                <th>Country</th>
                                 <th>City</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
@@ -33,7 +33,7 @@
                             <td>{{$city->country->name}}</td>
                             <td>{{$city->name}}</td>
                             <td>
-                                <a href="{{ route('cities.edit', [ $city->id]) }}">Edit</a>
+                                <a href="{{ route('cities.edit', [ $city->id]) }}" class="btn btn-warning">Edit</a>
                             </td>
                             <td>
                                 <form action="{{ route('cities.destroy', [ $city->id]) }}" method="POST">

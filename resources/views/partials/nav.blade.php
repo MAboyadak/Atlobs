@@ -52,7 +52,7 @@
                  @endauth
                  @guest
                      <div class="d-none d-md-flex align-items-center border-0 mx-5">
-                         <a href="{{ route('login') }}" class="login-button custom-link">تسجيل الدخول </i></a>
+                         <a href="https://atlobs.com/login" class="login-button custom-link">تسجيل الدخول </i></a>
                      </div>
                  @endguest
                  <div id="subMenu">

@@ -1,21 +1,22 @@
 <?php
 
 use App\Http\Controllers\CategoryOrderController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Admin\MyCategoryOrderController;
+// use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PasswordController;
-use App\Http\Controllers\AboutUs;
-use App\Http\Controllers\TermsAndConditions;
-use App\Http\Controllers\BankAccount;
 use App\Http\Controllers\chatcontroller;
 use App\Http\Controllers\OrderDetail;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AdditionalServicesController;
 use App\Http\Controllers\Admin\AdminAuthController;
-
+use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\BankAccountController;
+use App\Http\Controllers\Admin\TermsAndConditionsController;
 use App\Http\Controllers\Admin\CitiesController;
 use App\Http\Controllers\Admin\CountriesController;
 use App\Http\Controllers\DropdownController;
@@ -45,7 +46,9 @@ Route::get('services', [ServicesController::class, 'index'])->name('services.ind
 // Profile
 Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-Route::get('profile/password/change', [ProfileController::class, 'changePassword'])->name('profile.change_password');
+Route::get('profile/password/change', [ProfileController::class, 'createPassword'])->name('profile.create_password');
+Route::post('profile/password/change', [ProfileController::class, 'changePassword'])->name('profile.change_password');
+
 
 //Orders
 Route::get('myorders', [OrdersController::class, 'myOrders'])->name('myorders.index');
@@ -58,17 +61,13 @@ Route::get('orders', [OrdersController::class, 'orders'])->name('orders.view');
 
 
 // About Us
-Route::get('aboutus', [AboutUs::class, 'index'])->name('aboutus.index');
+Route::get('aboutus', [AboutController::class, 'index'])->name('aboutus.index');
 // termsandconditions
-Route::get('termsandconditions', [TermsAndConditions::class, 'index'])->name('terms.index');
+Route::get('termsandconditions', [TermsAndConditionsController::class, 'index'])->name('terms.index');
 //Bank Account
 
 // Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
-Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
-
-Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
-
-Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
+Route::get('bankAccount', [BankAccountController::class, 'index'])->name('bankAcount.index');
 
 // Route::get('{cat}/services',[ServicesController::class,'categoryServices'])->name('category.services');
 
@@ -99,7 +98,7 @@ Route::get('/reset-password/{token}', [AdminAuthController::class, 'getPassword'
 Route::post('/reset-password', [AdminAuthController::class, 'updatePassword'])->name('post.reset');
 
 
-Route::middleware('auth:admin')->group(function () {
+// Route::middleware('auth:admin')->group(function () {
     Route::view('admin', 'admin.dashboard')->name('dashboard.home');
 
     Route::resource('admin/slider', SliderController::class);
@@ -108,8 +107,21 @@ Route::middleware('auth:admin')->group(function () {
 
     Route::resource('cities', CitiesController::class);
     Route::resource('countries', CountriesController::class);
+    //static Pages //
+    Route::get('admin/about', [AboutController::class,'create'])->name('about.create');
+    Route::post('admin/about/store', [AboutController::class,'store'])->name('about.store');
+    Route::get('admin/bank', [BankAccountController::class,'create'])->name('bank.create');
+    Route::post('admin/bank/store', [BankAccountController::class,'store'])->name('bank.store');
+    Route::get('admin/terms', [TermsAndConditionsController::class,'create'])->name('terms.create');
+    Route::post('admin/termsstore', [TermsAndConditionsController::class,'store'])->name('terms.store');
+    Route::get('admin/categoryOrder', [MyCategoryOrderController::class,'create'])->name('categoryOrder.create');
+    Route::post('admin/categoryOrder/store', [MyCategoryOrderController::class,'store'])->name('categoryOrder.store');
 });
 
+Route::resource('admin/slider',SliderController::class);
+
+
+Route::resource('admin/category',CategoryController::class);
 
 // routes for cites and countries DropDown in orders/create
 Route::get('orders/create', [DropdownController::class, 'index']);

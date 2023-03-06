@@ -14,18 +14,25 @@
             @endif
             <div class="card">
                 <div class="card-header">
-                    <h3 class="d-inline">Edit city</h3>
-                    <a href="{{route('cities.index')}}" class="btn btn-danger btn-sm text-white float-right">
-                        Back
-                    </a>
+                    <h3 class="d-inline">Category Order</h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route("cities.update", [$city->id]) }}" method="POST">
+                 <form action="{{Route('categoryOrder.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @method('PUT')
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">city Name</label>
-                        <input type="text" name="name" value="{{$city->name}}" class="form-control py-1" id="exampleInputPassword1">
+                        <label for="exampleInputPassword1" class="form-label">Categry Image</label>
+                        <input type="file" name="image" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    @if($errors->has('image'))
+                    <div class="alert alert-danger">
+                     <ul>
+                      <li>{{$errors->first('image')}}</li>
+                     </ul>
+                    </div>
+                    @endif
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Category Name</label>
+                        <input type="text" name="name" class="form-control" id="exampleInputPassword1">
                     </div>
                     @if($errors->has('name'))
                     <div class="alert alert-danger">
@@ -35,7 +42,7 @@
                     </div>
                     @endif
                     <div>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
 
                  </form>
