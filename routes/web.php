@@ -90,7 +90,7 @@ Route::get('/reset-password/{token}', [AdminAuthController::class, 'getPassword'
 Route::post('/reset-password', [AdminAuthController::class, 'updatePassword'])->name('post.reset');
 
 
-Route::middleware('auth:admin')->group(function () {
+// Route::middleware('auth:admin')->group(function () {
     Route::view('admin', 'admin.dashboard')->name('dashboard.home');
 
     Route::resource('admin/slider', SliderController::class);
@@ -102,7 +102,7 @@ Route::middleware('auth:admin')->group(function () {
     //static Pages //
     Route::get('admin/about', [AboutController::class,'create'])->name('about.create');
     Route::post('admin/store', [AboutController::class,'store'])->name('about.store');
-});
+// });
 
 
 // routes for cites and countries DropDown in orders/create
