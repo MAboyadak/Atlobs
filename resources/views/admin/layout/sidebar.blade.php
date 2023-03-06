@@ -117,7 +117,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ Route('terms.index')}}" class="nav-link">
+                    <a href="{{ Route('terms.create')}}" class="nav-link">
                         <i class="mdi mdi-view-carousel menu-icon"></i>
 
                         <span class="menu-title">Terms And Conditions</span>

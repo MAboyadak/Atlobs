@@ -7,7 +7,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PasswordController;
-use App\Http\Controllers\TermsAndConditions;
 use App\Http\Controllers\chatcontroller;
 use App\Http\Controllers\OrderDetail;
 use App\Http\Controllers\Admin\SliderController;
@@ -16,6 +15,7 @@ use App\Http\Controllers\Admin\AdditionalServicesController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\BankAccountController;
+use App\Http\Controllers\Admin\TermsAndConditionsController;
 use App\Http\Controllers\Admin\CitiesController;
 use App\Http\Controllers\Admin\CountriesController;
 use App\Http\Controllers\DropdownController;
@@ -57,7 +57,7 @@ Route::get('orders/order/details', [OrdersController::class, 'order_details'])->
 // About Us
 Route::get('aboutus', [AboutController::class, 'index'])->name('aboutus.index');
 // termsandconditions
-Route::get('termsandconditions', [TermsAndConditions::class, 'index'])->name('terms.index');
+Route::get('termsandconditions', [TermsAndConditionsController::class, 'index'])->name('terms.index');
 //Bank Account
 
 // Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
@@ -106,6 +106,8 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('admin/about/store', [AboutController::class,'store'])->name('about.store');
     Route::get('admin/bank', [BankAccountController::class,'create'])->name('bank.create');
     Route::post('admin/bank/store', [BankAccountController::class,'store'])->name('bank.store');
+    Route::get('admin/terms', [TermsAndConditionsController::class,'create'])->name('terms.create');
+    Route::post('admin/termsstore', [TermsAndConditionsController::class,'store'])->name('terms.store');
 });
 
 Route::resource('admin/slider',SliderController::class);
