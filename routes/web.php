@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryOrderController;
-use App\Http\Controllers\CategoryController;
+// use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OrdersController;
@@ -13,6 +13,7 @@ use App\Http\Controllers\BankAccount;
 use App\Http\Controllers\chatcontroller;
 use App\Http\Controllers\OrderDetail;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -82,3 +83,6 @@ Route::middleware(['auth', 'user-access:super-admin'])->group(function () {
 });
 
 Route::resource('admin/slider',SliderController::class);
+
+
+Route::resource('admin/category',CategoryController::class);
