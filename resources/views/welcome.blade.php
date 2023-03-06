@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="#" class="">
+                        <a href="{{ route('orders.view') }}" class="">
                             <div class="card text-center px-3 category-offer mt-4 w-75 m-auto">
                                 <img src="{{ asset('images/gift.png') }}" width="100" height="100" class=" m-auto mt-3"
                                     alt="...">
@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="#" class="">
+                        <a href="{{ route('orders.view') }}" class="">
                             <div class="card text-center px-3 category-offer mt-4 w-75 m-auto">
                                 <img src="{{ asset('images/gift.png') }}" width="100" height="100" class=" m-auto mt-3"
                                     alt="...">

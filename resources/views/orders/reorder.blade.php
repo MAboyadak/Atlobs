@@ -126,11 +126,11 @@
                         <label class="mb-3 fw-bold">المدينة</label>
                         <div class="search_select_box position-relative p-0">
                             <select data-live-search="true" name="" id="" class="w-100 ">
-                                @foreach ($countries as $country)
+                                {{-- @foreach ($countries as $country)
                                     <option value="{{ $country->id }}" class="text-end">
                                         {{ $country->name }}
                                     </option>
-                                @endforeach
+                                @endforeach --}}
                             </select>
                         </div>
                     </div>
@@ -138,11 +138,11 @@
                         <label class="mb-3 fw-bold">الدولة</label>
                         <div class="search_select_box position-relative p-0">
                             <select data-live-search="true" name="" id="" class="w-100">
-                                @foreach ($countries as $country)
+                                {{-- @foreach ($countries as $country)
                                     <option value="{{ $country->id }}" class="text-end">
                                         {{ $country->name }}
                                     </option>
-                                @endforeach
+                                @endforeach --}}
                             </select>
                         </div>
                     </div>
@@ -185,7 +185,8 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-body">
-                                    <h4 class="contact-txt-color-1 fw-bold text-center my-4"> تم إنشاء منتجك بنجاح ! </h4>
+                                    <h4 class="contact-txt-color-1 fw-bold text-center my-4"> تم إعادة إنشاء منتجك بنجاح !
+                                    </h4>
                                 </div>
                             </div>
                         </div>

@@ -49,8 +49,13 @@ Route::get('profile/password/change', [ProfileController::class, 'changePassword
 
 //Orders
 Route::get('myorders', [OrdersController::class, 'myOrders'])->name('myorders.index');
+Route::get('myorders/active', [OrdersController::class, 'activeOrder'])->name('orders.active');
+Route::get('orders/finished', [OrdersController::class, 'finishedOrder'])->name('orders.finished');
 Route::get('orders/create', [OrdersController::class, 'create'])->name('orders.create');
+Route::get('orders/reorder', [OrdersController::class, 'reOrder'])->name('orders.reorder');
 Route::get('orders/order/details', [OrdersController::class, 'order_details'])->name('myorders.details');
+Route::get('orders', [OrdersController::class, 'orders'])->name('orders.view');
+
 
 // About Us
 Route::get('aboutus', [AboutUs::class, 'index'])->name('aboutus.index');

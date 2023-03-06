@@ -17,41 +17,20 @@
                                 <h6 class="fw-bold me-3 m-0 ">مكة المكرمة ، حي شرق</h6>
                             </div>
                         </div>
-                        <div
-                            class=" d-flex col-6 col-md-1 align-items-center justify-content-md-end justify-content-center ">
-                            <!-- Button trigger modal -->
-                            <button type="button" class="py-2 px-2 px-md-5 btn edit-btn-1" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">تواصل</button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content px-3">
-                                        <div class="modal-body">
-                                            <h4 class="contact-txt-color-1 fw-bold text-center my-3">حدد طريقة التواصل</h4>
-                                            <div class="form-check form-check-reverse">
-                                                <input class="form-check-input" type="radio" name="exampleRadios"
-                                                    id="exampleRadios1" value="option1" checked>
-                                                <label class="form-check-label d-flex justify-content-between"
-                                                    for="exampleRadios1">
-                                                    <div> <i class="fa-solid fa-phone mx-2 contact-txt-color-1"></i>
-                                                        050 3222 2119 9221
-                                                    </div>
-                                                    <div class="copy-number"><i
-                                                            class="fa-solid fa-copy contact-txt-color-1 mx-3"></i> نسخ
-                                                    </div>
-                                                </label>
-                                            </div>
-                                            <div class="form-check form-check-reverse my-3">
-                                                <input class="form-check-input" type="radio" name="exampleRadios"
-                                                    id="exampleRadios2" value="option2" checked>
-                                                <label class="form-check-label d-flex justify-content-between"
-                                                    for="exampleRadios2">
-                                                    <div> <i class="fa-solid fa-envelope contact-txt-color-2 mx-2"></i>
-                                                        إرسال عبر رسائل الموقع </div>
-                                                </label>
-                                            </div>
-                                        </div>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="py-2 px-2 px-md-4 btn edit-btn-1" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            إنهاء الطلب
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <h4 class="contact-txt-color-1 fw-bold text-center my-4"> تم إنهاء منتجك بنجاح
+                                            !
+                                        </h4>
                                     </div>
                                 </div>
                             </div>
