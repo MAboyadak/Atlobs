@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryOrderController;
+use App\Http\Controllers\Admin\MyCategoryOrderController;
 // use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ProfileController;
@@ -108,6 +109,8 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('admin/bank/store', [BankAccountController::class,'store'])->name('bank.store');
     Route::get('admin/terms', [TermsAndConditionsController::class,'create'])->name('terms.create');
     Route::post('admin/termsstore', [TermsAndConditionsController::class,'store'])->name('terms.store');
+    Route::get('admin/categoryOrder', [MyCategoryOrderController::class,'create'])->name('categoryOrder.create');
+    Route::post('admin/categoryOrder/store', [MyCategoryOrderController::class,'store'])->name('categoryOrder.store');
 });
 
 Route::resource('admin/slider',SliderController::class);
