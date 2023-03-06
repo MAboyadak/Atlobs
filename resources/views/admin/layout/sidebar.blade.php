@@ -109,7 +109,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ Route('bankAcount.index')}}" class="nav-link">
+                    <a href="{{ Route('bank.create')}}" class="nav-link">
                         <i class="mdi mdi-view-carousel menu-icon"></i>
 
                         <span class="menu-title">Bank Account</span>

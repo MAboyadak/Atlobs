@@ -7,18 +7,15 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PasswordController;
-use App\Http\Controllers\AboutUs;
 use App\Http\Controllers\TermsAndConditions;
-use App\Http\Controllers\BankAccount;
 use App\Http\Controllers\chatcontroller;
 use App\Http\Controllers\OrderDetail;
 use App\Http\Controllers\Admin\SliderController;
-<<<<<<< HEAD
 use App\Http\Controllers\Admin\CategoryController;
-=======
 use App\Http\Controllers\Admin\AdditionalServicesController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\BankAccountController;
 use App\Http\Controllers\Admin\CitiesController;
 use App\Http\Controllers\Admin\CountriesController;
 use App\Http\Controllers\DropdownController;
@@ -26,7 +23,6 @@ use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\FavouriteController;
 
 use App\Http\Controllers\HomeController;
->>>>>>> 5321ff2d4f2163cf58e4ccbb4fa89c31cf0df43b
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -65,7 +61,7 @@ Route::get('termsandconditions', [TermsAndConditions::class, 'index'])->name('te
 //Bank Account
 
 // Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
-Route::get('bankAccount', [BankAccount::class, 'index'])->name('bankAcount.index');
+Route::get('bankAccount', [BankAccountController::class, 'index'])->name('bankAcount.index');
 
 // Route::get('{cat}/services',[ServicesController::class,'categoryServices'])->name('category.services');
 
@@ -107,17 +103,16 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('countries', CountriesController::class);
     //static Pages //
     Route::get('admin/about', [AboutController::class,'create'])->name('about.create');
-    Route::post('admin/store', [AboutController::class,'store'])->name('about.store');
+    Route::post('admin/about/store', [AboutController::class,'store'])->name('about.store');
+    Route::get('admin/bank', [BankAccountController::class,'create'])->name('bank.create');
+    Route::post('admin/bank/store', [BankAccountController::class,'store'])->name('bank.store');
 });
 
-<<<<<<< HEAD
 Route::resource('admin/slider',SliderController::class);
 
 
 Route::resource('admin/category',CategoryController::class);
-=======
 
 // routes for cites and countries DropDown in orders/create
 Route::get('orders/create', [DropdownController::class, 'index']);
 Route::post('api/fetch-cities', [DropdownController::class, 'fetchCity']);
->>>>>>> 5321ff2d4f2163cf58e4ccbb4fa89c31cf0df43b
