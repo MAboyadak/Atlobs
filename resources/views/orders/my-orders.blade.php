@@ -25,7 +25,7 @@
                                         <div class="d-flex  align-items-start justify-content-between w-100">
                                             <h6 class="contact-txt-color-2 fw-bold">سيارة ديجيتال</h6>
                                             <div>
-                                                <a href="">
+                                                <a href="{{ route('orders.active') }}">
                                                     <h6 class="me-3 contact-txt-color-1 fw-bold m-0">إلغاء الطلب</h6>
                                                 </a>
                                             </div>
@@ -68,7 +68,7 @@
                                         <div class="d-flex  align-items-start justify-content-between w-100">
                                             <h6 class="contact-txt-color-2 fw-bold">سيارة ديجيتال</h6>
                                             <div>
-                                                <a href="">
+                                                <a href="{{ route('orders.finished') }}">
                                                     <h6 class="me-3 contact-txt-color-1 fw-bold m-0">إعادة الطلب</h6>
                                                 </a>
                                             </div>

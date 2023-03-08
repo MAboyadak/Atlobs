@@ -24,7 +24,7 @@
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Service Name</label>
+                        <label for="exampleInputPassword1" class="form-label">Country Name</label>
                         <input type="text" name="name" value="{{$country->name}}" class="form-control py-1" id="exampleInputPassword1">
                     </div>
                     @if($errors->has('name'))

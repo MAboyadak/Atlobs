@@ -1,162 +1,102 @@
 @extends('layouts.app')
-
 @section('content')
-    <main class="container " style="direction:ltr">
-        <h1 class="text-end my-3" style="color: #3A4C94">الرسائل </h1>
-        <section class="  row">
-            <div class="card col-8 myChatCard">
-                <div class="card-header">
-                    <div class="float-end">
-                        <span>حمودي نجيب</span>
-                        <img src="/images/naguib_dog.jpg" style="max-height: 100px; border-radius: 50%">
+    <div class="container">
+        <h4 class="m-3 contact-txt-color-1 fw-bold m-0 text-end">الرسائل</h4>
+        <div class="d-flex flex-wrap flex-lg-nowrap gap-2">
+            <div class="col-12 col-lg-5 ">
+                <div class="card  rounded-0 rounded-top chat row align-items-center border-0 py-3 px-3">
+                    <div class="d-flex my-2">
+                        <div class=" img-container50">
+                            <img id="avatar" style="width: 50px" src="{{ asset('images/user.png') }}"
+                                class="avatar-circlye fill col-2" alt="Avatar" />
+                        </div>
+                        <div class="d-flex flex-column justify-content-between w-100 me-3 status">
+                            <h6 class="col contact-txt-color-2 fw-bold text-end p-0">إلهام موسي</h6>
+                            <div class="d-flex align-items-center">
+                                <span class="status-badge"></span>
+                                <span class="status-label">نشط الآن</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search w-100 position-relative my-2">
+                        <input type="search" name="search" class="p-10 w-100" placeholder="ابحث عن محادثة" />
                     </div>
                 </div>
-                <div class="card-body chat-history p-4">
-                    <ul id="myulForChat">
-                        <li class=" d-flex justify-content-end">
+                @foreach (range(4, 1) as $count)
+                    <div class="card border-0 p-2 w-100 m-0 my-1">
+                        <div class="d-flex  align-items-end justify-content-end flex-wrap flex-lg-nowrap">
+                            <div class="d-flex w-100">
+                                <div class=" img-container50 d-flex align-items-center justify-content-center">
+                                    <img id="avatar" style="width: 50px" src="{{ asset('images/user.png') }}"
+                                        class="avatar-circlye fill " alt="Avatar" />
+                                </div>
+                                <div class="w-100 px-3">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h6 class="contact-txt-color-2 fw-bold text-end">أحمد محمد</h6>
+                                        <h6 class="text-black-50 fs-small">منذ<span>3
+                                                دقايق</span>
+                                    </div>
+                                    </h6>
+                                    <div class=" d-flex  align-items-center justify-content-between w-100">
+                                        <h6 class="text-end m-0 my-1 short-desc">هذا النص هو مثال لنص يمكن أن يستبدل في
+                                            نفس
+                                            المساحة،
+                                    </div>
+                                </div>
+                            </div>
 
-                            <span class="mychat-text text-light text-wrap text-end ">حمودي بسلسهليستخبايسخبياس بثشبشس شسبشس شب شسسش شس بب   شبثبخ يىبيسى
-                                خسهعبيسى سيعباب
-                                سينعب بشسشسيسبيس
-                            </span>
-                            <img src="/images/naguib_dog.jpg" style="max-height: 60px; border-radius: 50%">
-
-                        </li>
-                        <li class="d-flex justify-content-start">
-
-                            <img src="/images/naguib_dog.jpg" style="max-height: 60px; border-radius: 50%">
-                            <span class="otherchat-text text-wrap text-end ">حمودي بسلسهليستخبايسخبياسخ يىبيسى خس  يشسيسش سشيش يثضصب مخن صىمقص لصعخى صمفعخهعبيسى سيعباب
-                                سينعبيسبيس
-                            </span>
-                        </li>
-                        <li class="d-flex justify-content-end">
-                            <span class="mychat-text text-light text-wrap text-end">حمودي بسلسهليستخبايسخبياسخ يىبيس لقصلق ثصلتع لاصخعصثقل لاعخثعللار 7 رصغبقصقل ى خسهعبيسى سيعباب
-                                سينعبيسبيس
-                            </span>
-                            <img src="/images/naguib_dog.jpg" style="max-height: 60px; border-radius: 50%">
-                        </li>
-                        <li class="d-flex justify-content-start">
-                            <img src="/images/naguib_dog.jpg" style="max-height: 60px; border-radius: 50%">
-                            <span class="otherchat-text text-wrap  text-end ">حمودي بسلسهليستخبايسخبياسخ يىبي صثتمل هعص لصلاالصثعه اصثق لعهصغرص بغ7لص بصث سى خسهعبيسى سيعباب
-                                سينعبيسبيس
-                            </span>
-                        </li>
-
-                    </ul>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="col-12 col-lg-7">
+                <div class="card messages-card border-0 p-3 border-0 rounded-0 rounded-top">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center">
+                        <div class="col-12 col-md-4 img-container75 d-flex align-items-center justify-content-start">
+                            <img id="avatar" style="width: 75px" src="{{ asset('images/user.png') }}"
+                                class="avatar-circlye fill " alt="Avatar" />
+                            <h6 class="me-3 contact-txt-color-1 fw-bold m-0">محمد عبدالعظيم</h6>
+                        </div>
+                    </div>
                 </div>
-                <div class="input-group mb-3 px-3">
-                    <button class="btn btn-lg mx-3" style="background-color: #3A4C94;"><i style="color:white;"
-                            class="fa-solid fa-paper-plane fa-flip-horizontal"></i></button>
-                    <span class="input-group-text"> <i class="fa-solid fa-microphone"></i>
-                    </span>
-                    <span class="input-group-text"><i class="fa-solid fa-camera "></i></span>
-                    <input type="text" class="form-control" id="chatInput" placeholder="اكتب رسالتك" />
-
+                <div class="card border-0 p-3 rounded-0 rounded-bottom">
+                    <div class="card border-0 w-100 m-0 ">
+                        <div class="card-body p-0 py-2 chat-history">
+                            <ul id="myulForChat">
+                                @foreach (range(4, 1) as $count)
+                                    <li class="d-flex justify-content-start align-items-center">
+                                        <img src="/images/naguib_dog.jpg" style="max-height: 44px; border-radius: 50%">
+                                        <span class="otherchat-text text-wrap text-end ">حمودي بسلسهليستخبايسخبياسخ يىبيسى
+                                            خس يشسيسش سشيش يثضصب مخن صىمقص لصعخى صمفعخهعبيسى سيعباب
+                                            سينعبيسبيس
+                                        </span>
+                                    </li>
+                                    <li class="d-flex justify-content-end align-items-center">
+                                        <span class="mychat-text text-light text-wrap text-end">حمودي بسلسهليستخبايسخبياسخ
+                                            يىبيس لقصلق ثصلتع لاصخعصثقل لاعخثعللار 7 رصغبقصقل ى خسهعبيسى سيعباب
+                                            سينعبيسبيس
+                                        </span>
+                                        <img src="/images/naguib_dog.jpg" style="max-height: 44px; border-radius: 50%">
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="d-flex align-items-center justify-content-start gap-2">
+                        <div class=" img-container30 d-flex align-items-center justify-content-center">
+                            <img id="avatar" style="width: 30px" src="{{ asset('images/user.png') }}"
+                                class="avatar-circlye fill col-2" alt="Avatar" />
+                        </div>
+                        <div class="col position-relative">
+                            <input class="w-100 comment-input" placeholder="اكتب تعليقك هنا">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+                        <button class="px-4 py-1 btn edit-btn-1"> <i
+                                class="fa-solid fa-paper-plane fa-flip-horizontal"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="col-4 card">
-                <div class="card-body">
-                    <div class="float-end my-3">
-                        <span>حمودي </span>
-                        <i style="color: green" class="fa-solid fa-circle"></i>
-                        <img src="/images/naguib_dog.jpg" style="max-height: 60px; border-radius: 50%">
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-text"> <i class="fa-solid fa-search"></i>
-                        </span>
-                        <input type="text" class="form-control" placeholder="ابحث عن رسالتك" />
-                    </div>
-                    {{-- start of one chat card --}}
-                    <div class="card mt-2">
-                        <div class="row g-0">
-                            <div class="col-md-9">
-                                <div class="card-body ">
-                                    <div class="card-title text-primary text-end">
-                                        نجيب العسجدي
-                                    </div>
-                                    <div class="text-end card-text">
-
-                                        أهلا انا فلان الفلاني
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="float-end m-3    ">
-                                    <img src="/images/naguib_dog.jpg "style="max-height: 80px;border-radius: 50%;">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- end of one chat card --}}
-                    {{-- start of one chat card --}}
-                    <div class="card mt-2">
-                        <div class="row g-0">
-                            <div class="col-md-9">
-                                <div class="card-body ">
-                                    <div class="card-title text-primary text-end">
-                                        نجيب العسجدي
-                                    </div>
-                                    <div class="text-end card-text">
-
-                                        أهلا انا فلان الفلاني
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="float-end m-3    ">
-                                    <img src="/images/naguib_dog.jpg "style="max-height: 80px;border-radius: 50%">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- end of one chat card --}}
-                    {{-- start of one chat card --}}
-                    <div class="card mt-2">
-                        <div class="row g-0">
-                            <div class="col-md-9">
-                                <div class="card-body ">
-                                    <div class="card-title text-primary text-end">
-                                        نجيب العسجدي
-                                    </div>
-                                    <div class="text-end card-text">
-
-                                        أهلا انا فلان الفلاني
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="float-end m-3    ">
-                                    <img src="/images/naguib_dog.jpg "style="max-height: 80px;border-radius: 50%">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- end of one chat card --}}
-                    {{-- start of one chat card --}}
-                    <div class="card mt-2">
-                        <div class="row g-0">
-                            <div class="col-md-9">
-                                <div class="card-body ">
-                                    <div class="card-title text-primary text-end">
-                                        نجيب العسجدي
-                                    </div>
-                                    <div class="text-end card-text">
-
-                                        أهلا انا فلان الفلاني
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="float-end m-3    ">
-                                    <img src="/images/naguib_dog.jpg "style="max-height: 80px;border-radius: 50%">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- end of one chat card --}}
-                </div>
-            </div>
-            {{-- end of card  --}}
-        </section>
-    </main>
+        </div>
+    </div>
 @endsection

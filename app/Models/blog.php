@@ -1,15 +1,13 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-class Category extends Model
+use Carbon\Carbon;
+class blog extends Model
 {
     use HasFactory;
-    public function cat()
-    {
-        return $this->belongsTo(CategoryOrder::class);
-    }
+    protected $table ='blogs';
+    protected $fillable =['name','description','image','id'];
+
 }

@@ -123,30 +123,29 @@
                 <div class="row" data-step>
                     <h6 class="w-100 fw-bold mt-2 mb-3 pe-0">التواصل</h6>
                     <div class="head form-group col-12 col-lg-6 mb-3 pe-0">
-                        <label class="mb-3 fw-bold">الدولة</label>
+                        <label class="mb-3 fw-bold">المدينة</label>
                         <div class="search_select_box position-relative p-0">
-                            <select data-live-search="true" name="" id="country-dd"
-                                class="w-100 form-control select">
-                                <option value="" disabled selected>اختر الدولة</option>
-                                @foreach ($countries as $country)
-                                    <option value="{{ $country->id }}">
+                            <select data-live-search="true" name="" id="" class="w-100 ">
+                                {{-- @foreach ($countries as $country)
+                                    <option value="{{ $country->id }}" class="text-end">
                                         {{ $country->name }}
                                     </option>
-                                @endforeach
+                                @endforeach --}}
                             </select>
                         </div>
                     </div>
-
-
                     <div class="head form-group col-12 col-lg-6 mb-3 pe-0">
-                        <label class="mb-3 fw-bold">المدينة</label>
-                        <div class="search_select position-relative p-0 choseCity">
-                            <select data-live-search="true" name="" id="city-dd" class="w-100 form-control">
-                                <option value="" disabled selected>اختر المدينة</option>
+                        <label class="mb-3 fw-bold">الدولة</label>
+                        <div class="search_select_box position-relative p-0">
+                            <select data-live-search="true" name="" id="" class="w-100">
+                                {{-- @foreach ($countries as $country)
+                                    <option value="{{ $country->id }}" class="text-end">
+                                        {{ $country->name }}
+                                    </option>
+                                @endforeach --}}
                             </select>
                         </div>
                     </div>
-
 
                     <div class="col-12 col-lg-6 mb-3 pe-0">
                         <label class="mb-3 fw-bold">رقم الجوال</label>
@@ -186,7 +185,8 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-body">
-                                    <h4 class="contact-txt-color-1 fw-bold text-center my-4"> تم إنشاء منتجك بنجاح ! </h4>
+                                    <h4 class="contact-txt-color-1 fw-bold text-center my-4"> تم إعادة إنشاء منتجك بنجاح !
+                                    </h4>
                                 </div>
                             </div>
                         </div>
@@ -197,9 +197,6 @@
     </div>
 @endsection
 @section('script')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
-
     <script>
         document.querySelector('body').classList.add('orderBg1');
     </script>
@@ -215,12 +212,12 @@
             progressBar.classList.remove('w-50')
         }
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#country-dd').on('change', function() {
                 var idCountry = this.value;
                 $("#city-dd").html('');
-                $('.search_select').selectpicker('refresh');
                 $.ajax({
                     url: "{{ url('api/fetch-cities') }}",
                     type: "POST",
@@ -229,15 +226,12 @@
                         _token: '{{ csrf_token() }}'
                     },
                     dataType: 'json',
-
                     success: function(result) {
-                        $('#city-dd').html(
-                            '<option value="" disabled selected>اختر المدينة</option>');
+                        $('#city-dd').html('<option value="" disabled>اختر المدينة</option>');
                         $.each(result.cities, function(key, value) {
                             $("#city-dd").append('<option value="' + value
                                 .id + '">' + value.name + '</option>');
                         });
-                        $('.search_select select').selectpicker();
                     }
                 });
             });
@@ -262,11 +256,11 @@
                 }); // end of profile page image picker
         }); //load
     </script>
-    {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
     <script>
-        $('.search_select_box .select').selectpicker();
+        $('.search_select_box select').selectpicker();
     </script>
 @endsection
