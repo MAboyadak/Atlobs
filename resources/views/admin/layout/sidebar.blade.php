@@ -133,6 +133,22 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ Route('blogsCreate.index') }}" class="nav-link">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+
+                        <span class="menu-title">blogs</span>
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ Route('blogsCreate.index') }}" class="nav-link">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+
+                        <span class="menu-title">blogs</span>
+
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ Route('categoryOrder.create') }}" class="nav-link">
                         <i class="mdi mdi-view-carousel menu-icon"></i>
 

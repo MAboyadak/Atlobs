@@ -6,9 +6,9 @@ use App\Http\Controllers\Admin\MyCategoryOrderController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OrdersController;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\chatcontroller;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\OrderDetail;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\BankAccountController;
 use App\Http\Controllers\Admin\TermsAndConditionsController;
 use App\Http\Controllers\Admin\CitiesController;
 use App\Http\Controllers\Admin\CountriesController;
+use App\Http\Controllers\Admin\CreateBlogController;
 use App\Http\Controllers\DropdownController;
 
 use App\Http\Controllers\FavouriteController;
@@ -38,8 +39,8 @@ Route::view('register/verify', 'auth.register_verify');
 
 Route::resource('categories', CategoryController::class);
 
-Route::get('blogs', [BlogController::class, 'index'])->name('blogs.index');
-Route::get('blog', [BlogController::class, 'blog'])->name('blogs.blog');
+Route::resource('blogs', BlogController::class);
+// Route::get('blog', [BlogController::class, 'blog'])->name('blogs.blog');
 Route::get('change', [PasswordController::class, 'index'])->name('paswords.index');
 Route::get('categoryorder', [CategoryOrderController::class, 'index'])->name('categories.index');
 Route::get('services', [ServicesController::class, 'index'])->name('services.index');
@@ -98,25 +99,25 @@ Route::get('/reset-password/{token}', [AdminAuthController::class, 'getPassword'
 Route::post('/reset-password', [AdminAuthController::class, 'updatePassword'])->name('post.reset');
 
 
-// Route::middleware('auth:admin')->group(function () {
-Route::view('admin', 'admin.dashboard')->name('dashboard.home');
+Route::middleware('auth:admin')->group(function () {
+    Route::view('admin', 'admin.dashboard')->name('dashboard.home');
 
-Route::resource('admin/slider', SliderController::class);
+    Route::resource('admin/slider', SliderController::class);
 
-Route::resource('admin/additionalService', AdditionalServicesController::class);
-
-Route::resource('cities', CitiesController::class);
-Route::resource('countries', CountriesController::class);
-//static Pages //
-Route::get('admin/about', [AboutController::class, 'create'])->name('about.create');
-Route::post('admin/about/store', [AboutController::class, 'store'])->name('about.store');
-Route::get('admin/bank', [BankAccountController::class, 'create'])->name('bank.create');
-Route::post('admin/bank/store', [BankAccountController::class, 'store'])->name('bank.store');
-Route::get('admin/terms', [TermsAndConditionsController::class, 'create'])->name('terms.create');
-Route::post('admin/termsstore', [TermsAndConditionsController::class, 'store'])->name('terms.store');
-Route::get('admin/categoryOrder', [MyCategoryOrderController::class, 'create'])->name('categoryOrder.create');
-Route::post('admin/categoryOrder/store', [MyCategoryOrderController::class, 'store'])->name('categoryOrder.store');
-Route::get('admin/orders', [OrdersController::class, 'ordersAdmin'])->name('admin.orders');
+    Route::resource('admin/additionalService', AdditionalServicesController::class);
+    Route::resource('blogsCreate', CreateBlogController::class);
+    Route::resource('cities', CitiesController::class);
+    Route::resource('countries', CountriesController::class);
+    //static Pages //
+    Route::get('admin/about', [AboutController::class, 'create'])->name('about.create');
+    Route::post('admin/about/store', [AboutController::class, 'store'])->name('about.store');
+    Route::get('admin/bank', [BankAccountController::class, 'create'])->name('bank.create');
+    Route::post('admin/bank/store', [BankAccountController::class, 'store'])->name('bank.store');
+    Route::get('admin/terms', [TermsAndConditionsController::class, 'create'])->name('terms.create');
+    Route::post('admin/termsstore', [TermsAndConditionsController::class, 'store'])->name('terms.store');
+    Route::get('admin/categoryOrder', [MyCategoryOrderController::class, 'create'])->name('categoryOrder.create');
+    Route::post('admin/categoryOrder/store', [MyCategoryOrderController::class, 'store'])->name('categoryOrder.store');
+});
 
 Route::resource('admin/slider', SliderController::class);
 
