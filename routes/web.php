@@ -46,6 +46,7 @@ Route::get('services', [ServicesController::class, 'index'])->name('services.ind
 // Profile
 Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::get('profile/store', [ProfileController::class, 'store'])->name('profile.store');
 Route::get('profile/password/change', [ProfileController::class, 'createPassword'])->name('profile.create_password');
 Route::post('profile/password/change', [ProfileController::class, 'changePassword'])->name('profile.change_password');
 
@@ -92,8 +93,8 @@ Route::post('/forget-password', [AdminAuthController::class, 'postEmail'])->name
 Route::get('/reset-password/{token}', [AdminAuthController::class, 'getPassword'])->name('get.reset');
 Route::post('/reset-password', [AdminAuthController::class, 'updatePassword'])->name('post.reset');
 
-
-// Route::middleware('auth:admin')->group(function () {
+//
+Route::middleware('auth:admin')->group(function () {
     Route::view('admin', 'admin.dashboard')->name('dashboard.home');
 
     Route::resource('admin/slider', SliderController::class);
@@ -109,14 +110,11 @@ Route::post('/reset-password', [AdminAuthController::class, 'updatePassword'])->
     Route::post('admin/bank/store', [BankAccountController::class,'store'])->name('bank.store');
     Route::get('admin/terms', [TermsAndConditionsController::class,'create'])->name('terms.create');
     Route::post('admin/termsstore', [TermsAndConditionsController::class,'store'])->name('terms.store');
-    Route::get('admin/categoryOrder', [MyCategoryOrderController::class,'create'])->name('categoryOrder.create');
-    Route::post('admin/categoryOrder/store', [MyCategoryOrderController::class,'store'])->name('categoryOrder.store');
+    Route::resource('admin/categoryOrder',MyCategoryOrderController::class);
+
 });
 
-Route::resource('admin/slider',SliderController::class);
 
-
-Route::resource('admin/category',CategoryController::class);
 
 // routes for cites and countries DropDown in orders/create
 Route::get('orders/create', [DropdownController::class, 'index']);

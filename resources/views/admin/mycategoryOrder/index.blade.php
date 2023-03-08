@@ -10,42 +10,50 @@
        <div class="row">
         <div class="col-md-12">
             @if(session('message'))
-            <div class="alert alert-success">{{session('message')}}</div>
+            <div class="alert alert-success mt-5">{{session('message')}}</div>
             @endif
             <div class="card">
                 <div class="card-header">
-                    <h3 class="d-inline">Category Order</h3>
+                    <h3 class="d-inline">Category List</h3>
+                    <a href="{{Route('categoryOrder.create')}}" class="btn btn-primary btn-sm text-white float-right">
+                        Add Category
+                    </a>
                 </div>
                 <div class="card-body">
-                 <form action="{{Route('categoryOrder.store')}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Categry Image</label>
-                        <input type="file" name="image" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    @if($errors->has('image'))
-                    <div class="alert alert-danger">
-                     <ul>
-                      <li>{{$errors->first('image')}}</li>
-                     </ul>
-                    </div>
-                    @endif
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Category Name</label>
-                        <input type="text" name="name" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    @if($errors->has('name'))
-                    <div class="alert alert-danger">
-                     <ul>
-                      <li>{{$errors->first('name')}}</li>
-                     </ul>
-                    </div>
-                    @endif
-                    <div>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          @foreach($myCategoryOrders as $myCategoryOrder)
+                          <tr>
+                            <td>{{$myCategoryOrder->id}}</td>
 
-                 </form>
+                            <td><img src="{{asset("$myCategoryOrder->image")}}" alt="slider"
+                                 style="width:70px; height:70px;border-radius: 50% 50%;"></td>
+                                 <td>{{$myCategoryOrder->name}}</td>
+                            <td>
+                                <a href="{{Route('categoryOrder.edit',$myCategoryOrder->id)}}" class="btn btn-warning">Edit</a>
+
+                            </td>
+                            <td>
+                                <form action="{{route('categoryOrder.destroy',$myCategoryOrder->id)}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                 <input type="submit" value="Delete" class="btn btn-danger"
+                                 onclick="return confirm('Are you sure you want to delete this slider')">
+                                </form>
+                            </td>
+                          </tr>
+                          @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

@@ -125,15 +125,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{Route('category.index')}}" class="nav-link">
-                        <i class="mdi mdi-view-carousel menu-icon"></i>
-
-                            <span class="menu-title">Category</span>
-
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ Route('categoryOrder.create')}}" class="nav-link">
+                    <a href="{{ Route('categoryOrder.index')}}" class="nav-link">
                         <i class="mdi mdi-view-carousel menu-icon"></i>
 
                         <span class="menu-title">Category Order</span>
