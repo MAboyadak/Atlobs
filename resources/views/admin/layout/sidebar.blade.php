@@ -85,7 +85,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ Route('cities.index')}}" class="nav-link">
+                    <a href="{{ Route('cities.index') }}" class="nav-link">
                         <i class="mdi mdi-view-carousel menu-icon"></i>
 
                         <span class="menu-title">cities</span>
@@ -93,7 +93,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ Route('countries.index')}}" class="nav-link">
+                    <a href="{{ Route('countries.index') }}" class="nav-link">
                         <i class="mdi mdi-view-carousel menu-icon"></i>
 
                         <span class="menu-title">countries</span>
@@ -101,7 +101,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ Route('about.create')}}" class="nav-link">
+                    <a href="{{ Route('about.create') }}" class="nav-link">
                         <i class="mdi mdi-view-carousel menu-icon"></i>
 
                         <span class="menu-title">about</span>
@@ -109,7 +109,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ Route('bank.create')}}" class="nav-link">
+                    <a href="{{ Route('bank.create') }}" class="nav-link">
                         <i class="mdi mdi-view-carousel menu-icon"></i>
 
                         <span class="menu-title">Bank Account</span>
@@ -117,7 +117,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ Route('terms.create')}}" class="nav-link">
+                    <a href="{{ Route('terms.create') }}" class="nav-link">
                         <i class="mdi mdi-view-carousel menu-icon"></i>
 
                         <span class="menu-title">Terms And Conditions</span>
@@ -125,22 +125,27 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{Route('category.index')}}" class="nav-link">
+                    <a href="{{ Route('category.index') }}" class="nav-link">
                         <i class="mdi mdi-view-carousel menu-icon"></i>
 
-                            <span class="menu-title">Category</span>
+                        <span class="menu-title">Category</span>
 
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ Route('categoryOrder.create')}}" class="nav-link">
+                    <a href="{{ Route('categoryOrder.create') }}" class="nav-link">
                         <i class="mdi mdi-view-carousel menu-icon"></i>
 
                         <span class="menu-title">Category Order</span>
 
                     </a>
                 </li>
-
+                <li class="nav-item">
+                    <a href="{{ Route('admin.orders') }}" class="nav-link">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+                        <span class="menu-title">View Orders</span>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

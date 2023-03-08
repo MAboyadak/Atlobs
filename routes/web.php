@@ -99,29 +99,29 @@ Route::post('/reset-password', [AdminAuthController::class, 'updatePassword'])->
 
 
 // Route::middleware('auth:admin')->group(function () {
-    Route::view('admin', 'admin.dashboard')->name('dashboard.home');
+Route::view('admin', 'admin.dashboard')->name('dashboard.home');
 
-    Route::resource('admin/slider', SliderController::class);
+Route::resource('admin/slider', SliderController::class);
 
-    Route::resource('admin/additionalService', AdditionalServicesController::class);
+Route::resource('admin/additionalService', AdditionalServicesController::class);
 
-    Route::resource('cities', CitiesController::class);
-    Route::resource('countries', CountriesController::class);
-    //static Pages //
-    Route::get('admin/about', [AboutController::class,'create'])->name('about.create');
-    Route::post('admin/about/store', [AboutController::class,'store'])->name('about.store');
-    Route::get('admin/bank', [BankAccountController::class,'create'])->name('bank.create');
-    Route::post('admin/bank/store', [BankAccountController::class,'store'])->name('bank.store');
-    Route::get('admin/terms', [TermsAndConditionsController::class,'create'])->name('terms.create');
-    Route::post('admin/termsstore', [TermsAndConditionsController::class,'store'])->name('terms.store');
-    Route::get('admin/categoryOrder', [MyCategoryOrderController::class,'create'])->name('categoryOrder.create');
-    Route::post('admin/categoryOrder/store', [MyCategoryOrderController::class,'store'])->name('categoryOrder.store');
-});
+Route::resource('cities', CitiesController::class);
+Route::resource('countries', CountriesController::class);
+//static Pages //
+Route::get('admin/about', [AboutController::class, 'create'])->name('about.create');
+Route::post('admin/about/store', [AboutController::class, 'store'])->name('about.store');
+Route::get('admin/bank', [BankAccountController::class, 'create'])->name('bank.create');
+Route::post('admin/bank/store', [BankAccountController::class, 'store'])->name('bank.store');
+Route::get('admin/terms', [TermsAndConditionsController::class, 'create'])->name('terms.create');
+Route::post('admin/termsstore', [TermsAndConditionsController::class, 'store'])->name('terms.store');
+Route::get('admin/categoryOrder', [MyCategoryOrderController::class, 'create'])->name('categoryOrder.create');
+Route::post('admin/categoryOrder/store', [MyCategoryOrderController::class, 'store'])->name('categoryOrder.store');
+Route::get('admin/orders', [OrdersController::class, 'ordersAdmin'])->name('admin.orders');
 
-Route::resource('admin/slider',SliderController::class);
+Route::resource('admin/slider', SliderController::class);
 
 
-Route::resource('admin/category',CategoryController::class);
+Route::resource('admin/category', CategoryController::class);
 
 // routes for cites and countries DropDown in orders/create
 Route::get('orders/create', [DropdownController::class, 'index']);

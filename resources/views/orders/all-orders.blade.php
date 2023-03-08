@@ -175,22 +175,22 @@
                                     النصوص
                                 </h6>
                                 <div class="d-flex  align-items-center justify-content-between w-100 flex-wrap ">
-                                    <div class="col-6 col-md-4 ">
+                                    <div class="col-6 col-md">
                                         <h6 class="col contact-txt-color-2 fw-bold text-end p-0">السعر المتوقع:
                                             <span class="d-block d-sm-inline m-0">الف 100 - الف
                                                 120</span>
                                         </h6>
                                     </div>
-                                    <div class="col-6 col-md-4 ">
+                                    <div class="col-6 col-md">
                                         <h6 class="col contact-txt-color-2 fw-bold text-center "> الكمية:
                                             <span>9</span>
                                             <span> سيارات </span>
                                         </h6>
                                     </div>
-                                    <div class="col-12 col-md-4 ">
+                                    <div class="col-12 col-md">
                                         <h6 class="col text-center text-md-start m-0 my-2 me-4 text-black-50">تم
                                             النشر
-                                            بتوقيت <span class="d-block d-sm-inline">10 مارس
+                                            بتوقيت <span>10 مارس
                                                 2022</span></h6>
                                     </div>
                                 </div>

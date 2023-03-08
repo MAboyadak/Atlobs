@@ -142,9 +142,7 @@
                         <label class="mb-3 fw-bold">المدينة</label>
                         <div class="search_select position-relative p-0 choseCity">
                             <select data-live-search="true" name="" id="city-dd" class="w-100 form-control">
-
                                 <option value="" disabled selected>اختر المدينة</option>
-
                             </select>
                         </div>
                     </div>
@@ -199,7 +197,7 @@
     </div>
 @endsection
 @section('script')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
 
     <script>
@@ -218,7 +216,6 @@
         }
     </script>
     <script>
-
         $(document).ready(function() {
             $('#country-dd').on('change', function() {
                 var idCountry = this.value;
@@ -236,11 +233,11 @@
                     success: function(result) {
                         $('#city-dd').html(
                             '<option value="" disabled selected>اختر المدينة</option>');
-                            $.each(result.cities, function(key, value) {
-                                $("#city-dd").append('<option value="' + value
+                        $.each(result.cities, function(key, value) {
+                            $("#city-dd").append('<option value="' + value
                                 .id + '">' + value.name + '</option>');
-                            });
-                            $('.search_select select').selectpicker();
+                        });
+                        $('.search_select select').selectpicker();
                     }
                 });
             });
