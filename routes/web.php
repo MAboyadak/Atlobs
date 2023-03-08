@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryOrderController;
+use App\Http\Controllers\Admin\MyCategoryOrderController;
 // use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ProfileController;
@@ -52,8 +53,13 @@ Route::post('profile/password/change', [ProfileController::class, 'changePasswor
 
 //Orders
 Route::get('myorders', [OrdersController::class, 'myOrders'])->name('myorders.index');
+Route::get('myorders/active', [OrdersController::class, 'activeOrder'])->name('orders.active');
+Route::get('orders/finished', [OrdersController::class, 'finishedOrder'])->name('orders.finished');
 Route::get('orders/create', [OrdersController::class, 'create'])->name('orders.create');
+Route::get('orders/reorder', [OrdersController::class, 'reOrder'])->name('orders.reorder');
 Route::get('orders/order/details', [OrdersController::class, 'order_details'])->name('myorders.details');
+Route::get('orders', [OrdersController::class, 'orders'])->name('orders.view');
+
 
 // About Us
 Route::get('aboutus', [AboutController::class, 'index'])->name('aboutus.index');
@@ -93,7 +99,7 @@ Route::get('/reset-password/{token}', [AdminAuthController::class, 'getPassword'
 Route::post('/reset-password', [AdminAuthController::class, 'updatePassword'])->name('post.reset');
 
 
-// Route::middleware('auth:admin')->group(function () {
+Route::middleware('auth:admin')->group(function () {
     Route::view('admin', 'admin.dashboard')->name('dashboard.home');
 
     Route::resource('admin/slider', SliderController::class);
@@ -109,7 +115,9 @@ Route::post('/reset-password', [AdminAuthController::class, 'updatePassword'])->
     Route::post('admin/bank/store', [BankAccountController::class,'store'])->name('bank.store');
     Route::get('admin/terms', [TermsAndConditionsController::class,'create'])->name('terms.create');
     Route::post('admin/termsstore', [TermsAndConditionsController::class,'store'])->name('terms.store');
-// });
+    Route::get('admin/categoryOrder', [MyCategoryOrderController::class,'create'])->name('categoryOrder.create');
+    Route::post('admin/categoryOrder/store', [MyCategoryOrderController::class,'store'])->name('categoryOrder.store');
+});
 
 Route::resource('admin/slider',SliderController::class);
 

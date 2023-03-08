@@ -140,6 +140,15 @@
 
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ Route('categoryOrder.create')}}" class="nav-link">
+                        <i class="mdi mdi-view-carousel menu-icon"></i>
+
+                        <span class="menu-title">Category Order</span>
+
+                    </a>
+                </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

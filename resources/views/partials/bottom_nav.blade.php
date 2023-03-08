@@ -1,6 +1,6 @@
 <nav class=" fixed-bottom">
     <div class=" text-uppercase  pt-2 start-0 text-center w-100" role=navigation>
-        <div class="container">
+        <div class="container px-1">
             <div class=" p-3 shadow-lg bottom-navbar">
                 <div class="d-flex align-items-center justify-content-around">
                     <div class="navLink navLinkActive"><a href="/">

@@ -12,12 +12,11 @@
     width: 100px;
     height: 100px;
     border-radius: 50% 50%;
-    color: #C5DEEA;
     margin: 0 auto;
     position: relative;
 }
 
-.icon i {
+.icon img {
     left: 50%;
     top: 50%;
     position: absolute;
