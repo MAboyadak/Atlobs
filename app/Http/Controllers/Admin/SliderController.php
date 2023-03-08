@@ -22,6 +22,7 @@ class SliderController extends Controller
 
 
     public function store(SliderFormRequest $request){
+
      $validatedData = $request->validated();
      $file = $request->file('image');
      $ext = $file->getClientOriginalExtension();
@@ -31,6 +32,7 @@ class SliderController extends Controller
     Slider::create(['image' => $validatedData['image']]);
     //  return "added";
     return redirect('admin/slider')->with('message','Slider added Successfuly');
+
     }
 
 
