@@ -122,5 +122,5 @@ Route::middleware('auth:admin')->group(function () {
 
 
 // routes for cites and countries DropDown in orders/create
-Route::get('orders/create', [DropdownController::class, 'index']);
+Route::get('dropdown/create', [DropdownController::class, 'index']);
 Route::post('api/fetch-cities', [DropdownController::class, 'fetchCity']);
