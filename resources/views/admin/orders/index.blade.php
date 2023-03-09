@@ -69,6 +69,8 @@
                                     <th>Min Price</th>
                                     <th>Max Price</th>
                                     <th>User</th>
+                                    <th>Country</th>
+                                    <th>City</th>
                                     <th>Status</th>
                                     <th>Delete</th>
                                 </tr>
@@ -86,6 +88,7 @@
                                         <td>{{ $order->description }}</td>
                                         <td>{{ $order->min_price }}</td>
                                         <td>{{ $order->max_price }}</td>
+                                        <td>{{ $order->user->first_name . ' ' . $order->user->last_name }}</td>
                                         <td>{{ $order->country }}</td>
                                         <td>{{ $order->city }}</td>
                                         <td>{{ $order->status }}</td>
