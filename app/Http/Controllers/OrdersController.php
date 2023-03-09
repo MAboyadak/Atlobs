@@ -62,6 +62,24 @@ class OrdersController extends Controller
     {
         return view('orders.create');
     }
+    public function store(Request $request)
+    {
+        $request->validate([
+
+        ]);
+
+        $order = new Order();
+        $order->title = $request->title;
+        $order->description = $request->description;
+        $order->status = 0;
+        $order->city = $request->city;
+        $order->country = $request->country;
+        $order->min_price = $request->min_price;
+        $order->max_price = $request->max_price;
+        $order->user_id = $request->user_id;
+        $order->category_id = $request->category_id;
+
+    }
     public function reOrder()
     {
         return view('orders.reorder');
