@@ -961,3 +961,8 @@ div[data-step].active {
 }
 
 /* end0 view order */
+
+/* button Favourite */
+.funavcolor{
+    color: gray;
+}

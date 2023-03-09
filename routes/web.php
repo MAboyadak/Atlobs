@@ -10,6 +10,7 @@ use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\chatcontroller;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\OrderDetail;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AdditionalServicesController;
@@ -22,7 +23,7 @@ use App\Http\Controllers\Admin\CountriesController;
 use App\Http\Controllers\Admin\CreateBlogController;
 use App\Http\Controllers\DropdownController;
 
-use App\Http\Controllers\FavouriteController;
+use App\Http\Controllers;
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -76,8 +77,10 @@ Route::get('bankAccount', [BankAccountController::class, 'index'])->name('bankAc
 // chat
 Route::get('chat', [ChatController::class, 'index'])->name('chat.index');
 //favourite
-Route::get('favourite', [FavouriteController::class, 'index'])->name('favourite.index');
-
+Route::get('favourite', [FavoriteController::class, 'index'])->name('favourite.index');
+Route::get('favourite/{id}', [FavoriteController::class, 'delete'])->name('favourite.delete');
+Route::get('order/{id}' , [OrdersController::class ,'addFav'])->name('order.addFav');
+Route::get('order/{id}' , [OrdersController::class ,'deleteFav'])->name('order.deleteFav');
 //verify coode for password
 
 Route::get('/verify', function () {
@@ -116,6 +119,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('admin/terms', [TermsAndConditionsController::class,'create'])->name('terms.create');
     Route::post('admin/termsstore', [TermsAndConditionsController::class,'store'])->name('terms.store');
     Route::resource('admin/categoryOrder',MyCategoryOrderController::class);
+    Route::get('admin/orders',[OrdersController::class,'admin'])->name('admin.orders');
 
 });
 

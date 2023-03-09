@@ -15,7 +15,8 @@ class BankAccountController extends Controller
     }
     public function create()
     {
-        return view('staticPages.bank');
+        $bankData= BankAccount::first();
+        return view('staticPages.bank' , compact('bankData'));
     }
     public function store(BankAccountForm $request)
     {

@@ -150,54 +150,59 @@
                         </ul>
                     </div>
                 </div>
-                @foreach (range(5, 1) as $count)
-                    <div class="card bg-white border-0 p-3 w-100 m-0 mb-3">
-                        <div class="d-flex  align-items-center ">
-                            <div class="d-none d-sm-block ms-4">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/04{{ $count }}.webp"
-                                    class="rounded-pill" style="width: 80px; height: 80px; object-fit:cover "
-                                    alt="Avatar" />
-                            </div>
-                            <div class="w-100">
-                                <div class="d-flex  align-items-start justify-content-between w-100">
-                                    <h6 class="contact-txt-color-2 fw-bold">سيارة ديجيتال</h6>
-                                    <div>
-                                        <a href="">
-                                            <i class="fa-solid fa-heart favourite-added"></i>
-                                        </a>
-                                    </div>
+                {{-- {{dd($orders)}} --}}
+                @foreach ($orders as $order)
+
+                <div class="card bg-white border-0 p-3 w-100 m-0 mb-3">
+                    <div class="d-flex  align-items-center ">
+                        <div class="d-none d-sm-block ms-4">
+                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp"
+                                class="rounded-pill" style="width: 80px; height: 80px; object-fit:cover "
+                                alt="Avatar" />
+                        </div>
+                        <div class="w-100">
+                            <div class="d-flex  align-items-start justify-content-between w-100">
+                                <h6 class="contact-txt-color-2 fw-bold">{{$order->title}}</h6>
+                                <div>
+                                  
+                                   <form data-action="" method="POST" enctype="multipart/form-data" id="add-fav">
+                                    @csrf
+                                        <button type="submit" class="btn">
+                                            <i class="fa-solid fa-heart favourite-added" ></i>
+                                        
+                                        </button>
+                                   </form>
+                                    
+                                
                                 </div>
-                                <h6 class="text-end m-0 my-2 text-black-50 ">مكة المكرمة ، حي شرق</h6>
-                                <h6 class="text-end m-0 my-2 short-desc ">هذا النص هو مثال لنص يمكن أن يستبدل في نفس
-                                    المساحة،
-                                    لقد تم
-                                    توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من
-                                    النصوص
-                                </h6>
-                                <div class="d-flex  align-items-center justify-content-between w-100 flex-wrap ">
-                                    <div class="col-6 col-md">
-                                        <h6 class="col contact-txt-color-2 fw-bold text-end p-0">السعر المتوقع:
-                                            <span class="d-block d-sm-inline m-0">الف 100 - الف
-                                                120</span>
-                                        </h6>
-                                    </div>
-                                    <div class="col-6 col-md">
-                                        <h6 class="col contact-txt-color-2 fw-bold text-center "> الكمية:
-                                            <span>9</span>
-                                            <span> سيارات </span>
-                                        </h6>
-                                    </div>
-                                    <div class="col-12 col-md">
-                                        <h6 class="col text-center text-md-start m-0 my-2 me-4 text-black-50">تم
-                                            النشر
-                                            بتوقيت <span>10 مارس
-                                                2022</span></h6>
-                                    </div>
+                            </div>
+                            <h6 class="text-end m-0 my-2 text-black-50 ">{{$order->country}} ،{{$order->city}}</h6>
+                            <h6 class="text-end m-0 my-2 short-desc ">
+                                {{$order->description}}
+                            </h6>
+                            <div class="d-flex  align-items-center justify-content-between w-100 flex-wrap ">
+                                <div class="col-6 col-md-4 ">
+                                    <h6 class="col contact-txt-color-2 fw-bold text-end p-0">السعر المتوقع:
+                                        <span class="d-block d-sm-inline m-0">الف {{$order->min_price}} - الف
+                                          {{$order->max_price}}  </span>
+                                    </h6>
+                                </div>
+                                <div class="col-6 col-md-4 ">
+                                    <h6 class="col contact-txt-color-2 fw-bold text-center "> الكمية:
+                                        <span>9</span>
+                                        <span> سيارات </span>
+                                    </h6>
+                                </div>
+                                <div class="col-12 col-md-4 ">
+                                    <h6 class="col text-center text-md-start m-0 my-2 me-4 text-black-50">تم
+                                        النشر
+                                        بتوقيت <span class="d-block d-sm-inline">{{$order->created_at}}</span></h6>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endforeach
+                </div>
+            @endforeach
             </div>
         </div>
     </div>
@@ -209,6 +214,44 @@
         //     if (e.deltaY > 0) item.scrollLeft += 100;
         //     else item.scrollLeft -= 100;
         // });
+        
+    
+
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#country-dd').on('change', function() {
+                var idCountry = this.value;
+                $("#city-dd").html('');
+                $('.search_select').selectpicker('refresh');
+                $.ajax({
+                    url: "{{ url('api/fetch-cities') }}",
+                    type: "POST",
+                    data: {
+                        country_id: idCountry,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    dataType: 'json',
+
+                    success: function(result) {
+                        $('#city-dd').html(
+                            '<option value="" disabled selected>اختر المدينة</option>');
+                        $.each(result.cities, function(key, value) {
+                            $("#city-dd").append('<option value="' + value
+                                .id + '">' + value.name + '</option>');
+                        });
+                        $('.search_select select').selectpicker();
+                    }
+                });
+            });
+
+        });
+    </script>
+       {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    
+
 @endsection
