@@ -79,7 +79,8 @@ Route::get('chat', [ChatController::class, 'index'])->name('chat.index');
 //favourite
 Route::get('favourite', [FavoriteController::class, 'index'])->name('favourite.index');
 Route::get('favourite/{id}', [FavoriteController::class, 'delete'])->name('favourite.delete');
-
+Route::get('order/{id}' , [OrdersController::class ,'addFav'])->name('order.addFav');
+Route::get('order/{id}' , [OrdersController::class ,'deleteFav'])->name('order.deleteFav');
 //verify coode for password
 
 Route::get('/verify', function () {
