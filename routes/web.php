@@ -78,7 +78,7 @@ Route::get('bankAccount', [BankAccountController::class, 'index'])->name('bankAc
 Route::get('chat', [ChatController::class, 'index'])->name('chat.index');
 //favourite
 Route::get('favourite', [FavoriteController::class, 'index'])->name('favourite.index');
-Route::get('favourite/delete', [FavoriteController::class, 'delete'])->name('favourite.delete');
+Route::get('favourite/{id}', [FavoriteController::class, 'delete'])->name('favourite.delete');
 
 //verify coode for password
 

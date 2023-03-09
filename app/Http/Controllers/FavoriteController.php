@@ -18,8 +18,9 @@ class FavoriteController extends Controller
     public function index()
     {
         $favorits = DB::table('favorites')->where('user_id',auth()->id())->get();
-      
+    //   dd($favorits);
         $orders=  auth()->user()->favorites;
+        // dd($orders);
         return view('favourite.index',compact('favorits' ,'orders'));
     }
 
@@ -45,7 +46,8 @@ class FavoriteController extends Controller
     }
     public function delete ($id)
     {
-       dd($id);
-    //  DB::table('favorites')->where('order_id',$id)->delete();
+    //    dd($id);
+     DB::table('favorites')->where('order_id',$id)->delete();
+     return view('favourite.index');
     }
 }
