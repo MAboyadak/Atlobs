@@ -13,7 +13,7 @@ class OrdersController extends Controller
 {
     public function orders()
     {
-        $orders = DB::table('orders')->where('user_id',auth()->id())->get();
+        $orders = DB::table('orders')->get();
         // dd($orders);
         return view('orders.all-orders' , compact('orders'));
     }
@@ -51,6 +51,7 @@ class OrdersController extends Controller
      * */
     public function myOrders()
     {
+        // $myOrders = DB::table('orders')->where('user_id',auth()->id())->get();
         return view('orders.my-orders');
     }
     public function order_details()
