@@ -24,7 +24,8 @@ use App\Http\Controllers\Admin\CreateBlogController;
 use App\Http\Controllers\DropdownController;
 
 use App\Http\Controllers;
-
+use App\Http\Controllers\Admin\OrdersController as AdminOrdersController;
+use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -120,6 +121,17 @@ Route::middleware('auth:admin')->group(function () {
     Route::post('admin/termsstore', [TermsAndConditionsController::class,'store'])->name('terms.store');
     Route::resource('admin/categoryOrder',MyCategoryOrderController::class);
     Route::get('admin/orders',[OrdersController::class,'admin'])->name('admin.orders');
+
+    // admin-users
+    Route::get('admin/users', [UsersController::class,'index'])->name('admin.users.index');
+    Route::get('admin/users/edit/{user}', [UsersController::class,'edit'])->name('admin.users.edit');
+    Route::put('admin/users/update/{user}', [UsersController::class,'update'])->name('admin.users.update');
+    Route::delete('admin/users/delete/{user}', [UsersController::class,'delete'])->name('admin.users.delete');
+
+    // admin-orders
+    Route::get('admin/orders', [AdminOrdersController::class,'index'])->name('admin.orders.index');
+    Route::delete('admin/orders/delete/{order}', [AdminOrdersController::class,'delete'])->name('admin.orders.delete');
+
 
 });
 
