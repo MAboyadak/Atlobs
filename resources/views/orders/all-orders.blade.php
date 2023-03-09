@@ -13,6 +13,10 @@
             @endforeach
         </div>
 
+        @if (session('message'))
+            <div class="alert alert-success mt-5">{{ session('message') }}</div>
+        @endif
+        
         <div class="d-flex flex-wrap flex-lg-nowrap ">
             {{-- filtter card --}}
             <div class="col-12 col-lg-3 card rounded-4 border-0" style="max-height: 672px">

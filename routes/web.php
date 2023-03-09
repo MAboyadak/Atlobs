@@ -62,6 +62,7 @@ Route::get('orders/create', [OrdersController::class, 'create'])->name('orders.c
 Route::get('orders/reorder', [OrdersController::class, 'reOrder'])->name('orders.reorder');
 Route::get('orders/order/details', [OrdersController::class, 'order_details'])->name('myorders.details');
 Route::get('orders', [OrdersController::class, 'orders'])->name('orders.view');
+Route::post('orders', [OrdersController::class, 'store'])->name('orders.store');
 
 
 // About Us

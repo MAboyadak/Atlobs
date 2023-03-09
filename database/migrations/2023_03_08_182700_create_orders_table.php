@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->string('type')->default('request');
             $table->boolean('status')->default(0);
             $table->string('city')->nullable();
             $table->string('country')->nullable();

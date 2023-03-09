@@ -7,6 +7,7 @@ use App\Models\Favorite;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Category;
+use App\Models\country;
 use Illuminate\Http\Request;
 
 class OrdersController extends Controller
@@ -60,24 +61,27 @@ class OrdersController extends Controller
     }
     public function create()
     {
-        return view('orders.create');
+        $countries = country::all();
+        $categories = Category::all();
+        return view('orders.create',compact('countries','categories'));
     }
     public function store(Request $request)
     {
-        $request->validate([
+        // $request->validate([
 
-        ]);
-
+        // ]);
+        dd($request);
         $order = new Order();
         $order->title = $request->title;
         $order->description = $request->description;
-        $order->status = 0;
         $order->city = $request->city;
         $order->country = $request->country;
         $order->min_price = $request->min_price;
         $order->max_price = $request->max_price;
         $order->user_id = $request->user_id;
         $order->category_id = $request->category_id;
+        $order->save();
+        return redirect()->route('orders.view')->with('message','success save');
 
     }
     public function reOrder()

@@ -15,7 +15,7 @@
                 </span>
             </div>
 
-            <form method="post" action="{{ route('register') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('orders.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row" data-step>
                     <h5 class="w-100 fw-bold mt-2 pe-0">تفاصيل الطلب</h5>
@@ -31,9 +31,9 @@
                     </div>
                     <div class="col-12 mb-3 p-0">
                         <label class="mb-3 fw-bold">اسم الطلب</label>
-                        <input type="text" name="firstName"
-                            class="form-control input-style-1 @error('firstName') is-invalid @enderror" required>
-                        @error('name')
+                        <input type="text" name="title"
+                            class="form-control input-style-1 @error('title') is-invalid @enderror" required>
+                        @error('title')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -41,27 +41,13 @@
                     </div>
                     <div class="col-12 col-lg-6 mb-3 pe-0">
                         <label class="mb-3 fw-bold"> القسم الرئيسي</label>
-                        <select type="text" name="lastName"
-                            class="form-select custom-select input-style-1 @error('lastName') is-invalid @enderror">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
+                        <select type="text" name="category_id"
+                            class="form-select custom-select input-style-1 @error('category_id') is-invalid @enderror">
+                            @foreach ($categories as $cat)
+                                <option value="{{$cat->id}}">{{$cat->name}}</option>                                
+                            @endforeach
                         </select>
-                        @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                    <div class="col-12 col-lg-6 mb-3 ps-0">
-                        <label class="mb-3 fw-bold"> القسم الفرعي</label>
-                        <select type="text" name="lastName"
-                            class="form-select custom-select input-style-1 @error('lastName') is-invalid @enderror">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                        </select>
-                        @error('lastName')
+                        @error('category_id')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -83,8 +69,7 @@
                     </div>
                     <div class="col-12 mb-3 input-box p-0">
                         <label class="mb-3 fw-bold">وصف الطلب</label>
-                        <textarea name="order" id="order" class="form-control input-style-1" placeholder="description" rows="3">
-                                </textarea>
+                        <textarea name="description" id="order" class="form-control input-style-1" placeholder="description" rows="4"></textarea>
                     </div>
                     <div class="col-12 col-lg-6 mb-3 pe-0">
                         <label class="mb-3 fw-bold">بداية السعر المتوقع</label>
