@@ -156,12 +156,12 @@
 
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ Route('admin.orders') }}" class="nav-link">
                         <i class="mdi mdi-view-carousel menu-icon"></i>
                         <span class="menu-title">View Orders</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

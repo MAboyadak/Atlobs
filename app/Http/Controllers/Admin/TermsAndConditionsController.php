@@ -15,7 +15,8 @@ class TermsAndConditionsController extends Controller
         return view('terms.index' ,compact('termData'));
     } public function create()
     {
-        return view('staticPages.tearm');
+        $termData =TermsAndConditions::first();
+        return view('staticPages.tearm' ,compact('termData'));
     }
     public function store(termsAndConditionsForm $request)
     {
