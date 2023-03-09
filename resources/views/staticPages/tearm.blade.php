@@ -4,7 +4,7 @@
 
 @section('dash-css')
 @endsection
-
+{{-- {{dd($termData)}} --}}
 @section('content')
     <div class="container">
        <div class="row">
@@ -21,7 +21,9 @@
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Terms And Conditions</label>
-                        <input type="text" name="termsAndConditions" class="form-control" id="exampleInputPassword1">
+                        <textarea name="termsAndConditions" class="form-control text-area" id="exampleInputPassword1" rows="9">
+                            {{$termData->termsAndConditions}}
+                        </textarea> 
                     </div>
                     @if($errors->has('about'))
                     <div class="alert alert-danger">

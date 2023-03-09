@@ -15,11 +15,14 @@ class AboutController extends Controller
         $aboutData = About::first();
         return view('aboutus.index',compact('aboutData'));
     }
+    
 
    
     public function create()
     {
-        return view('staticPages.about');
+       
+        $aboutData = About::first();
+        return view('staticPages.about' ,compact('aboutData'));
     }
     public function store(AboutFormRequist $request)
     {

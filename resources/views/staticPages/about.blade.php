@@ -6,6 +6,7 @@
 @endsection
 
 @section('content')
+{{-- {{dd($aboutData)}} --}}
     <div class="container">
        <div class="row">
         <div class="col-md-12">
@@ -21,7 +22,9 @@
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">about us</label>
-                        <input type="text" name="about" class="form-control" id="exampleInputPassword1">
+                        <textarea  name="about" class="form-control" id="exampleInputPassword1" rows="5">
+                            {{$aboutData->about}}
+                        </textarea>
                     </div>
                     @if($errors->has('about'))
                     <div class="alert alert-danger">
@@ -32,7 +35,7 @@
                     @endif
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Number</label>
-                        <input type="number" name="number" class="form-control" id="exampleInputPassword1">
+                        <input type="number" name="number" class="form-control" id="exampleInputPassword1" value="{{$aboutData->number}}">
                     </div>
                     @if($errors->has('number'))
                     <div class="alert alert-danger">
@@ -43,7 +46,7 @@
                     @endif
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Facebook Link</label>
-                        <input type="text" name="face" class="form-control" id="exampleInputPassword1">
+                        <input type="text" name="face" class="form-control" id="exampleInputPassword1" value="{{$aboutData->face}}">
                     </div>
                     @if($errors->has('face'))
                     <div class="alert alert-danger">
@@ -54,7 +57,7 @@
                     @endif
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Snapchat Link</label>
-                        <input type="text" name="snap" class="form-control" id="exampleInputPassword1">
+                        <input type="text" name="snap" class="form-control" id="exampleInputPassword1" value="{{$aboutData->snap}}">
                     </div>
                     @if($errors->has('snap'))
                     <div class="alert alert-danger">
@@ -65,7 +68,7 @@
                     @endif
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">youtuob Link</label>
-                        <input type="text" name="youtuob" class="form-control" id="exampleInputPassword1">
+                        <input type="text" name="youtuob" class="form-control" id="exampleInputPassword1" value="{{$aboutData->youtuob}}">
                     </div>
                     @if($errors->has('youtuob'))
                     <div class="alert alert-danger">
@@ -76,7 +79,7 @@
                     @endif
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Instegram Link</label>
-                        <input type="text" name="insta" class="form-control" id="exampleInputPassword1">
+                        <input type="text" name="insta" class="form-control" id="exampleInputPassword1" value="{{$aboutData->insta}}">
                     </div>
                     @if($errors->has('insta'))
                     <div class="alert alert-danger">
