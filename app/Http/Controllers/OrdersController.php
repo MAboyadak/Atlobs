@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class OrdersController extends Controller
@@ -33,5 +34,10 @@ class OrdersController extends Controller
     public function finishedOrder()
     {
         return view('orders.finished');
+    }
+    public function admin()
+    {
+        $category = Category::all();
+        return view('admin.orders.index',['category' => $category]);
     }
 }

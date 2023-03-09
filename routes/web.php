@@ -116,6 +116,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('admin/terms', [TermsAndConditionsController::class,'create'])->name('terms.create');
     Route::post('admin/termsstore', [TermsAndConditionsController::class,'store'])->name('terms.store');
     Route::resource('admin/categoryOrder',MyCategoryOrderController::class);
+    Route::get('admin/orders',[OrdersController::class,'admin'])->name('admin.orders');
 
 });
 
