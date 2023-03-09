@@ -53,28 +53,14 @@
                             </span>
                         @enderror
                     </div>
-                    <div class="col-12 mb-3 p-0">
-                        <label class="fw-bold">خدمات اضافية</label>
-                        <select type="text" name="extra"
-                            class="form-select custom-select input-style-1 @error('extra') is-invalid @enderror">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                        </select>
-                        @error('extra')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
                     <div class="col-12 mb-3 input-box p-0">
                         <label class="mb-3 fw-bold">وصف الطلب</label>
                         <textarea name="description" id="order" class="form-control input-style-1" placeholder="description" rows="4"></textarea>
                     </div>
                     <div class="col-12 col-lg-6 mb-3 pe-0">
                         <label class="mb-3 fw-bold">بداية السعر المتوقع</label>
-                        <select type="number" name="lastName"
-                            class="form-select custom-select input-style-1 @error('lastName') is-invalid @enderror">
+                        <select type="number" name="min_price"
+                            class="form-select custom-select input-style-1 @error('min_price') is-invalid @enderror">
                             <option value="">1</option>
                             <option value="">2</option>
                             <option value="">3</option>
@@ -87,11 +73,8 @@
                     </div>
                     <div class="col-12 col-lg-6 mb-3  ps-0">
                         <label class="mb-3 fw-bold">نهاية السعر المتوقع</label>
-                        <select type="number" name="lastName"
-                            class="form-select custom-select input-style-1 @error('lastName') is-invalid @enderror">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
+                        <select type="number" name="max_price"
+                            class="form-select custom-select input-style-1 @error('max_price') is-invalid @enderror">
                         </select>
                         @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -110,7 +93,7 @@
                     <div class="head form-group col-12 col-lg-6 mb-3 pe-0">
                         <label class="mb-3 fw-bold">الدولة</label>
                         <div class="search_select_box position-relative p-0">
-                            <select data-live-search="true" name="" id="country-dd"
+                            <select data-live-search="true" name="country" id="country-dd"
                                 class="w-100 form-control select">
                                 <option value="" disabled selected>اختر الدولة</option>
                                 @foreach ($countries as $country)
@@ -126,37 +109,16 @@
                     <div class="head form-group col-12 col-lg-6 mb-3 pe-0">
                         <label class="mb-3 fw-bold">المدينة</label>
                         <div class="search_select position-relative p-0 choseCity">
-                            <select data-live-search="true" name="" id="city-dd" class="w-100 form-control">
-                                <option value="" disabled selected>اختر المدينة</option>
+                            <select name="city">
+                                @foreach ($cities as $city)
+                                    <option value="{{ $city->id }}">
+                                        {{ $country->name }}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
 
-
-                    <div class="col-12 col-lg-6 mb-3 pe-0">
-                        <label class="mb-3 fw-bold">رقم الجوال</label>
-                        <input type="text" name="lastName"
-                            class="form-control input-style-1 @error('lastName') is-invalid @enderror" required>
-                        @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                    <div class="col-12 mb-3 p-0">
-                        <label class="fw-bold">طريقه التواصل</label>
-                        <br>
-                        <div role="group" aria-label="Basic checkbox toggle button group">
-                            <div class="d-flex align-items-center m-1">
-                                <input type="radio" name="contact_method" id="phoneNum" class="ms-2">
-                                <label for="phoneNum">رقم الجوال</label>
-                            </div>
-                            <div class="d-flex align-items-center m-1">
-                                <input type="radio" name="contact_method" id="contact" class="ms-2">
-                                <label for="contact">رسائل الموقع الإلكتروني</label>
-                            </div>
-                        </div>
-                    </div>
                     <!-- Button trigger modal -->
 
                     <div class="col-12 mx-lg-auto col-lg-6 text-center">

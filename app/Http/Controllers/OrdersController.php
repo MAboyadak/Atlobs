@@ -7,6 +7,7 @@ use App\Models\Favorite;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Category;
+use App\Models\City;
 use App\Models\country;
 use Illuminate\Http\Request;
 
@@ -62,8 +63,9 @@ class OrdersController extends Controller
     public function create()
     {
         $countries = country::all();
+        $cities = City::all();
         $categories = Category::all();
-        return view('orders.create',compact('countries','categories'));
+        return view('orders.create',compact('countries','categories','cities'));
     }
     public function store(Request $request)
     {
