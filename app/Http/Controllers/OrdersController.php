@@ -15,7 +15,7 @@ class OrdersController extends Controller
 {
     public function orders()
     {
-        $orders = DB::table('orders')->get();
+        $orders = Order::all();
         // dd($orders);
         return view('orders.all-orders' , compact('orders'));
     }
@@ -69,23 +69,32 @@ class OrdersController extends Controller
     }
     public function store(Request $request)
     {
-        // $request->validate([
+        // dd($request);
 
-        // ]);
-        dd($request);
+        $request->validate([
+            'title' => 'required', 
+            'country' => 'required', 
+            'min_price' => 'required',
+            'img' => 'nullable|mimes:jpeg,png,jpg,gif', 
+        ]);
+        // dd($request);
         $order = new Order();
         $order->title = $request->title;
         $order->description = $request->description;
-        $order->city = $request->city;
-        $order->country = $request->country;
+        $order->city_id = $request->city;
+        $order->country_id = $request->country;
         $order->min_price = $request->min_price;
         $order->max_price = $request->max_price;
-        $order->user_id = $request->user_id;
+        $order->status = 0;
+        $order->user_id = auth()->user()->id;
         $order->category_id = $request->category_id;
         $order->save();
         return redirect()->route('orders.view')->with('message','success save');
 
     }
+    // public function getCities($id){
+    //     return City::where('country_id',$id)->get();
+    // }
     public function reOrder()
     {
         return view('orders.reorder');

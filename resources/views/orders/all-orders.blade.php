@@ -180,7 +180,8 @@
                                 
                                 </div>
                             </div>
-                            <h6 class="text-end m-0 my-2 text-black-50 ">{{$order->country}} ،{{$order->city}}</h6>
+                            
+                            <h6 class="text-end m-0 my-2 text-black-50 ">الدولة : {{$order->country->name}} | المدينة: {{$order->city??'غير محدد'}}</h6>
                             <h6 class="text-end m-0 my-2 short-desc ">
                                 {{$order->description}}
                             </h6>
