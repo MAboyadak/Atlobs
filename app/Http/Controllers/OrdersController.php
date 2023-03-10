@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OrdersController extends Controller
 {
     public function orders()
     {
-        return view('orders.all-orders');
+        // $cat = Category::all();
+        $cat = DB::table('categories')
+            ->whereNull('parent_id')->get();
+        return view('orders.all-orders', ['cat' => $cat]);
     }
     public function myOrders()
     {
@@ -38,6 +42,6 @@ class OrdersController extends Controller
     public function admin()
     {
         $category = Category::all();
-        return view('admin.orders.index',['category' => $category]);
+        return view('admin.orders.index', ['category' => $category]);
     }
 }

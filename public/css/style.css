@@ -431,7 +431,9 @@ img.team-work {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+.orderBg3 {
+    background-color: #F9F9F9 !important
+}
 .contact-txt-color-1 {
     color: #1D264A;
 }

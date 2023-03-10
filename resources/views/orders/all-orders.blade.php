@@ -2,12 +2,12 @@
 @section('content')
     <div class="container">
         <div id="cat-order" class="card w-100 my-3 d-flex flex-row py-3 border-0">
-            @foreach (range(20, 1) as $count)
+            @foreach ($cat as $categroy)
                 <div class="row cat-item mx-2">
                     <a href="">
                         <img src="{{ asset('images/img-placeholder.png') }}"
                             style="width: 50px; height: 50px; object-fit:cover " alt="Avatar" />
-                        <h6 class="contact-txt-color-1 fw-bold">السيارات</h6>
+                        <h6 class="contact-txt-color-1 fw-bold">{{ $categroy->name }}</h6>
                     </a>
                 </div>
             @endforeach
@@ -20,7 +20,7 @@
                     <i class="fa-solid fa-filter mx-2"></i>
                     الفلترة
                 </div>
-                <div class="card border-0 rounded-0 rounded-bottom bg-white">
+                <div class="card border-0 rounded-0 rounded-bottom bg-dark">
                     {{-- القسم الرئيسي --}}
                     <div class="accordion accordion-flush bg-white " id="accordionFlushExample">
                         <div class="accordion-item bg-white ">
@@ -34,12 +34,12 @@
                             <div id="flush-collapse1" class="accordion-collapse collapse w-100"
                                 aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushExample1">
                                 <div class="accordion-body p-0 px-3 bg-white">
-                                    @foreach (range(3, 1) as $count)
+                                    @foreach ($cat as $categroy)
                                         <div class="form-check form-check-reverse my-2">
                                             <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                id="flexRadioDefault{{ $count }}">
-                                            <label class="form-check-label" for="flexRadioDefault{{ $count }}">
-                                                خدمة رئيسة
+                                                id="flexRadioDefault{{ $categroy->id }}">
+                                            <label class="form-check-label" for="flexRadioDefault{{ $categroy->id }}">
+                                                {{ $categroy->name }}
                                             </label>
                                         </div>
                                     @endforeach
@@ -203,6 +203,9 @@
     </div>
 @endsection
 @section('script')
+    <script>
+        document.querySelector('body').classList.add('orderBg3');
+    </script>
     <script>
         // let item = document.getElementById("cat-order");
         // window.addEventListener("wheel", function(e) {
