@@ -30,7 +30,7 @@
                     <h5 class="w-100 fw-bold mt-2 pe-0">تفاصيل الطلب</h5>
                     <h6 class="w-100 fw-bold mt-2 mb-3 pe-0">صورة الطلب</h6>
                     <div class="img-dash mb-4 d-flex align-items-center px-2">
-                        <input class="form-control" type="file" style="display:none" name="img" id="formFile">
+                        <input class="form-control" type="file" style="display:none" name="image" id="formFile">
                         <img src="{{ asset('images/img-placeholder.png') }}" class="rounded-4 img-profile"
                             style="width: 80px; height: 80px; object-fit:cover " alt="Avatar" />
                         <div class="add-btn-imgorder">

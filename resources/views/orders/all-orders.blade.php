@@ -166,7 +166,7 @@
                         </div>
                         <div class="w-100">
                             <div class="d-flex  align-items-start justify-content-between w-100">
-                                <h6 class="contact-txt-color-2 fw-bold">{{$order->title}}</h6>
+                                <h6 class="contact-txt-color-2 fw-bold"><a href="{{route("orders.details",$order->id)}}">{{$order->title}}</a></h6>
                                 <div>
                                   
                                    <form data-action="" method="POST" enctype="multipart/form-data" id="add-fav">
@@ -181,14 +181,14 @@
                                 </div>
                             </div>
                             
-                            <h6 class="text-end m-0 my-2 text-black-50 ">الدولة : {{$order->country->name}} | المدينة: {{$order->city??'غير محدد'}}</h6>
+                            <h6 class="text-end m-0 my-2 text-black-50 ">الدولة : {{$order->country->name}} | المدينة: {{$order->city?$order->city->name:'غير محدد'}}</h6>
                             <h6 class="text-end m-0 my-2 short-desc ">
                                 {{$order->description}}
                             </h6>
                             <div class="d-flex  align-items-center justify-content-between w-100 flex-wrap ">
                                 <div class="col-6 col-md-4 ">
                                     <h6 class="col contact-txt-color-2 fw-bold text-end p-0">السعر المتوقع:
-                                        <span class="d-block d-sm-inline m-0">الف {{$order->min_price}} - الف
+                                        <span class="d-block d-sm-inline m-0"> {{$order->min_price}} - 
                                           {{$order->max_price}}  </span>
                                     </h6>
                                 </div>

@@ -8,6 +8,7 @@ use App\Models\Service;
 use App\Models\Category;
 use App\Models\User;
 use App\Models\country;
+use App\Models\city;
 
 class Order extends Model
 {
@@ -31,6 +32,11 @@ class Order extends Model
     public function country()
     {
         return $this->belongsTo(country::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(city::class);
     }
     
 }

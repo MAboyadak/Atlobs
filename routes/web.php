@@ -59,10 +59,13 @@ Route::get('myorders', [OrdersController::class, 'myOrders'])->name('myorders.in
 Route::get('myorders/active', [OrdersController::class, 'activeOrder'])->name('orders.active');
 Route::get('orders/finished', [OrdersController::class, 'finishedOrder'])->name('orders.finished');
 Route::get('orders/create', [OrdersController::class, 'create'])->name('orders.create');
-Route::get('orders/reorder', [OrdersController::class, 'reOrder'])->name('orders.reorder');
-Route::get('orders/order/details', [OrdersController::class, 'order_details'])->name('myorders.details');
+// Route::get('orders/reorder', [OrdersController::class, 'reOrder'])->name('orders.reorder');
+Route::get('orders/{order}', [OrdersController::class, 'order_details'])->name('orders.details');
 Route::get('orders', [OrdersController::class, 'orders'])->name('orders.view');
 Route::post('orders', [OrdersController::class, 'store'])->name('orders.store');
+Route::get('orders/{order}/cancel', [OrdersController::class, 'cancelOrder'])->name('orders.cancel');
+Route::get('orders/{order}/complete', [OrdersController::class, 'completeOrder'])->name('orders.completed');
+Route::get('orders/{order}/reorder', [OrdersController::class, 'reorder'])->name('orders.reorder');
 
 
 // About Us

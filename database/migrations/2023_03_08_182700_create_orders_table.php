@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->boolean('status')->default(0)->nullable();
+            $table->enum('status',['completed','canceled','active'])->default('active');
             $table->string('city_id')->nullable();
             $table->string('country_id');
+            $table->string('image');
             $table->string('min_price');
             $table->string('max_price')->nullable();
             $table->unsignedBigInteger('user_id');
