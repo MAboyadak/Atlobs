@@ -24,7 +24,8 @@ use App\Http\Controllers\Admin\CreateBlogController;
 use App\Http\Controllers\DropdownController;
 
 use App\Http\Controllers;
-
+use App\Http\Controllers\Admin\OrdersController as AdminOrdersController;
+use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -61,6 +62,7 @@ Route::get('orders/create', [OrdersController::class, 'create'])->name('orders.c
 Route::get('orders/reorder', [OrdersController::class, 'reOrder'])->name('orders.reorder');
 Route::get('orders/order/details', [OrdersController::class, 'order_details'])->name('myorders.details');
 Route::get('orders', [OrdersController::class, 'orders'])->name('orders.view');
+Route::post('orders', [OrdersController::class, 'store'])->name('orders.store');
 
 
 // About Us
@@ -79,7 +81,8 @@ Route::get('chat', [ChatController::class, 'index'])->name('chat.index');
 //favourite
 Route::get('favourite', [FavoriteController::class, 'index'])->name('favourite.index');
 Route::get('favourite/{id}', [FavoriteController::class, 'delete'])->name('favourite.delete');
-
+Route::get('order/{id}' , [OrdersController::class ,'addFav'])->name('order.addFav');
+Route::get('order/{id}' , [OrdersController::class ,'deleteFav'])->name('order.deleteFav');
 //verify coode for password
 
 Route::get('/verify', function () {
@@ -120,10 +123,21 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('admin/categoryOrder',MyCategoryOrderController::class);
     Route::get('admin/orders',[OrdersController::class,'admin'])->name('admin.orders');
 
+    // admin-users
+    Route::get('admin/users', [UsersController::class,'index'])->name('admin.users.index');
+    Route::get('admin/users/edit/{user}', [UsersController::class,'edit'])->name('admin.users.edit');
+    Route::put('admin/users/update/{user}', [UsersController::class,'update'])->name('admin.users.update');
+    Route::delete('admin/users/delete/{user}', [UsersController::class,'delete'])->name('admin.users.delete');
+
+    // admin-orders
+    Route::get('admin/orders', [AdminOrdersController::class,'index'])->name('admin.orders.index');
+    Route::delete('admin/orders/delete/{order}', [AdminOrdersController::class,'delete'])->name('admin.orders.delete');
+
+
 });
 
 
 
 // routes for cites and countries DropDown in orders/create
-Route::get('orders/create', [DropdownController::class, 'index']);
+Route::get('dropdown/create', [DropdownController::class, 'index']);
 Route::post('api/fetch-cities', [DropdownController::class, 'fetchCity']);

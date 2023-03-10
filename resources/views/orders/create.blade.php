@@ -5,6 +5,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 @endsection
 @section('content')
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div style="max-width: 800px" class="container mt-4">
         <div class="row card p-3">
             <div class="card-title mt-3">
@@ -15,13 +24,13 @@
                 </span>
             </div>
 
-            <form method="post" action="{{ route('register') }}" enctype="multipart/form-data">
+            <form id="order-form" method="post" action="{{ route('orders.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row" data-step>
                     <h5 class="w-100 fw-bold mt-2 pe-0">تفاصيل الطلب</h5>
                     <h6 class="w-100 fw-bold mt-2 mb-3 pe-0">صورة الطلب</h6>
                     <div class="img-dash mb-4 d-flex align-items-center px-2">
-                        <input class="form-control" type="file" style="display:none" id="formFile">
+                        <input class="form-control" type="file" style="display:none" name="img" id="formFile">
                         <img src="{{ asset('images/img-placeholder.png') }}" class="rounded-4 img-profile"
                             style="width: 80px; height: 80px; object-fit:cover " alt="Avatar" />
                         <div class="add-btn-imgorder">
@@ -31,51 +40,24 @@
                     </div>
                     <div class="col-12 mb-3 p-0">
                         <label class="mb-3 fw-bold">اسم الطلب</label>
-                        <input type="text" name="firstName"
-                            class="form-control input-style-1 @error('firstName') is-invalid @enderror" required>
-                        @error('name')
+                        <input type="text" id="title" name="title"
+                            class="form-control input-style-1 @error('title') is-invalid @enderror" required>
+                            <span class="d-none bg-danger err-msg" id="title-err"><span>
+                        @error('title')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                     </div>
                     <div class="col-12 col-lg-6 mb-3 pe-0">
-                        <label class="mb-3 fw-bold"> القسم الرئيسي</label>
-                        <select type="text" name="lastName"
-                            class="form-select custom-select input-style-1 @error('lastName') is-invalid @enderror">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
+                        <label class="mb-3 fw-bold"> القسم</label>
+                        <select type="text" name="category_id"
+                            class="form-select custom-select input-style-1 @error('category_id') is-invalid @enderror">
+                            @foreach ($categories as $cat)
+                                <option value="{{$cat->id}}">{{$cat->name}}</option>                                
+                            @endforeach
                         </select>
-                        @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                    <div class="col-12 col-lg-6 mb-3 ps-0">
-                        <label class="mb-3 fw-bold"> القسم الفرعي</label>
-                        <select type="text" name="lastName"
-                            class="form-select custom-select input-style-1 @error('lastName') is-invalid @enderror">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                        </select>
-                        @error('lastName')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                    <div class="col-12 mb-3 p-0">
-                        <label class="fw-bold">خدمات اضافية</label>
-                        <select type="text" name="extra"
-                            class="form-select custom-select input-style-1 @error('extra') is-invalid @enderror">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                        </select>
-                        @error('extra')
+                        @error('category_id')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -83,32 +65,22 @@
                     </div>
                     <div class="col-12 mb-3 input-box p-0">
                         <label class="mb-3 fw-bold">وصف الطلب</label>
-                        <textarea name="order" id="order" class="form-control input-style-1" placeholder="description" rows="3">
-                                </textarea>
+                        <textarea name="description" id="order" class="form-control input-style-1" placeholder="description" rows="4"></textarea>
                     </div>
                     <div class="col-12 col-lg-6 mb-3 pe-0">
                         <label class="mb-3 fw-bold">بداية السعر المتوقع</label>
-                        <select type="number" name="lastName"
-                            class="form-select custom-select input-style-1 @error('lastName') is-invalid @enderror">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                        </select>
-                        @error('name')
+                        <input type="number" name="min_price" id="min_price"><br>
+                        <span class="d-none bg-danger err-msg" id="min-price-err"><span>
+                        @error('min_price')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                     </div>
-                    <div class="col-12 col-lg-6 mb-3  ps-0">
+                    <div class="col-12 col-lg-6 mb-3 pe-0">
                         <label class="mb-3 fw-bold">نهاية السعر المتوقع</label>
-                        <select type="number" name="lastName"
-                            class="form-select custom-select input-style-1 @error('lastName') is-invalid @enderror">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                        </select>
-                        @error('name')
+                        <input type="number" name="max_price" id="max_price">
+                        @error('max_price')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -125,7 +97,7 @@
                     <div class="head form-group col-12 col-lg-6 mb-3 pe-0">
                         <label class="mb-3 fw-bold">الدولة</label>
                         <div class="search_select_box position-relative p-0">
-                            <select data-live-search="true" name="" id="country-dd"
+                            <select data-live-search="true" name="country" id="country-id"
                                 class="w-100 form-control select">
                                 <option value="" disabled selected>اختر الدولة</option>
                                 @foreach ($countries as $country)
@@ -134,6 +106,7 @@
                                     </option>
                                 @endforeach
                             </select>
+                            <span class="d-none bg-danger err-msg" id="country-err"><span>
                         </div>
                     </div>
 
@@ -141,60 +114,36 @@
                     <div class="head form-group col-12 col-lg-6 mb-3 pe-0">
                         <label class="mb-3 fw-bold">المدينة</label>
                         <div class="search_select position-relative p-0 choseCity">
-                            <select data-live-search="true" name="" id="city-dd" class="w-100 form-control">
-                                <option value="" disabled selected>اختر المدينة</option>
+                            <select class="form-control" name="city" id="cities">
+                                <option value="">اختر المدينه من هنا</option>
                             </select>
                         </div>
                     </div>
 
-
-                    <div class="col-12 col-lg-6 mb-3 pe-0">
-                        <label class="mb-3 fw-bold">رقم الجوال</label>
-                        <input type="text" name="lastName"
-                            class="form-control input-style-1 @error('lastName') is-invalid @enderror" required>
-                        @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                    <div class="col-12 mb-3 p-0">
-                        <label class="fw-bold">طريقه التواصل</label>
-                        <br>
-                        <div role="group" aria-label="Basic checkbox toggle button group">
-                            <div class="d-flex align-items-center m-1">
-                                <input type="radio" name="contact_method" id="phoneNum" class="ms-2">
-                                <label for="phoneNum">رقم الجوال</label>
-                            </div>
-                            <div class="d-flex align-items-center m-1">
-                                <input type="radio" name="contact_method" id="contact" class="ms-2">
-                                <label for="contact">رسائل الموقع الإلكتروني</label>
-                            </div>
-                        </div>
-                    </div>
                     <!-- Button trigger modal -->
-
                     <div class="col-12 mx-lg-auto col-lg-6 text-center">
-                        <button type="submit" class="btn edit-btn-2 w-100" data-bs-toggle="modal"
-                            data-bs-target="#sendOrder">
+                        <button type="submit" class="btn edit-btn-2 w-100" id="submit-order" 
+                        {{-- data-bs-toggle="modal" --}}
+                            {{-- data-bs-target="#sendOrder" --}}
+                            >
                             ارسال الطلب
                         </button>
-                    </div>
-                    <!-- Modal -->
-                    <div class="modal fade" id="sendOrder" tabindex="-1" aria-labelledby="sendOrderLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <h4 class="contact-txt-color-1 fw-bold text-center my-4"> تم إنشاء منتجك بنجاح ! </h4>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+
+    <!-- Modal -->
+    {{-- <div class="modal fade" id="sendOrder" tabindex="-1" aria-labelledby="sendOrderLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h4 class="contact-txt-color-1 fw-bold text-center my-4"> تم إنشاء منتجك بنجاح ! </h4>
+                </div>
+            </div>
+        </div>
+    </div> --}}
 @endsection
 @section('script')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
@@ -210,34 +159,73 @@
 
         let progressBar = document.querySelector('#progress-bar');
         nextStepBtn.onclick = function() {
+            if(!validateStep1()){
+                return
+            }
             allSteps[0].classList.remove('active');
             allSteps[1].classList.add('active');
             progressBar.classList.remove('w-50')
         }
+        let submitOrderBtn = document.querySelector('#submit-order');
+
+        submitOrderBtn.onclick = function(e){
+            e.preventDefault();
+            if(!validateStep2()){
+                return
+            }
+
+            $('#order-form').submit();
+            
+        }
+
+        function validateStep1(){
+            $('.err-msg').addClass('d-none');
+            if(!$('#title').val()){
+                $('#title-err').removeClass('d-none');
+                $('#title-err').text('لابد من كتابة اسم الطلب');
+                return false;
+            }
+            if(!$('#min_price').val()){
+                $('#min-price-err').removeClass('d-none');
+                $('#min-price-err').text('لابد من كتابة اقل سعر');
+                return false;
+            }
+            return true;
+        }
+        function validateStep2(){
+            $('.err-msg').addClass('d-none');
+            if(!$('#country-id').val()){
+                $('#country-err').removeClass('d-none');
+                $('#country-err').text('لابد من اختيار اسم الدولة');
+                return false;
+            }
+            return true;
+        }
+        
     </script>
     <script>
         $(document).ready(function() {
-            $('#country-dd').on('change', function() {
-                var idCountry = this.value;
-                $("#city-dd").html('');
-                $('.search_select').selectpicker('refresh');
+            $('#country-id').on('change', function() {
+                var id = this.value;
+                // $("#cities").html('');
+                // $('.search_select').selectpicker('refresh');
                 $.ajax({
                     url: "{{ url('api/fetch-cities') }}",
                     type: "POST",
                     data: {
-                        country_id: idCountry,
+                        country_id: id,
                         _token: '{{ csrf_token() }}'
                     },
                     dataType: 'json',
 
                     success: function(result) {
-                        $('#city-dd').html(
+                        $('#cities').html(
                             '<option value="" disabled selected>اختر المدينة</option>');
                         $.each(result.cities, function(key, value) {
-                            $("#city-dd").append('<option value="' + value
+                            $("#cities").append('<option value="' + value
                                 .id + '">' + value.name + '</option>');
                         });
-                        $('.search_select select').selectpicker();
+                        // $('.search_select select').selectpicker();
                     }
                 });
             });
@@ -266,7 +254,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-    <script>
+    {{-- <script>
         $('.search_select_box .select').selectpicker();
-    </script>
+    </script> --}}
 @endsection

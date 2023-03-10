@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Service;
 use App\Models\Category;
 use App\Models\User;
+use App\Models\country;
 
 class Order extends Model
 {
@@ -25,6 +26,11 @@ class Order extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(country::class);
     }
     
 }

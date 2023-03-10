@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description');
-            $table->string('status')->default('request');
-            $table->string('city')->nullable();
-            $table->string('country')->nullable();
+            $table->text('description')->nullable();
+            $table->boolean('status')->default(0)->nullable();
+            $table->string('city_id')->nullable();
+            $table->string('country_id');
             $table->string('min_price');
             $table->string('max_price')->nullable();
             $table->unsignedBigInteger('user_id');
