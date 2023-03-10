@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\City;
 use App\Models\Order;
+
 class country extends Model
 {
     use HasFactory;
-    protected $fillable = ['name',"country_id"];
+    protected $fillable = ['name', "country_id"];
     public function cities()
     {
         return $this->hasMany(City::class);

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\DB;
 use App\Models\Order;
 use App\Models\Favorite;
@@ -16,39 +17,40 @@ class OrdersController extends Controller
     public function orders()
     {
         $orders = Order::where('status','active')->get();
-        return view('orders.all-orders' , compact('orders'));
+        $categories = Category::all();
+        return view('orders.all-orders' , compact('orders','categories'));
     }
-   
-    /** 
-     * 
+
+    /**
+     *
      * //add to fav table in order psges
-     * 
-     * 
-    **/
+     *
+     *
+     **/
     public function addFav($id)
     {
-        $logged_in_user =Auth::user()->id;
-        $fav =new Favorite();
-        $fav->order_id = $id ;
-        $fav->user_id = $logged_in_user ;
+        $logged_in_user = Auth::user()->id;
+        $fav = new Favorite();
+        $fav->order_id = $id;
+        $fav->user_id = $logged_in_user;
         $fav->save();
         return redirect()->back();
     }
-      /** 
-     * 
+    /**
+     *
      * //delete from fav table in order psges
-     * 
-     * 
-    **/
+     *
+     *
+     **/
     public function deleteFav($id)
     {
-    //    dd($id);
-     DB::table('favorites')->where('order_id',$id)->delete();
-     return redirect()->back();
+        //    dd($id);
+        DB::table('favorites')->where('order_id', $id)->delete();
+        return redirect()->back();
     }
     /**
-     * 
-     * 
+     *
+     *
      * */
     public function myOrders()
     {
@@ -64,15 +66,15 @@ class OrdersController extends Controller
         $countries = country::all();
         $cities = City::all();
         $categories = Category::all();
-        return view('orders.create',compact('countries','categories','cities'));
+        return view('orders.create', compact('countries', 'categories', 'cities'));
     }
     public function store(Request $request)
     {
         // dd($request);
 
         $request->validate([
-            'title' => 'required', 
-            'country' => 'required', 
+            'title' => 'required',
+            'country' => 'required',
             'min_price' => 'required',
             'image' => 'nullable|mimes:jpeg,png,jpg,gif', 
         ]);
@@ -93,8 +95,7 @@ class OrdersController extends Controller
         $order->image = $imagePath;
         $order->category_id = $request->category_id;
         $order->save();
-        return redirect()->route('orders.view')->with('message','success save');
-
+        return redirect()->route('orders.view')->with('message', 'success save');
     }
     // public function getCities($id){
     //     return City::where('country_id',$id)->get();
@@ -128,6 +129,6 @@ class OrdersController extends Controller
     public function admin()
     {
         $category = Category::all();
-        return view('admin.orders.index',['category' => $category]);
+        return view('admin.orders.index', ['category' => $category]);
     }
 }
