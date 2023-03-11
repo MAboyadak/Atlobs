@@ -10,6 +10,7 @@ use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\chatcontroller;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\OrderDetail;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AdditionalServicesController;
@@ -22,8 +23,9 @@ use App\Http\Controllers\Admin\CountriesController;
 use App\Http\Controllers\Admin\CreateBlogController;
 use App\Http\Controllers\DropdownController;
 
-use App\Http\Controllers\FavouriteController;
-
+use App\Http\Controllers;
+use App\Http\Controllers\Admin\OrdersController as AdminOrdersController;
+use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -47,6 +49,8 @@ Route::get('services', [ServicesController::class, 'index'])->name('services.ind
 // Profile
 Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::put('profile/update', [ProfileController::class,'update'])->name('profile.update');
+Route::get('profile/store', [ProfileController::class, 'store'])->name('profile.store');
 Route::get('profile/password/change', [ProfileController::class, 'createPassword'])->name('profile.create_password');
 Route::post('profile/password/change', [ProfileController::class, 'changePassword'])->name('profile.change_password');
 
@@ -56,9 +60,13 @@ Route::get('myorders', [OrdersController::class, 'myOrders'])->name('myorders.in
 Route::get('myorders/active', [OrdersController::class, 'activeOrder'])->name('orders.active');
 Route::get('orders/finished', [OrdersController::class, 'finishedOrder'])->name('orders.finished');
 Route::get('orders/create', [OrdersController::class, 'create'])->name('orders.create');
-Route::get('orders/reorder', [OrdersController::class, 'reOrder'])->name('orders.reorder');
-Route::get('orders/order/details', [OrdersController::class, 'order_details'])->name('myorders.details');
+// Route::get('orders/reorder', [OrdersController::class, 'reOrder'])->name('orders.reorder');
+Route::get('orders/{order}', [OrdersController::class, 'order_details'])->name('orders.details');
 Route::get('orders', [OrdersController::class, 'orders'])->name('orders.view');
+Route::post('orders', [OrdersController::class, 'store'])->name('orders.store');
+Route::get('orders/{order}/cancel', [OrdersController::class, 'cancelOrder'])->name('orders.cancel');
+Route::get('orders/{order}/complete', [OrdersController::class, 'completeOrder'])->name('orders.completed');
+Route::get('orders/{order}/reorder', [OrdersController::class, 'reorder'])->name('orders.reorder');
 
 
 // About Us
@@ -75,8 +83,10 @@ Route::get('bankAccount', [BankAccountController::class, 'index'])->name('bankAc
 // chat
 Route::get('chat', [ChatController::class, 'index'])->name('chat.index');
 //favourite
-Route::get('favourite', [FavouriteController::class, 'index'])->name('favourite.index');
-
+Route::get('favourite', [FavoriteController::class, 'index'])->name('favourite.index');
+Route::get('favourite/{id}', [FavoriteController::class, 'delete'])->name('favourite.delete');
+Route::get('order/{id}' , [OrdersController::class ,'addFav'])->name('order.addFav');
+Route::get('order/{id}' , [OrdersController::class ,'deleteFav'])->name('order.deleteFav');
 //verify coode for password
 
 Route::get('/verify', function () {
@@ -98,8 +108,7 @@ Route::post('/forget-password', [AdminAuthController::class, 'postEmail'])->name
 Route::get('/reset-password/{token}', [AdminAuthController::class, 'getPassword'])->name('get.reset');
 Route::post('/reset-password', [AdminAuthController::class, 'updatePassword'])->name('post.reset');
 
-
-// Route::middleware('auth:admin')->group(function () {
+Route::middleware('auth:admin')->group(function () {
     Route::view('admin', 'admin.dashboard')->name('dashboard.home');
 
     Route::resource('admin/slider', SliderController::class);
@@ -115,15 +124,24 @@ Route::post('/reset-password', [AdminAuthController::class, 'updatePassword'])->
     Route::post('admin/bank/store', [BankAccountController::class,'store'])->name('bank.store');
     Route::get('admin/terms', [TermsAndConditionsController::class,'create'])->name('terms.create');
     Route::post('admin/termsstore', [TermsAndConditionsController::class,'store'])->name('terms.store');
-    Route::get('admin/categoryOrder', [MyCategoryOrderController::class,'create'])->name('categoryOrder.create');
-    Route::post('admin/categoryOrder/store', [MyCategoryOrderController::class,'store'])->name('categoryOrder.store');
-// });
+    Route::resource('admin/categoryOrder',MyCategoryOrderController::class);
+    Route::get('admin/orders',[OrdersController::class,'admin'])->name('admin.orders');
 
-Route::resource('admin/slider',SliderController::class);
+    // admin-users
+    Route::get('admin/users', [UsersController::class,'index'])->name('admin.users.index');
+    Route::get('admin/users/edit/{user}', [UsersController::class,'edit'])->name('admin.users.edit');
+    Route::put('admin/users/update/{user}', [UsersController::class,'update'])->name('admin.users.update');
+    Route::delete('admin/users/delete/{user}', [UsersController::class,'delete'])->name('admin.users.delete');
+
+    // admin-orders
+    Route::get('admin/orders', [AdminOrdersController::class,'index'])->name('admin.orders.index');
+    Route::delete('admin/orders/delete/{order}', [AdminOrdersController::class,'delete'])->name('admin.orders.delete');
 
 
-Route::resource('admin/category',CategoryController::class);
+});
+
+
 
 // routes for cites and countries DropDown in orders/create
-Route::get('orders/create', [DropdownController::class, 'index']);
+Route::get('dropdown/create', [DropdownController::class, 'index']);
 Route::post('api/fetch-cities', [DropdownController::class, 'fetchCity']);
