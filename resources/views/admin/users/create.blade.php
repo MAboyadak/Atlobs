@@ -4,7 +4,7 @@
 
 @section('dash-css')
 @endsection
-{{-- {{dd($termData)}} --}}
+
 @section('content')
     <div class="container">
        <div class="row">
@@ -14,27 +14,25 @@
             @endif
             <div class="card">
                 <div class="card-header">
-                    <h3 class="d-inline">Terms And Conditions</h3>
+                    <h3 class="d-inline">Add Service</h3>
+                    <a href="{{route('additionalService.index')}}" class="btn btn-danger btn-sm text-white float-right">
+                        Back
+                    </a>
                 </div>
                 <div class="card-body">
-                 <form action="{{Route('terms.store')}}" method="POST" enctype="multipart/form-data">
+                 <form action="{{Route('additionalService.store')}}" method="POST">
                     @csrf
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Terms And Conditions</label>
-                        <textarea name="termsAndConditions" class="form-control text-area" id="exampleInputPassword1" rows="9">
-                            {{$termData->termsAndConditions}}
-                        </textarea> 
+                        <label for="exampleInputPassword1" class="form-label">Sevice Name</label>
+                        <input type="text" name="name" class="form-control" id="exampleInputPassword1">
                     </div>
-                    @if($errors->has('about'))
+                    @if($errors->has('name'))
                     <div class="alert alert-danger">
                      <ul>
-                      <li>{{$errors->first('about')}}</li>
+                      <li>{{$errors->first('name')}}</li>
                      </ul>
                     </div>
                     @endif
-                    
-                    
-                    
                     <div>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </div>

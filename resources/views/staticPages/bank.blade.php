@@ -4,6 +4,7 @@
 
 @section('dash-css')
 @endsection
+{{-- {{dd($bankData)}} --}}
 
 @section('content')
     <div class="container">
@@ -21,7 +22,9 @@
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">about us</label>
-                        <input type="text" name="about" class="form-control" id="exampleInputPassword1">
+                        <textarea  name="about" class="form-control" id="exampleInputPassword1" rows="5">
+                            {{$bankData->about}}
+                        </textarea>
                     </div>
                     @if($errors->has('about'))
                     <div class="alert alert-danger">
@@ -32,7 +35,7 @@
                     @endif
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Account Number</label>
-                        <input type="number" name="number" class="form-control" id="exampleInputPassword1">
+                        <input type="number" name="number" class="form-control" id="exampleInputPassword1" value="{{$bankData->number}}">
                     </div>
                     @if($errors->has('number'))
                     <div class="alert alert-danger">
@@ -43,7 +46,7 @@
                     @endif
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Bank Name</label>
-                        <input type="text" name="name" class="form-control" id="exampleInputPassword1">
+                        <input type="text" name="name" class="form-control" id="exampleInputPassword1" value="{{$bankData->name}}">
                     </div>
                     @if($errors->has('name'))
                     <div class="alert alert-danger">

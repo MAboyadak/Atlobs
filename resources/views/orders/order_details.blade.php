@@ -1,20 +1,23 @@
 @extends('layouts.app')
 @section('content')
     <div class="container py-4">
+        @if (session('message'))
+            <div class="alert alert-success mt-5">{{ session('message') }}</div>
+        @endif
         <div class="d-flex flex-wrap flex-lg-nowrap gap-2">
             <div class="col-12 col-lg-7">
                 <div class="card  border-0 p-3">
                     <div class="d-flex flex-wrap justify-content-between align-items-center">
                         <div class="col-12 col-md-4 img-container75 d-flex align-items-center justify-content-start">
-                            <img id="avatar" style="width: 75px" src="{{ asset('images/user.png') }}"
+                            <img id="avatar" style="width: 75px" src="{{asset('storage/'.$order->user->image)}}"
                                 class="avatar-circlye fill " alt="Avatar" />
-                            <h6 class="me-3 contact-txt-color-1 fw-bold m-0">محمد عبدالعظيم</h6>
+                            <h6 class="me-3 contact-txt-color-1 fw-bold m-0">{{$order->user->first_name}} {{$order->user->last_name}} </h6>
                         </div>
                         <div
                             class="d-flex col-6 col-md-4 align-items-center justify-content-center justify-content-md-between">
                             <div class=" d-flex align-items-center justify-content-center mn-12">
                                 <i class="fa-solid fa-location-dot icon-24"></i>
-                                <h6 class="fw-bold me-3 m-0 ">مكة المكرمة ، حي شرق</h6>
+                                <h6 class="fw-bold me-3 m-0 ">{{$order->country->name}} {{$order->city?' | '.$order->city->name:''}} </h6>
                             </div>
                         </div>
                         <div
@@ -35,7 +38,7 @@
                                                 <label class="form-check-label d-flex justify-content-between"
                                                     for="exampleRadios1">
                                                     <div> <i class="fa-solid fa-phone mx-2 contact-txt-color-1"></i>
-                                                        050 3222 2119 9221
+                                                        {{$order->user->phone}}
                                                     </div>
                                                     <div class="copy-number"><i
                                                             class="fa-solid fa-copy contact-txt-color-1 mx-3"></i> نسخ
@@ -61,7 +64,7 @@
                 <div class="card  border-0 p-3 mt-2">
                     <div class="d-flex  align-items-center justify-content-between w-100 flex-wrap ">
                         <div class="col-6">
-                            <h6 class="col contact-txt-color-2 fw-bold text-end p-0">سيارة ديجتال </h6>
+                            <p class="col contact-txt-color-2 fw-bold text-end p-0">{{$order->title}}</p>
                         </div>
                         <div class="col-6">
                             <h6 class="col contact-txt-color-2 fw-bold text-end "> الكمية:
@@ -70,11 +73,7 @@
                             </h6>
                         </div>
                     </div>
-                    <h6 class="text-end m-0 my-2 lh-lg">هذا النص هو مثال لنص يمكن أن يستبدل في نفس
-                        المساحة،
-                        لقد تم
-                        توليد هذا النص من مولد النص العربى
-                    </h6>
+                    <h6 class="text-end m-0 my-2 lh-lg">{{$order->description}}</h6>
                     <div id="carouselExampleCaptions" class="carousel slide rounded-3" data-bs-ride="carousel">
                         <div class="carousel-indicators rounded-3">
                             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
@@ -87,12 +86,11 @@
                         <div class="carousel-inner rounded-3">
                             @foreach (range(3, 1) as $count)
                                 <div class="carousel-item active post" data-bs-interval="2000 position-relative">
-                                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/05{{ $count }}.webp"
+                                    <img src="{{asset('storage/'.$order->image)}}" height="400px"
                                         class="d-block w-100 rounded-3" alt="...">
                                     <div class="expected-price">
                                         <p class="text-start m-0">السعر المتوقع </p>
-                                        <p class=" m-0">الف 100 - الف
-                                            120</p>
+                                        <p class=" m-0">{{$order->min_price}} : {{$order->max_price}}</p>
                                     </div>
                                 </div>
                             @endforeach
@@ -106,15 +104,23 @@
                     <h6 class="col contact-txt-color-2 fw-bold text-end p-0">التفاصيل</h6>
                     <div class="d-flex  align-items-center justify-content-between w-100 mb-2">
                         <div class="col-6">
-                            <p class="col m-0">القسم الرئيسي: <span>سيارة</span>
+                            <p class="col m-0">القسم : <span>{{$order->category->name}}</span>
                             </p>
-                        </div>
-                        <div class="col-6">
-                            <p class="col m-0">القسم الفرعي: <span>بيضاء اللون</span>
-                            </p>
+                            <p class="text-end m-0 my-2 lh-lg">{{$order->description}}</p>
+                            <h6 class="text-end m-0 my-2 lh-lg bg-dark text-white p-2">حاله الطلب : {{ucfirst($order->status)}}</h6>
+                            <div class="flex justify-content-between">
+                                @if($order->status=='active')
+                                    <a class="btn btn-secondary" href="{{route('orders.cancel',$order->id)}}">Cancel</a>
+                                    <a class="btn btn-success" href="{{route('orders.reorder',$order->id)}}">Reorder</a>
+                                    <a class="btn btn-primary"href="{{route('orders.completed',$order->id)}}">Completed</a>
+                                @else
+                                    <a class="btn btn-success" href="{{route('orders.reorder',$order->id)}}">Reorder</a>
+                                @endif
+                            </div>
+
                         </div>
                     </div>
-                    <p class="m-0 mb-1">الخدمة الإضافية: <span>موديل 2023</span>
+                    {{-- <p class="m-0 mb-1">الخدمة الإضافية: <span>موديل 2023</span> --}}
                 </div>
                 <div class="card border-0 py-3 px-3 rounded-0 rounded-bottom">
                     <h6 class="col contact-txt-color-2 fw-bold text-end p-0">التعليقات</h6>
