@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
-
+use Illuminate\Support\Facades\Auth;
 class CommentController extends Controller
 {
     /**
@@ -34,9 +34,16 @@ class CommentController extends Controller
      * @param  \App\Http\Requests\StoreCommentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($id)
+    public function store($id , StoreCommentRequest  $request)
     {
-        dd($id);
+        $logged_in_user = Auth::user()->id;
+        $comment = new Comment();
+        $comment->order_id =$id;
+        $comment->user_id =$logged_in_user;
+        $comment->comment =$request->comment;
+        $comment->save();
+        // dd($request->comment);
+        return redirect()->back();
     }
 
     /**
