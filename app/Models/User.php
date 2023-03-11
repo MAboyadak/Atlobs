@@ -21,7 +21,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    
+
     protected $fillable = [
         'first_name',
         'last_name',
@@ -59,6 +59,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Order::class, 'favorites');
     }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'comments');
+    }
 
-  
+
 }

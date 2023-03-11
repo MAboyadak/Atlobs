@@ -114,7 +114,7 @@
                                 background-image: var(--bg-image-gradient);
                                 text-align:center;
                                 border-radius: 12px;
-                            
+
                             ">حاله الطلب : {{ucfirst($order->status)}}</h6>
                             <div class="flex justify-content-between ">
                                 @if($order->status=='active')
@@ -141,17 +141,19 @@
                                             class="avatar-circlye fill " alt="Avatar" />
                                     </div>
                                     <div class="w-100 px-3">
-                                        <h6 class="contact-txt-color-2 fw-bold text-end">أحمد محمد</h6>
+                                        @foreach($comment_users as $comment_user)
+                                        <h6 class="contact-txt-color-2 fw-bold text-end">{{$comment_user->first_name}}</h6>
+                                        @endforeach
                                         <div class=" d-flex  align-items-center justify-content-between w-100">
                                             <h6 class="text-end m-0 my-1">
                                                 {{ $comment->comment}}
                                             </h6>
-                                              
+
                                         </div>
                                     </div>
                                 </div>
 
-                                <h6 class="text-end m-0 my-2 text-black-50">تم النشر بتوقيت 
+                                <h6 class="text-end m-0 my-2 text-black-50">تم النشر بتوقيت
                                     <span class="d-block d-sm-inline">
                                         {{$comment->created_at}}
                                     </span>

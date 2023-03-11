@@ -38,5 +38,9 @@ class Order extends Model
     {
         return $this->belongsTo(city::class);
     }
-    
+    public function comments()
+    {
+        return $this->belongsToMany(Comment::class, 'comments');
+    }
+
 }

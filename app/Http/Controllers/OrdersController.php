@@ -71,10 +71,18 @@ class OrdersController extends Controller
         $category = DB::table('categories')->where('id',$order->category_id)->first();
         // dd($category);
         $comments = DB::table('comments')->where('order_id',$order->id)->get();
-        dd($comments);
+
+        $comment_users = DB::table('comments')
+        ->join('users', 'comments.user_id', '=', 'users.id')
+        ->join('orders', 'comments.order_id', '=', 'orders.id')
+        ->where('comments.order_id', $id)
+        ->select('users.*')
+        ->get();
+
+        // dd($comments);
         // $users = DB::table('users')->where('id',$comments->user_id)->get();
         // dd($users);
-        return view('orders.order_details',compact('order' , 'user','city','country','category' ,'comments'));
+        return view('orders.order_details',compact('order' , 'user','city','country','category' ,'comments','comment_users'));
     }
     public function create()
     {
@@ -91,7 +99,7 @@ class OrdersController extends Controller
             'title' => 'required',
             'country' => 'required',
             'min_price' => 'required',
-            'image' => 'nullable|mimes:jpeg,png,jpg,gif', 
+            'image' => 'nullable|mimes:jpeg,png,jpg,gif',
         ]);
         // dd($request);
         $order = new Order();
