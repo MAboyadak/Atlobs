@@ -223,7 +223,7 @@
             $('#country-dd').on('change', function() {
                 var idCountry = this.value;
                 $("#city-dd").html('');
-                $('.search_select').selectpicker('refresh');
+                // $('.search_select').selectpicker('refresh');
                 $.ajax({
                     url: "{{ url('api/fetch-cities') }}",
                     type: "POST",
@@ -240,7 +240,7 @@
                                 $("#city-dd").append('<option value="' + value
                                 .id + '">' + value.name + '</option>');
                             });
-                            $('.search_select select').selectpicker();
+                            // $('.search_select select').selectpicker();
                     }
                 });
             });
