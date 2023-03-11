@@ -124,7 +124,7 @@
 
                     </a>
                 </li>
-               
+
                 <li class="nav-item">
                     <a href="{{ Route('blogsCreate.index') }}" class="nav-link">
                         <i class="mdi mdi-view-carousel menu-icon"></i>
@@ -142,19 +142,19 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ Route('categoryOrder.create') }}" class="nav-link">
+                    <a href="{{ Route('categoryOrder.index') }}" class="nav-link">
                         <i class="mdi mdi-view-carousel menu-icon"></i>
 
                         <span class="menu-title">Category Order</span>
 
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ Route('admin.orders') }}" class="nav-link">
                         <i class="mdi mdi-view-carousel menu-icon"></i>
                         <span class="menu-title">View Orders</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

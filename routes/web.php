@@ -47,6 +47,7 @@ Route::get('services', [ServicesController::class, 'index'])->name('services.ind
 // Profile
 Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::put('profile/update', [ProfileController::class,'update'])->name('profile.update');
 Route::get('profile/store', [ProfileController::class, 'store'])->name('profile.store');
 Route::get('profile/password/change', [ProfileController::class, 'createPassword'])->name('profile.create_password');
 Route::post('profile/password/change', [ProfileController::class, 'changePassword'])->name('profile.change_password');
