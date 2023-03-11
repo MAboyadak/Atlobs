@@ -57,9 +57,24 @@ class OrdersController extends Controller
         // $myOrders = DB::table('orders')->where('user_id',auth()->id())->get();
         return view('orders.my-orders');
     }
-    public function order_details(Order $order)
+    public function order_details($id)
     {
-        return view('orders.order_details',compact('order'));
+        // dd($id);
+        $order=  DB::table('orders')->where('id', $id)->first();
+        // dd($order);
+        $user = DB::table('users')->where('id',$order->user_id)->first();
+        // dd($user);
+        $city = DB::table('cities')->where('id',$order->city_id)->first();
+        // dd($city);
+        $country = DB::table('countries')->where('id',$order->country_id)->first();
+        // dd($country);
+        $category = DB::table('categories')->where('id',$order->category_id)->first();
+        // dd($category);
+        $comments = DB::table('comments')->where('order_id',$order->id)->get();
+        dd($comments);
+        // $users = DB::table('users')->where('id',$comments->user_id)->get();
+        // dd($users);
+        return view('orders.order_details',compact('order' , 'user','city','country','category' ,'comments'));
     }
     public function create()
     {

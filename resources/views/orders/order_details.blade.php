@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+{{-- {{dd($user)}} --}}
+{{-- {{dd($comments)}} --}}
     <div class="container py-4">
         @if (session('message'))
             <div class="alert alert-success mt-5">{{ session('message') }}</div>
@@ -9,15 +11,15 @@
                 <div class="card  border-0 p-3">
                     <div class="d-flex flex-wrap justify-content-between align-items-center">
                         <div class="col-12 col-md-4 img-container75 d-flex align-items-center justify-content-start">
-                            <img id="avatar" style="width: 75px" src="{{asset('storage/'.$order->user->image)}}"
+                            <img id="avatar" style="width: 75px" src="{{asset('storage/'.$user->image)}}"
                                 class="avatar-circlye fill " alt="Avatar" />
-                            <h6 class="me-3 contact-txt-color-1 fw-bold m-0">{{$order->user->first_name}} {{$order->user->last_name}} </h6>
+                            <h6 class="me-3 contact-txt-color-1 fw-bold m-0">{{$user->first_name}} {{$user->last_name}} </h6>
                         </div>
                         <div
                             class="d-flex col-6 col-md-4 align-items-center justify-content-center justify-content-md-between">
                             <div class=" d-flex align-items-center justify-content-center mn-12">
                                 <i class="fa-solid fa-location-dot icon-24"></i>
-                                <h6 class="fw-bold me-3 m-0 ">{{$order->country->name}} {{$order->city?' | '.$order->city->name:''}} </h6>
+                                <h6 class="fw-bold me-3 m-0 ">{{$country->name}} {{$city->name?' | '.$city->name:''}} </h6>
                             </div>
                         </div>
                         <div
@@ -38,7 +40,7 @@
                                                 <label class="form-check-label d-flex justify-content-between"
                                                     for="exampleRadios1">
                                                     <div> <i class="fa-solid fa-phone mx-2 contact-txt-color-1"></i>
-                                                        {{$order->user->phone}}
+                                                        {{$user->phone}}
                                                     </div>
                                                     <div class="copy-number"><i
                                                             class="fa-solid fa-copy contact-txt-color-1 mx-3"></i> نسخ
@@ -103,16 +105,22 @@
                 <div class="card border-0 py-3 px-3 mb-1 rounded-0 rounded-top">
                     <h6 class="col contact-txt-color-2 fw-bold text-end p-0">التفاصيل</h6>
                     <div class="d-flex  align-items-center justify-content-between w-100 mb-2">
-                        <div class="col-6">
-                            <p class="col m-0">القسم : <span>{{$order->category->name}}</span>
+                        <div class="col-12 row">
+                            <p class="col-12 col-md-5 m-0">القسم : <span>{{$category->name}}</span>
                             </p>
-                            <p class="text-end m-0 my-2 lh-lg">{{$order->description}}</p>
-                            <h6 class="text-end m-0 my-2 lh-lg bg-dark text-white p-2">حاله الطلب : {{ucfirst($order->status)}}</h6>
-                            <div class="flex justify-content-between">
+                            <p class=" col-12 col-md-5 text-end m-0 lh-lg">{{$order->description}}</p>
+                            <h6 class=" m-0 my-2 lh-lg  text-white p-2" style="
+                                color:white;
+                                background-image: var(--bg-image-gradient);
+                                text-align:center;
+                                border-radius: 12px;
+                            
+                            ">حاله الطلب : {{ucfirst($order->status)}}</h6>
+                            <div class="flex justify-content-between ">
                                 @if($order->status=='active')
-                                    <a class="btn btn-secondary" href="{{route('orders.cancel',$order->id)}}">Cancel</a>
-                                    <a class="btn btn-success" href="{{route('orders.reorder',$order->id)}}">Reorder</a>
-                                    <a class="btn btn-primary"href="{{route('orders.completed',$order->id)}}">Completed</a>
+                                    <a class="btn btn-danger" href="{{route('orders.cancel',$order->id)}}">Cancel</a>
+                                    <a class="btn btn-primary" href="{{route('orders.reorder',$order->id)}}">Reorder</a>
+                                    <a class="btn btn-success"href="{{route('orders.completed',$order->id)}}">Completed</a>
                                 @else
                                     <a class="btn btn-success" href="{{route('orders.reorder',$order->id)}}">Reorder</a>
                                 @endif
@@ -124,7 +132,7 @@
                 </div>
                 <div class="card border-0 py-3 px-3 rounded-0 rounded-bottom">
                     <h6 class="col contact-txt-color-2 fw-bold text-end p-0">التعليقات</h6>
-                    @foreach (range(4, 1) as $count)
+                    @foreach ($comments as $comment)
                         <div class="card border-0 w-100 m-0 my-3">
                             <div class="d-flex  align-items-end justify-content-end flex-wrap flex-lg-nowrap">
                                 <div class="d-flex">
@@ -135,15 +143,19 @@
                                     <div class="w-100 px-3">
                                         <h6 class="contact-txt-color-2 fw-bold text-end">أحمد محمد</h6>
                                         <div class=" d-flex  align-items-center justify-content-between w-100">
-                                            <h6 class="text-end m-0 my-1">هذا النص هو مثال لنص يمكن أن يستبدل في نفس
-                                                المساحة،
+                                            <h6 class="text-end m-0 my-1">
+                                                {{ $comment->comment}}
+                                            </h6>
+                                              
                                         </div>
                                     </div>
                                 </div>
 
-                                <h6 class="text-end m-0 my-2 text-black-50">تم النشر بتوقيت <span
-                                        class="d-block d-sm-inline">10 مارس
-                                        2022</span></h6>
+                                <h6 class="text-end m-0 my-2 text-black-50">تم النشر بتوقيت 
+                                    <span class="d-block d-sm-inline">
+                                        {{$comment->created_at}}
+                                    </span>
+                                </h6>
                             </div>
                         </div>
                     @endforeach
