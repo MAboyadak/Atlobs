@@ -40,7 +40,7 @@ class Order extends Model
     }
     public function comments()
     {
-        return $this->belongsToMany(Comment::class, 'comments');
+        return $this->hasMany(Comment::class, 'comments');
     }
 
 }

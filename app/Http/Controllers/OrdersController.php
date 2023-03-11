@@ -70,19 +70,19 @@ class OrdersController extends Controller
         // dd($country);
         $category = DB::table('categories')->where('id',$order->category_id)->first();
         // dd($category);
-        $comments = DB::table('comments')->where('order_id',$order->id)->get();
+        // $comments = DB::table('comments')->where('order_id',$order->id)->get();
 
-        $comment_users = DB::table('comments')
-        ->join('users', 'comments.user_id', '=', 'users.id')
+        // dd($comments);   
+        $comments = DB::table('comments')
+        ->select('users.first_name', 'users.last_name', 'comments.comment', 'comments.created_at')
+        ->leftjoin('users', 'comments.user_id', '=', 'users.id')
         ->join('orders', 'comments.order_id', '=', 'orders.id')
         ->where('comments.order_id', $id)
-        ->select('users.*')
         ->get();
 
-        // dd($comments);
-        // $users = DB::table('users')->where('id',$comments->user_id)->get();
-        // dd($users);
-        return view('orders.order_details',compact('order' , 'user','city','country','category' ,'comments','comment_users'));
+        
+    //    dd( $comment_users);
+        return view('orders.order_details',compact('order' , 'user','city','country','category' ,'comments'));
     }
     public function create()
     {

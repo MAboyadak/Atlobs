@@ -141,9 +141,10 @@
                                             class="avatar-circlye fill " alt="Avatar" />
                                     </div>
                                     <div class="w-100 px-3">
-                                        @foreach($comment_users as $comment_user)
+                                {{ $comment->first_name}} {{$comment->last_name}}
+                                        {{-- @foreach($comment_users as $comment_user)
                                         <h6 class="contact-txt-color-2 fw-bold text-end">{{$comment_user->first_name}}</h6>
-                                        @endforeach
+                                        @endforeach --}}
                                         <div class=" d-flex  align-items-center justify-content-between w-100">
                                             <h6 class="text-end m-0 my-1">
                                                 {{ $comment->comment}}
@@ -162,16 +163,21 @@
                         </div>
                     @endforeach
                     <br>
+                    
                     <div class="d-flex align-items-center justify-content-start gap-2">
-                        <div class=" img-container30 d-flex align-items-center justify-content-center">
-                            <img id="avatar" style="width: 30px" src="{{ asset('images/user.png') }}"
-                                class="avatar-circlye fill col-2" alt="Avatar" />
-                        </div>
-                        <div class="col position-relative">
-                            <input class="w-100 comment-input" placeholder="اكتب تعليقك هنا">
-                            <i class="fa-solid fa-camera "></i>
-                        </div>
-                        <button class="col-3 col-md-2 py-1 btn edit-btn-1"> ارسال</button>
+                        <form class="row" method="post" action="{{ route('comment.store',$order->id) }}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="col-1 img-container30 d-flex align-items-center justify-content-center">
+                                <img id="avatar" style="width: 30px" src="{{ asset('images/user.png') }}"
+                                    class="avatar-circlye fill col-2" alt="Avatar" />
+                            </div>
+                            <div class="col-8 position-relative">
+                                <input class="w-100 comment-input" placeholder="اكتب تعليقك هنا" name="comment">
+                                <i class="fa-solid fa-camera "></i>
+                            </div>
+                            <button type="submit" class="col-3 col-md-3 py-1 btn edit-btn-1"> ارسال</button>
+                        </form>
+                        
                     </div>
                 </div>
             </div>

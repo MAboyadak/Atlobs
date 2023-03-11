@@ -34,9 +34,9 @@ class CommentController extends Controller
      * @param  \App\Http\Requests\StoreCommentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCommentRequest $request)
+    public function store($id)
     {
-        //
+        dd($id);
     }
 
     /**
