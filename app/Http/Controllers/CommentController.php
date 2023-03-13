@@ -34,15 +34,17 @@ class CommentController extends Controller
      * @param  \App\Http\Requests\StoreCommentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($id , StoreCommentRequest  $request)
+    public function store( StoreCommentRequest  $request)
     {
+        // dd($request);
         $logged_in_user = Auth::user()->id;
         $comment = new Comment();
-        $comment->order_id =$id;
+        $comment->order_id =$request->order_id;
         $comment->user_id =$logged_in_user;
         $comment->comment =$request->comment;
         $comment->save();
         // dd($request->comment);
+        
         return redirect()->back();
     }
 

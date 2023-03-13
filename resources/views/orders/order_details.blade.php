@@ -165,7 +165,7 @@
                     <br>
                     
                     <div class="d-flex align-items-center justify-content-start gap-2">
-                        <form class="row" method="post" action="{{ route('comment.store',$order->id) }}" enctype="multipart/form-data">
+                        <form class="row" method="post" action="{{ route('comment.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="col-1 img-container30 d-flex align-items-center justify-content-center">
                                 <img id="avatar" style="width: 30px" src="{{ asset('images/user.png') }}"
@@ -175,7 +175,9 @@
                                 <input class="w-100 comment-input" placeholder="اكتب تعليقك هنا" name="comment">
                                 <i class="fa-solid fa-camera "></i>
                             </div>
-                            <button type="submit" class="col-3 col-md-3 py-1 btn edit-btn-1"> ارسال</button>
+                            <input hidden value="{{$order->id}}" name="order_id">
+                               
+                            <button type="submit" class="col-3 col-md-3 py-1 btn edit-btn-1 "> ارسال</button>
                         </form>
                         
                     </div>

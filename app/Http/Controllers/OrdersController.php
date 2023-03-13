@@ -10,6 +10,7 @@ use App\Models\Favorite;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OrdersController extends Controller
 {
@@ -17,12 +18,12 @@ class OrdersController extends Controller
     {
         $allOrders = Order::all();
         $orders = Order::where('status', 'active')->get();
-        $cat = DB::table('categories')
+        $categories = DB::table('categories')
             ->whereNull('parent_id')->get();
         $countries = Country::all();
         $serv = AdditionalService::all();
         // dd($orders);
-        return view('orders.all-orders', compact('allOrders', 'orders', 'cat', 'countries', 'serv'));
+        return view('orders.all-orders', compact('allOrders', 'orders', 'categories', 'countries', 'serv'));
     }
     public function fetchCat($id)
     {
@@ -99,7 +100,7 @@ class OrdersController extends Controller
         // $myOrders = DB::table('orders')->where('user_id',auth()->id())->get();
         return view('orders.my-orders');
     }
-    public function orderDetails($id)
+    public function order_details($id)
     {
         // dd($id);
         $order =  DB::table('orders')->where('id', $id)->first();
