@@ -66,7 +66,7 @@ Route::get('orders/{order}/complete', [OrdersController::class, 'completeOrder']
 Route::get('orders/{order}/reorder', [OrdersController::class, 'reorder'])->name('orders.reorder');
 
 //comments
-Route::post('orders/{id}', [CommentController::class, 'store'])->name('comment.store');
+Route::post('orders', [CommentController::class, 'store'])->name('comment.store');
 
 // About Us
 Route::get('aboutus', [AboutController::class, 'index'])->name('aboutus.index');
