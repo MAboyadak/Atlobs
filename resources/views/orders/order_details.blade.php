@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-{{-- {{dd($user)}} --}}
-{{-- {{dd($comments)}} --}}
+    {{-- {{dd($user)}} --}}
+    {{-- {{dd($comments)}} --}}
     <div class="container py-4">
         @if (session('message'))
             <div class="alert alert-success mt-5">{{ session('message') }}</div>
@@ -11,15 +11,16 @@
                 <div class="card  border-0 p-3">
                     <div class="d-flex flex-wrap justify-content-between align-items-center">
                         <div class="col-12 col-md-4 img-container75 d-flex align-items-center justify-content-start">
-                            <img id="avatar" style="width: 75px" src="{{asset('storage/'.$user->image)}}"
+                            <img id="avatar" style="width: 75px" src="{{ asset('images/logo.png') }}"
                                 class="avatar-circlye fill " alt="Avatar" />
-                            <h6 class="me-3 contact-txt-color-1 fw-bold m-0">{{$user->first_name}} {{$user->last_name}} </h6>
+                            <h6 class="me-3 contact-txt-color-1 fw-bold m-0">{{ $user->first_name }} {{ $user->last_name }}
+                            </h6>
                         </div>
                         <div
                             class="d-flex col-6 col-md-4 align-items-center justify-content-center justify-content-md-between">
                             <div class=" d-flex align-items-center justify-content-center mn-12">
                                 <i class="fa-solid fa-location-dot icon-24"></i>
-                                <h6 class="fw-bold me-3 m-0 ">{{$country->name}} {{$city->name?' | '.$city->name:''}} </h6>
+                                <h6 class="fw-bold me-3 m-0 ">{{ $order->country }} {{ $order->city }} </h6>
                             </div>
                         </div>
                         <div
@@ -40,7 +41,7 @@
                                                 <label class="form-check-label d-flex justify-content-between"
                                                     for="exampleRadios1">
                                                     <div> <i class="fa-solid fa-phone mx-2 contact-txt-color-1"></i>
-                                                        {{$user->phone}}
+                                                        {{ $user->phone }}
                                                     </div>
                                                     <div class="copy-number"><i
                                                             class="fa-solid fa-copy contact-txt-color-1 mx-3"></i> نسخ
@@ -66,7 +67,7 @@
                 <div class="card  border-0 p-3 mt-2">
                     <div class="d-flex  align-items-center justify-content-between w-100 flex-wrap ">
                         <div class="col-6">
-                            <p class="col contact-txt-color-2 fw-bold text-end p-0">{{$order->title}}</p>
+                            <p class="col contact-txt-color-2 fw-bold text-end p-0">{{ $order->title }}</p>
                         </div>
                         <div class="col-6">
                             <h6 class="col contact-txt-color-2 fw-bold text-end "> الكمية:
@@ -75,7 +76,7 @@
                             </h6>
                         </div>
                     </div>
-                    <h6 class="text-end m-0 my-2 lh-lg">{{$order->description}}</h6>
+                    <h6 class="text-end m-0 my-2 lh-lg">{{ $order->description }}</h6>
                     <div id="carouselExampleCaptions" class="carousel slide rounded-3" data-bs-ride="carousel">
                         <div class="carousel-indicators rounded-3">
                             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
@@ -88,11 +89,11 @@
                         <div class="carousel-inner rounded-3">
                             @foreach (range(3, 1) as $count)
                                 <div class="carousel-item active post" data-bs-interval="2000 position-relative">
-                                    <img src="{{asset('storage/'.$order->image)}}" height="400px"
+                                    <img src="{{ asset('images/images.jpg') }}" height="400px"
                                         class="d-block w-100 rounded-3" alt="...">
                                     <div class="expected-price">
                                         <p class="text-start m-0">السعر المتوقع </p>
-                                        <p class=" m-0">{{$order->min_price}} : {{$order->max_price}}</p>
+                                        <p class=" m-0">{{ $order->min_price }} : {{ $order->max_price }}</p>
                                     </div>
                                 </div>
                             @endforeach
@@ -106,25 +107,31 @@
                     <h6 class="col contact-txt-color-2 fw-bold text-end p-0">التفاصيل</h6>
                     <div class="d-flex  align-items-center justify-content-between w-100 mb-2">
                         <div class="col-12 row">
-                            <p class="col-12 col-md-5 m-0">القسم : <span>{{$category->name}}</span>
+                            <p class="col-12 col-md-5 m-0">القسم : <span>{{ $category->name }}</span>
                             </p>
-                            <p class=" col-12 col-md-5 text-end m-0 lh-lg">{{$order->description}}</p>
-                            <h6 class=" m-0 my-2 lh-lg  text-white p-2" style="
+                            <p class=" col-12 col-md-5 text-end m-0 lh-lg"> القسم الفرعي :
+                                <span>{{ $orders_sub->name }}</span>
+                            </p>
+                            {{-- <h6 class=" m-0 my-2 lh-lg  text-white p-2"
+                                style="
                                 color:white;
                                 background-image: var(--bg-image-gradient);
                                 text-align:center;
                                 border-radius: 12px;
 
-                            ">حاله الطلب : {{ucfirst($order->status)}}</h6>
+                            ">
+                                حاله الطلب : {{ ucfirst($order->status) }}</h6>
                             <div class="flex justify-content-between ">
-                                @if($order->status=='active')
-                                    <a class="btn btn-danger" href="{{route('orders.cancel',$order->id)}}">Cancel</a>
-                                    <a class="btn btn-primary" href="{{route('orders.reorder',$order->id)}}">Reorder</a>
-                                    <a class="btn btn-success"href="{{route('orders.completed',$order->id)}}">Completed</a>
+                                @if ($order->status == 'active')
+                                    <a class="btn btn-danger" href="{{ route('orders.cancel', $order->id) }}">Cancel</a>
+                                    <a class="btn btn-primary" href="{{ route('orders.reorder', $order->id) }}">Reorder</a>
+                                    <a
+                                        class="btn btn-success"href="{{ route('orders.completed', $order->id) }}">Completed</a>
                                 @else
-                                    <a class="btn btn-success" href="{{route('orders.reorder',$order->id)}}">Reorder</a>
+                                    <a class="btn btn-success"
+                                        href="{{ route('orders.reorder', $order->id) }}">Reorder</a>
                                 @endif
-                            </div>
+                            </div> --}}
 
                         </div>
                     </div>
@@ -133,55 +140,55 @@
                 <div class="card border-0 py-3 px-3 rounded-0 rounded-bottom">
                     <h6 class="col contact-txt-color-2 fw-bold text-end p-0">التعليقات</h6>
                     @foreach ($comments as $comment)
-                        <div class="card border-0 w-100 m-0 my-3">
-                            <div class="d-flex  align-items-end justify-content-end flex-wrap flex-lg-nowrap">
-                                <div class="d-flex">
+                        <div class="card border-0 m-0 my-3">
+                            <div class="d-flex  align-items-end justify-content-between flex-wrap flex-lg-nowrap">
+                                <div class="d-flex w-100">
                                     <div class=" img-container50 d-flex align-items-center justify-content-center">
                                         <img id="avatar" style="width: 50px" src="{{ asset('images/user.png') }}"
                                             class="avatar-circlye fill " alt="Avatar" />
                                     </div>
                                     <div class="w-100 px-3">
-                                {{ $comment->first_name}} {{$comment->last_name}}
-                                        {{-- @foreach($comment_users as $comment_user)
+                                        {{-- {{ $comment->first_name }} {{ $comment->last_name }} --}}
+                                        {{-- @foreach ($comment_users as $comment_user)
                                         <h6 class="contact-txt-color-2 fw-bold text-end">{{$comment_user->first_name}}</h6>
                                         @endforeach --}}
-                                        <div class=" d-flex  align-items-center justify-content-between w-100">
+                                        <div class=" d-flex flex-column  align-items-start justify-content-between w-100">
+                                            <h6 class="contact-txt-color-2 fw-bold text-end"> {{ $comment->first_name }}
+                                                {{ $comment->last_name }}</h6>
                                             <h6 class="text-end m-0 my-1">
-                                                {{ $comment->comment}}
+                                                {{ $comment->comment }}
                                             </h6>
-
                                         </div>
                                     </div>
                                 </div>
-
-                                <h6 class="text-end m-0 my-2 text-black-50">تم النشر بتوقيت
-                                    <span class="d-block d-sm-inline">
-                                        {{$comment->created_at}}
-                                    </span>
-                                </h6>
                             </div>
+                            <h6 class="w-100 text-start m-0 my-2 text-black-50">تم النشر في
+                                {{ date('d-m-Y', strtotime($comment->created_at)) }}
+                            </h6>
                         </div>
                     @endforeach
                     <br>
-                    
-                    <div class="d-flex align-items-center justify-content-start gap-2">
-                        <form class="row" method="post" action="{{ route('comment.store',$order->id) }}" enctype="multipart/form-data">
-                            @csrf
-                            <div class="col-1 img-container30 d-flex align-items-center justify-content-center">
-                                <img id="avatar" style="width: 30px" src="{{ asset('images/user.png') }}"
-                                    class="avatar-circlye fill col-2" alt="Avatar" />
-                            </div>
-                            <div class="col-8 position-relative">
-                                <input class="w-100 comment-input" placeholder="اكتب تعليقك هنا" name="comment">
-                                <i class="fa-solid fa-camera "></i>
-                            </div>
-                            <button type="submit" class="col-3 col-md-3 py-1 btn edit-btn-1"> ارسال</button>
-                        </form>
-                        
-                    </div>
+                    <form class="d-flex align-items-center justify-content-start gap-2" method="post"
+                        action="{{ route('comment.store', $order->id) }}" enctype="multipart/form-data">
+                        @csrf
+                        <div class="col-1 img-container30 d-flex align-items-center justify-content-center">
+                            <img id="avatar" style="width: 30px" src="{{ asset('images/user.png') }}"
+                                class="avatar-circlye fill col-2" alt="Avatar" />
+                        </div>
+                        <div class="col-8 position-relative">
+                            <input class="w-100 comment-input" placeholder="اكتب تعليقك هنا" name="comment">
+                            <i class="fa-solid fa-camera "></i>
+                        </div>
+                        <button type="submit" class="col-3 col-md-3 py-1 btn edit-btn-1"> ارسال</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        document.querySelector('body').classList.add('orderBg3');
+    </script>
 @endsection

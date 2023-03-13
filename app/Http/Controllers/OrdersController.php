@@ -10,6 +10,7 @@ use App\Models\Favorite;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OrdersController extends Controller
 {
@@ -102,16 +103,19 @@ class OrdersController extends Controller
     public function orderDetails($id)
     {
         // dd($id);
-        $order =  DB::table('orders')->where('id', $id)->first();
+        $order = DB::table('orders')->where('id', $id)->first();
         // dd($order);
         $user = DB::table('users')->where('id', $order->user_id)->first();
         // dd($user);
-        $city = DB::table('cities')->where('id', $order->city_id)->first();
+        // $city = DB::table('cities')->where('id', $order->city)->first();
         // dd($city);
-        $country = DB::table('countries')->where('id', $order->country_id)->first();
+        // $country = DB::table('countries')->where('id', $order->country)->first();
         // dd($country);
         $category = DB::table('categories')->where('id', $order->category_id)->first();
         // dd($category);
+        $orders_sub = Category::where("parent_id", $id)->get(["name", "id"])->first();
+        // dd($orders_sub);
+
         // $comments = DB::table('comments')->where('order_id',$order->id)->get();
 
         // dd($comments);
@@ -122,9 +126,8 @@ class OrdersController extends Controller
             ->where('comments.order_id', $id)
             ->get();
 
-
         //    dd( $comment_users);
-        return view('orders.order_details', compact('order', 'user', 'city', 'country', 'category', 'comments'));
+        return view('orders.order_details', compact('order', 'user', 'category', 'orders_sub', 'comments'));
     }
     public function create()
     {

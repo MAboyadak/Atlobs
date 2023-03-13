@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\AboutController;
 // use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AdditionalServicesController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\BankAccountController;
@@ -10,8 +10,6 @@ use App\Http\Controllers\Admin\CitiesController;
 use App\Http\Controllers\Admin\CountriesController;
 use App\Http\Controllers\Admin\CreateBlogController;
 use App\Http\Controllers\Admin\MyCategoryOrderController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers;
 use App\Http\Controllers\Admin\OrdersController as AdminOrdersController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TermsAndConditionsController;
@@ -19,6 +17,7 @@ use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryOrderController;
 use App\Http\Controllers\chatcontroller;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HomeController;
@@ -59,7 +58,7 @@ Route::get('myorders/active', [OrdersController::class, 'activeOrder'])->name('o
 Route::get('orders/finished', [OrdersController::class, 'finishedOrder'])->name('orders.finished');
 Route::get('orders/create', [OrdersController::class, 'create'])->name('orders.create');
 // Route::get('orders/reorder', [OrdersController::class, 'reOrder'])->name('orders.reorder');
-Route::get('orders/{order}', [OrdersController::class, 'order_details'])->name('orders.details');
+Route::get('orders/{order}', [OrdersController::class, 'orderDetails'])->name('orders.details');
 Route::get('orders', [OrdersController::class, 'orders'])->name('orders.view');
 Route::post('orders', [OrdersController::class, 'store'])->name('orders.store');
 Route::get('orders/{order}/cancel', [OrdersController::class, 'cancelOrder'])->name('orders.cancel');
