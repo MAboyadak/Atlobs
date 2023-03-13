@@ -961,7 +961,13 @@ div[data-step].active {
     position: absolute;
     left: 15px;
 }
-
+.fs-small{
+    font-size: small;
+}
+.order_body h6 {
+    font-size: small;
+    margin: 0;
+}
 /* end0 view order */
 
 

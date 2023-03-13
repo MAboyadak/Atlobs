@@ -2,26 +2,67 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
-use App\Models\Order;
-use App\Models\Favorite;
-use Illuminate\Support\Facades\Auth;
-
+use App\Models\AdditionalService;
 use App\Models\Category;
 use App\Models\City;
-use App\Models\country;
+use App\Models\Country;
+use App\Models\Favorite;
+use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class OrdersController extends Controller
 {
-    public function orders()
+    public function orders(Request $request)
     {
         $orders = Order::all();
-        // dd($orders);
-        return view('orders.all-orders', compact('orders'));
+        $cat = DB::table('categories')
+            ->whereNull('parent_id')->get();
+        $countries = Country::all();
+        $serv = AdditionalService::all();
+
+        return view('orders.all-orders', compact('orders', 'cat', 'countries', 'serv'));
+    }
+    public function fetchCat($id)
+    {
+        $data['sub_cat'] = Category::where("parent_id", $id)->get(["name", "id"]);
+        // dd(\Response::json($data));
+        return \Response::json($data);
     }
 
+    public function sortAsc()
+    {
+        $sort = Order::orderBy('created_at', 'ASC')->get();
+        // var_dump($sort);
+        return \Response::json($sort);
+    }
+    public function sortDesc()
+    {
+        $sort = Order::orderBy('created_at', 'DESC')->get();
+        // var_dump($sort);
+        return \Response::json($sort);
+    }
+    public function filterCat($id)
+    {
+        $orders_cat = DB::table('categories')
+            ->select('orders.*', 'categories.*')
+            ->Join('orders', 'orders.category_id', '=', 'categories.id')
+            ->where('categories.parent_id', $id)
+            ->get();
+        return \Response::json($orders_cat);
+    }
+    public function filterSub($id)
+    {
+        // $orders_sub = Order::where("category_id", $id)->get();
+        $orders_sub = DB::table('orders')
+            ->select('orders.*', 'categories.*')
+            ->join('categories', 'categories.id', '=', 'orders.category_id')
+            ->where('categories.id', $id)
+            ->get();
+        // dd($orders_sub);
+        return \Response::json($orders_sub);
+    }
     /**
      *
      * //add to fav table in order psges
@@ -58,13 +99,13 @@ class OrdersController extends Controller
         // $myOrders = DB::table('orders')->where('user_id',auth()->id())->get();
         return view('orders.my-orders');
     }
-    public function order_details()
+    public function orderDetails()
     {
         return view('orders.order_details');
     }
     public function create()
     {
-        $countries = country::all();
+        $countries = Country::all();
         $cities = City::all();
         $categories = Category::all();
         return view('orders.create', compact('countries', 'categories', 'cities'));
