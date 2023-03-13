@@ -144,7 +144,7 @@
                 </div>
                 {{-- {{ dd($orders) }} --}}
                 <div class="order_body">
-                    @foreach ($orders as $order)
+                    @foreach ($allOrders as $order)
                         <div class="card bg-white border-0 p-3 w-100 m-0 mb-3">
                             <div class="d-flex  align-items-center ">
                                 <div class="d-none d-sm-block ms-4">
