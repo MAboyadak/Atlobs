@@ -38,7 +38,7 @@
                             <div id="flush-collapse1" class="accordion-collapse collapse w-100"
                                 aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushExample1">
                                 <div class="accordion-body p-0 px-3 bg-white">
-                                    @foreach ($cat as $categroy)
+                                    @foreach ($categories as $categroy)
                                         <div class="form-check form-check-reverse my-2"style="cursor: pointer;"
                                             onclick="catFilter({{ $categroy->id }})">
                                             <input class="form-check-input" type="radio" name="flexRadioDefault"

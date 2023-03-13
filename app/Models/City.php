@@ -14,4 +14,9 @@ class City extends Model
         return $this->belongsTo(Country::class);
     }
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
 }

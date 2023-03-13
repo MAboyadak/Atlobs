@@ -30,7 +30,7 @@
                     <h5 class="w-100 fw-bold mt-2 pe-0">تفاصيل الطلب</h5>
                     <h6 class="w-100 fw-bold mt-2 mb-3 pe-0">صورة الطلب</h6>
                     <div class="img-dash mb-4 d-flex align-items-center px-2">
-                        <input class="form-control" type="file" style="display:none" name="img" id="formFile">
+                        <input class="form-control" type="file" style="display:none" name="image" id="formFile">
                         <img src="{{ asset('images/img-placeholder.png') }}" class="rounded-4 img-profile"
                             style="width: 80px; height: 80px; object-fit:cover " alt="Avatar" />
                         <div class="add-btn-imgorder">
@@ -54,7 +54,7 @@
                         <select type="text" name="category_id"
                             class="form-select custom-select input-style-1 @error('category_id') is-invalid @enderror">
                             @foreach ($categories as $cat)
-                                <option value="{{$cat->id}}">{{$cat->name}}</option>                                
+                                <option value="{{$cat->id}}">{{$cat->name}}</option>
                             @endforeach
                         </select>
                         @error('category_id')
@@ -122,7 +122,7 @@
 
                     <!-- Button trigger modal -->
                     <div class="col-12 mx-lg-auto col-lg-6 text-center">
-                        <button type="submit" class="btn edit-btn-2 w-100" id="submit-order" 
+                        <button type="submit" class="btn edit-btn-2 w-100" id="submit-order"
                         {{-- data-bs-toggle="modal" --}}
                             {{-- data-bs-target="#sendOrder" --}}
                             >
@@ -175,7 +175,7 @@
             }
 
             $('#order-form').submit();
-            
+
         }
 
         function validateStep1(){
@@ -201,7 +201,7 @@
             }
             return true;
         }
-        
+
     </script>
     <script>
         $(document).ready(function() {

@@ -10,19 +10,19 @@ use App\Models\Favorite;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class OrdersController extends Controller
 {
     public function orders(Request $request)
     {
-        $orders = Order::all();
+        $allOrders = Order::all();
+        $orders = Order::where('status', 'active')->get();
         $cat = DB::table('categories')
             ->whereNull('parent_id')->get();
         $countries = Country::all();
         $serv = AdditionalService::all();
-
-        return view('orders.all-orders', compact('orders', 'cat', 'countries', 'serv'));
+        // dd($orders);
+        return view('orders.all-orders', compact('allOrders', 'orders', 'cat', 'countries', 'serv'));
     }
     public function fetchCat($id)
     {
@@ -99,9 +99,32 @@ class OrdersController extends Controller
         // $myOrders = DB::table('orders')->where('user_id',auth()->id())->get();
         return view('orders.my-orders');
     }
-    public function orderDetails()
+    public function orderDetails($id)
     {
-        return view('orders.order_details');
+        // dd($id);
+        $order =  DB::table('orders')->where('id', $id)->first();
+        // dd($order);
+        $user = DB::table('users')->where('id', $order->user_id)->first();
+        // dd($user);
+        $city = DB::table('cities')->where('id', $order->city_id)->first();
+        // dd($city);
+        $country = DB::table('countries')->where('id', $order->country_id)->first();
+        // dd($country);
+        $category = DB::table('categories')->where('id', $order->category_id)->first();
+        // dd($category);
+        // $comments = DB::table('comments')->where('order_id',$order->id)->get();
+
+        // dd($comments);
+        $comments = DB::table('comments')
+            ->select('users.first_name', 'users.last_name', 'comments.comment', 'comments.created_at')
+            ->leftjoin('users', 'comments.user_id', '=', 'users.id')
+            ->join('orders', 'comments.order_id', '=', 'orders.id')
+            ->where('comments.order_id', $id)
+            ->get();
+
+
+        //    dd( $comment_users);
+        return view('orders.order_details', compact('order', 'user', 'city', 'country', 'category', 'comments'));
     }
     public function create()
     {
@@ -118,7 +141,7 @@ class OrdersController extends Controller
             'title' => 'required',
             'country' => 'required',
             'min_price' => 'required',
-            'img' => 'nullable|mimes:jpeg,png,jpg,gif',
+            'image' => 'nullable|mimes:jpeg,png,jpg,gif',
         ]);
         // dd($request);
         $order = new Order();
@@ -128,8 +151,13 @@ class OrdersController extends Controller
         $order->country_id = $request->country;
         $order->min_price = $request->min_price;
         $order->max_price = $request->max_price;
-        $order->status = 0;
+        $order->status = 'active';
         $order->user_id = auth()->user()->id;
+        $imagePath = '';
+        if ($request->image) {
+            $imagePath = $request->image->store('images', 'public');
+        }
+        $order->image = $imagePath;
         $order->category_id = $request->category_id;
         $order->save();
         return redirect()->route('orders.view')->with('message', 'success save');
@@ -137,9 +165,23 @@ class OrdersController extends Controller
     // public function getCities($id){
     //     return City::where('country_id',$id)->get();
     // }
-    public function reOrder()
+    public function cancelOrder(Order $order)
     {
-        return view('orders.reorder');
+        $order->status = 'canceled';
+        $order->save();
+        return redirect()->back()->with('message', 'order canceled successfully');
+    }
+    public function completeOrder(Order $order)
+    {
+        $order->status = 'completed';
+        $order->save();
+        return redirect()->back()->with('message', 'Order completed successfully');
+    }
+    public function reorder(Order $order)
+    {
+        $order->status = 'active';
+        $order->save();
+        return redirect()->back()->with('message', 'Order reordered successfully');
     }
     public function activeOrder()
     {

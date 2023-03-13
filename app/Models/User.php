@@ -21,13 +21,19 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
     protected $fillable = [
         'first_name',
         'last_name',
         'email',
+        'phone',
+        'brief',
+        'contact_method',
+        'image',
         'password',
         'type',
         'verify_code',
+
     ];
 
     /**
@@ -53,6 +59,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Order::class, 'favorites');
     }
+    public function comments()
+    {
+        return $this->belongsTo(Comment::class, 'comments');
+    }
 
-  
+
 }

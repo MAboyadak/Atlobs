@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\CitiesController;
 use App\Http\Controllers\Admin\CountriesController;
 use App\Http\Controllers\Admin\CreateBlogController;
 use App\Http\Controllers\Admin\MyCategoryOrderController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers;
 use App\Http\Controllers\Admin\OrdersController as AdminOrdersController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TermsAndConditionsController;
@@ -46,6 +48,7 @@ Route::get('services', [ServicesController::class, 'index'])->name('services.ind
 // Profile
 Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::put('profile/update', [ProfileController::class, 'update'])->name('profile.update');
 Route::get('profile/store', [ProfileController::class, 'store'])->name('profile.store');
 Route::get('profile/password/change', [ProfileController::class, 'createPassword'])->name('profile.create_password');
 Route::post('profile/password/change', [ProfileController::class, 'changePassword'])->name('profile.change_password');
@@ -55,10 +58,16 @@ Route::get('myorders', [OrdersController::class, 'myOrders'])->name('myorders.in
 Route::get('myorders/active', [OrdersController::class, 'activeOrder'])->name('orders.active');
 Route::get('orders/finished', [OrdersController::class, 'finishedOrder'])->name('orders.finished');
 Route::get('orders/create', [OrdersController::class, 'create'])->name('orders.create');
-Route::get('orders/reorder', [OrdersController::class, 'reOrder'])->name('orders.reorder');
-Route::get('orders/order/details', [OrdersController::class, 'order_details'])->name('myorders.details');
+// Route::get('orders/reorder', [OrdersController::class, 'reOrder'])->name('orders.reorder');
+Route::get('orders/{order}', [OrdersController::class, 'order_details'])->name('orders.details');
 Route::get('orders', [OrdersController::class, 'orders'])->name('orders.view');
 Route::post('orders', [OrdersController::class, 'store'])->name('orders.store');
+Route::get('orders/{order}/cancel', [OrdersController::class, 'cancelOrder'])->name('orders.cancel');
+Route::get('orders/{order}/complete', [OrdersController::class, 'completeOrder'])->name('orders.completed');
+Route::get('orders/{order}/reorder', [OrdersController::class, 'reorder'])->name('orders.reorder');
+
+//comments
+Route::post('orders/{id}', [CommentController::class, 'store'])->name('comment.store');
 
 // About Us
 Route::get('aboutus', [AboutController::class, 'index'])->name('aboutus.index');
@@ -124,7 +133,6 @@ Route::middleware('auth:admin')->group(function () {
     // admin-orders
     Route::get('admin/orders', [AdminOrdersController::class, 'index'])->name('admin.orders.index');
     Route::delete('admin/orders/delete/{order}', [AdminOrdersController::class, 'delete'])->name('admin.orders.delete');
-
 });
 
 // routes for cites and countries DropDown in orders/create
