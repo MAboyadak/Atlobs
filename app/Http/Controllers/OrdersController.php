@@ -100,7 +100,7 @@ class OrdersController extends Controller
         // $myOrders = DB::table('orders')->where('user_id',auth()->id())->get();
         return view('orders.my-orders');
     }
-    public function order_details($id)
+    public function orderDetails($id)
     {
         // dd($id);
         $order = DB::table('orders')->where('id', $id)->first();
